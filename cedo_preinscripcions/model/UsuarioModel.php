@@ -9,11 +9,14 @@
 		public function guardar(){
 			$user_table = Config::get()->db_user_table;
 			$consulta = "INSERT INTO $user_table(dni, nom, cognom1, cognom2, data_naixement, estudis,
-								suituacio_laboral, prestacio, telefon_mobil, telefon_fix, email, admin, imatge)
-			VALUES ('$this->dni','$this->nom','$this->cognom1','$this->cognom2', '$this->data_naixement,', '
-					$this->estudis,', '$this->situacio_laboral,', '$this->prestacio,', '$this->telefon_mobil,', '
-					$this->telefon_fix,', '$this->email,', '$this->admin,', '$this->imatge);";
+						situacio_laboral, prestacio, telefon_mobil, telefon_fix, email, admin, imatge)
+			VALUES ('$this->dni','$this->nom','$this->cognom1','$this->cognom2','$this->data_naixement,','
+					$this->estudis,','$this->situacio_laboral,','$this->prestacio,','$this->telefon_mobil,', '
+					$this->telefon_fix,','$this->email,','$this->admin,','$this->imatge);";
 				
+					
+			//echo $consulta;
+					
 			return Database::get()->query($consulta);
 		}
 		
