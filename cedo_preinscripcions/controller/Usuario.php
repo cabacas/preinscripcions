@@ -43,14 +43,14 @@
 					$dir = Config::get()->user_image_directory;
 					$tam = Config::get()->user_image_max_size;
 					
-					$upload = new Upload($_FILES['imatge'], $dir, $tam);
+					$upload = new Upload($_FILES['imagen'], $dir, $tam);
 					$u->imatge = $upload->upload_image();
 				}
 								
 				//guardar el usuario en BDD
 				if(!$u->guardar())
 					var_dump($u);					
-					throw new Exception("No es va poder enregistrar l'usuario");
+					throw new Exception("No es va poder enregistrar l'usuari");
 				
 				//mostrar la vista de éxito
 				$datos = array();
@@ -92,7 +92,7 @@
 					$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
 				
 				//recupera el nuevo nombre y el nuevo email
-				$u->nomb = $conexion->real_escape_string($_POST['nomb']);
+				$u->nomb = $conexion->real_escape_string($_POST['nom']);
 				$u->email = $conexion->real_escape_string($_POST['email']);
 						
 				//TRATAMIENTO DE LA NUEVA IMAGEN DE PERFIL (si se indicó)

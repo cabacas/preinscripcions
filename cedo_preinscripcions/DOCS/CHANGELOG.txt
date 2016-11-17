@@ -1,0 +1,7 @@
+
+
+NOVEDADES VERSION 1.0
+
+- Se ha incluido la librería para carga de ficheros (de momento para ficheros de imagen).
+- Se ha incorporado la característica de subir avatares en el proceso de registro de usuario.
+- Se eliminan los avatares de usuario del disco al darse de baja.
