@@ -34,7 +34,18 @@
 			$datos['curso'] = $curso;
 			$this->load_view('view/cursos/detalle_curso.php', $datos);
 		}
-	
+		//PROCEDIMIENTO PARA CREAR UN CURSO NUEVO
+		public function crear(){
+			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			//Recuperar el curso indicado
+			$curso = CursoModel::recuperar($id);
+			if(empty($curso)) throw new Exception('No se encontró el id indicado');
+			//mostrar la vista de detalle de curso
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['curso'] = $curso;
+			$this->load_view('view/cursos/detalle_curso.php', $datos);
+		}	
 	
 	}
 /*				
