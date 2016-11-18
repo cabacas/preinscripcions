@@ -73,8 +73,8 @@
 				<ul class="menu">					
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Registre</a></li>										
 				</ul>				
-			</nav>
 			<?php }?>
+			</nav>
 		<?php }		
 		
 		//PONE EL PIE DE PAGINA 

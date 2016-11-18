@@ -22,11 +22,11 @@
 			<p>Per favor, confirma la teva sol.licitud de baixa introuïnt la teva data de naixement.</p>
 		
 			<form method="post" autocomplete="off">
-				<label>Data de Naixement:</label>
-				<input type="text" readonly="readonly" value="<?php echo $usuario->data_naixement;?>" /><br/>
-				
 				<label>DNI:</label>
-				<input type="text" name="dni" required="required"/><br/>
+				<input type="text" readonly="readonly" value="<?php echo $usuario->dni;?>" /><br/>
+				
+				<label>Data de Naixement:</label>
+				<input type="text" name="data_naixement" required="required"/><br/>
 				
 				<label></label>
 				<input type="submit" name="confirmar" value="Confirmar"/><br/>
