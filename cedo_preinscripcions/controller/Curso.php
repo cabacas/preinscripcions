@@ -21,8 +21,21 @@
 			$datos = array();
 			$datos['usuario'] = Login::getUsuario();
 			$datos['cursos'] = $cursos;
-			$this->load_view('view/listacursos.php', $datos);
+			$this->load_view('view/cursos/lista_cursos.php', $datos);
 		}
+		//PROCEDIMIENTO PARA VER LOS DETALLES DE UN CURSO
+		public function ver($id){
+     		//Recuperar el curso indicado
+			$curso = CursoModel::recuperar($id);
+			if(empty($curso)) throw new Exception('No se encontró el id indicado');
+     		//mostrar la vista de detalle de curso
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['curso'] = $curso;
+			$this->load_view('view/cursos/detalle_curso.php', $datos);
+		}
+	
+	
 	}
 /*				
 				//crear una instancia de Curso
