@@ -61,13 +61,13 @@
 				//pone el menú del administrador
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">				
-					<li><a href="#">ADMIN</a></li>										
+															
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
-					<li><a href="#">ALUMNE</a></li>									
+														
 					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Modificar Dades</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>					
+					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>										
 				</ul>							
 				<?php }	elseif(!$usuario){   ?>
 				<ul class="menu">					

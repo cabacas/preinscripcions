@@ -21,7 +21,7 @@
 			<h2>Formulario de registro</h2>
 			<form method="post" enctype="multipart/form-data" autocomplete="off">
 				<label>DNI:</label>
-				<input type="text" name="dni" required="required"/></br>				
+				<input type="text" name="dni" required="required"/><br />				
 				
 				<label>Nom:</label>
 				<input type="text" name="nom" required="required"/><br />
