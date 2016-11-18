@@ -53,9 +53,6 @@
 				<label>Email:</label>
 				<input type="email" name="email" required="required"/><br/>				
 				
-				<label>Ets Administrador:</label>
-				<input type="text" name="admin" required="required"/><br/>
-				
 				<label>Imatge:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />

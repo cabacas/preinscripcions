@@ -18,15 +18,15 @@
 		?>
 		
 		<section id="content">
-			<h2>Formulario de baja de usuario</h2>
-			<p>Por favor, confirma tu solicitud de baja introduciendo el password asociado a tu cuenta.</p>
+			<h2>Formulari de baixa d'usuari</h2>
+			<p>Per favor, confirma la teva sol.licitud de baixa introuïnt la teva data de naixement.</p>
 		
 			<form method="post" autocomplete="off">
-				<label>User:</label>
-				<input type="text" readonly="readonly" value="<?php echo $usuario->user;?>" /><br/>
+				<label>Data de Naixement:</label>
+				<input type="text" readonly="readonly" value="<?php echo $usuario->data_naixement;?>" /><br/>
 				
-				<label>Password:</label>
-				<input type="password" name="password" required="required"/><br/>
+				<label>DNI:</label>
+				<input type="text" name="dni" required="required"/><br/>
 				
 				<label></label>
 				<input type="submit" name="confirmar" value="Confirmar"/><br/>
