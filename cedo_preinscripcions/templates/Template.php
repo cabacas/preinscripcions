@@ -54,20 +54,30 @@
 			<nav>
 				<ul class="menu">
 					<li><a href="index.php">Inici</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=registro">Registre</a></li>
+					<li><a href="index.php?controlador=Curso&operacion=listar">Llistat Cursos</a></li>
 				</ul>
-				<?php 
+				<?php
+				
 				//pone el menú del administrador
-				if($usuario && $usuario->admin){	?>
+				if($usuario && $usuario->admin){?>	
+				<ul class="menu">				
+					<li><a href="#">ADMIN</a></li>										
+				</ul>								
+				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
-					<li><a href="#">ADMIN</a></li>
-				</ul>
-							
-				<?php }	?>
+					<li><a href="#">ALUMNE</a></li>									
+					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Modificar Dades</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>					
+				</ul>							
+				<?php }	elseif(!$usuario){   ?>
+				<ul class="menu">					
+					<li><a href="index.php?controlador=Usuario&operacion=registro">Registre</a></li>										
+				</ul>				
 			</nav>
-		<?php }
+			<?php }?>
+		<?php }		
 		
-		//PONE EL PIE DE PAGINA
+		//PONE EL PIE DE PAGINA 
 		public static function footer(){	?>
 			<footer>
 				<p>

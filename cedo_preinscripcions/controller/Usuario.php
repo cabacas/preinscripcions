@@ -48,8 +48,7 @@
 				}
 								
 				//guardar el usuario en BDD
-				if(!$u->guardar())
-					var_dump($u);					
+				if(!$u->guardar())					
 					throw new Exception("No es va poder enregistrar l'usuari");
 				
 				//mostrar la vista de éxito
@@ -64,8 +63,8 @@
 		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
 		public function modificacion(){
 			//si no hay usuario identificado... error
-			if(!Login::getUsuario())
-				throw new Exception("Has d'estar identificar per modificar les teves dades");
+			//if(!Login::getUsuario())
+			//throw new Exception("Has d'estar identificar per modificar les teves dades");
 				
 			//si no llegan los datos a modificar
 			if(empty($_POST['modificar'])){
@@ -88,21 +87,21 @@
 					throw new Exception('La Data de naixement no coincideix, no es pot processar la modificació');
 								
 				//recupera el nuevo password (si se desea cambiar)
-				if(!empty($_POST['newpassword']))
-					$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
+				//if(!empty($_POST['newpassword']))
+				//	$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
 				
 				//recupera el nuevo nombre y el nuevo email
-				$u->nomb = $conexion->real_escape_string($_POST['nom']);
+				$u->nom = $conexion->real_escape_string($_POST['nom']);
 				$u->email = $conexion->real_escape_string($_POST['email']);
 						
 				//TRATAMIENTO DE LA NUEVA IMAGEN DE PERFIL (si se indicó)
-				if($_FILES['imatge']['error']!=4){
+				if($_FILES['imagen']['error']!=4){
 					//el directorio y el tam_maximo se configuran en el fichero config.php
 					$dir = Config::get()->user_image_directory;
 					$tam = Config::get()->user_image_max_size;
 					
 					//prepara la carga de nueva imagen
-					$upload = new Upload($_FILES['imatge'], $dir, $tam);
+					$upload = new Upload($_FILES['imagen'], $dir, $tam);
 					
 					//guarda la imagen antigua en una var para borrarla 
 					//después si todo ha funcionado correctamente
@@ -111,6 +110,7 @@
 					//sube la nueva imagen
 					$u->imatge = $upload->upload_image();
 				}
+				
 				
 				//modificar el usuario en BDD
 				if(!$u->actualizar())
@@ -149,7 +149,12 @@
 				$datos = array();
 				$datos['usuario'] = $u;
 				$this->load_view('view/usuarios/baja.php', $datos);
-		
+				
+				
+				var_dump($u);
+
+			
+			
 			//si nos están enviando la confirmación de baja
 			}else{
 				//validar password
