@@ -30,7 +30,7 @@
 			return Database::get()->query($consulta); //ejecutar la consulta
 		}
 		public static function recuperarfiltron($filtro=''){
-			$consulta = "SELECT * FROM cursos WHERE nombre LIKE '%$filtro%';";
+			$consulta = "SELECT * FROM cursos WHERE nom LIKE '%$filtro%';";
 			$datos = Database::get()->query($consulta);
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
@@ -39,7 +39,7 @@
 			return $cursos;
 		}
 		public static function recuperarfiltroa($filtro=''){
-			$consulta = "SELECT * FROM cursos WHERE idarea=$filtro;";
+			$consulta = "SELECT * FROM cursos WHERE id_area=$filtro;";
 			$datos = Database::get()->query($consulta);
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
