@@ -36,57 +36,42 @@
 		}
 		//PROCEDIMIENTO PARA CREAR UN CURSO NUEVO
 		public function crear(){
-			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
-			//Recuperar el curso indicado
-			$curso = CursoModel::recuperar($id);
-			if(empty($curso)) throw new Exception('No se encontró el id indicado');
-			//mostrar la vista de detalle de curso
-			$datos = array();
-			$datos['usuario'] = Login::getUsuario();
-			$datos['curso'] = $curso;
-			$this->load_view('view/cursos/detalle_curso.php', $datos);
-		}	
-	
-	}
-/*				
-				//crear una instancia de Curso
-				$u = new UsuarioModel();
-				$conexion = Database::get();
-				
-				//tomar los datos que vienen por POST
-				//real_escape_string evita las SQL Injections
-				$u->dni = $conexion->real_escape_string($_POST['dni']);
-				$u->data_naixement = $conexion->real_escape_string($_POST['data_naixement']);
-				$u->nom = $conexion->real_escape_string($_POST['nom']);
-				$u->cognom1 = $conexion->real_escape_string($_POST['cognom1']);
-				$u->cognom2= $conexion->real_escape_string($_POST['cognom2']);
-				$u->estudis = $conexion->real_escape_string($_POST['estudis']);
-				$u->situacio_laboral = $conexion->real_escape_string($_POST['situacio_laboral']);
-				$u->prestacio = $conexion->real_escape_string($_POST['prestacio']);
-				$u->telefon_mobil = $conexion->real_escape_string($_POST['telefon_mobil']);
-				$u->telefon_fix = $conexion->real_escape_string($_POST['telefon_fix']);				
-				$u->email = $conexion->real_escape_string($_POST['email']);
-				$u->admin = $conexion->real_escape_string($_POST['admin']);
-				$u->imatge = Config::get()->default_user_image;
-				
-				//recuperar y guardar la imagen (solamente si ha sido enviada)
-				if($_FILES['imagen']['error']!=4){
-					//el directorio y el tam_maximo se configuran en el fichero config.php
-					$dir = Config::get()->user_image_directory;
-					$tam = Config::get()->user_image_max_size;
-					
-					$upload = new Upload($_FILES['imagen'], $dir, $tam);
-					$u->imatge = $upload->upload_image();
+			//if($usuario && $usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			if(!empty($_POST['nuevo'])){
+				$curso = new CursoModel();
+				$curso->codi = $_POST['codi'] ;
+				$curso->id_area = $_POST['id_area'] ;
+				$curso->nom = $_POST['nom'] ;
+				$curso->descripcio = $_POST['descripcio'] ;
+				$curso->hores = $_POST['hores'] ;
+				$curso->data_inici = $_POST['data_inici'] ;
+				$curso->data_fi = $_POST['data_fi'] ;
+				$curso->horari = $_POST['horari'] ;
+				$curso->torn = $_POST['torn'] ;
+				$curso->tipus = $_POST['tipus'] ;
+				$curso->requisits = $_POST['requisits'] ;
+				// guardar el curso en BBDD con el modelo	
+				if(!$curso->guardar())
+					throw new Exception('No se pudo guardar el curso');
+				else{
+					//mostrar la vista de lista exito
+					$datos = array();
+					$datos['usuario'] = Login::getUsuario();
+					$datos['mensaje'] = '<h5>Curso Creado:'.$curso.'</h5>';
+					$this->load_view('view/exito.php', $datos);
 				}
-								
-				//guardar el usuario en BDD
-				if(!$u->guardar())
-					var_dump($u);					
-					throw new Exception("No es va poder enregistrar l'usuari");
-			
-				//mostrar la vista de lista de cursos
+			} else {
+				//mostrar la vista de Nuevo Curso
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$this->load_view('view/cursos/nuevo_curso.php', $datos);				
+			}						
+		}		
+	}
 
-		
+
+
+/*				
 
 		//PROCEDIMIENTO PARA MODIFICAR UN CURSO
 		public function modificacion(){
