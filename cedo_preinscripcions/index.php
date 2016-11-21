@@ -12,6 +12,7 @@
 	//carga del controlador principal
 	require 'controller/Controller.php';
 	require 'controller/FrontController.php';
+
 	
 	//crea una instancia del controlador frontal
 	$fc = new FrontController();
