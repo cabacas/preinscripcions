@@ -2,7 +2,6 @@
 	//carga de recursos que necesita el framework para funcionar
 	require_once 'config/Config.php';
 	require_once 'model/UsuarioModel.php';
-	require_once 'model/PreinscripcionModel.php';
 	
 	require_once 'libraries/database_library.php';
 	require_once 'libraries/login_library.php';
@@ -13,7 +12,7 @@
 	//carga del controlador principal
 	require 'controller/Controller.php';
 	require 'controller/FrontController.php';
-	require 'controller/Preinscripcion.php';
+
 	
 	//crea una instancia del controlador frontal
 	$fc = new FrontController();

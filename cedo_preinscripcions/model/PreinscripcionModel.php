@@ -1,4 +1,4 @@
-<?php
+<?php	
 	class PreinscripcionModel{
 		//PROPIEDADES		
 		public  $id_usuari,	$id_curs;

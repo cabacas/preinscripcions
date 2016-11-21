@@ -1,20 +1,30 @@
 <?php
 	require_once 'model/PreinscripcionModel.php';
+	require_once 'model/CursoModel.php';
 	//CONTROLADOR Preinscripcion 
 	// implementa las operaciones que se pueden realizar LAS PREINSCRIPCIONES
 	class Preinscripcion extends Controller{
 
-		//PROCEDIMIENTO PARA LISTAR LAS INSCRIPCIONES
+		//PROCEDIMIENTO PARA GUARDAR LAS INSCRIPCIONES
 		public function guardar($id_curso){
+											
 			//crear una instancia de Preinscripciones
 			$p = new PreinscripcionModel();
+			$usuario = Login::getUsuario();			
+			if (!$usuario)
+				throw new  Exception("Només per a usuaris enregistrats");
 			
-			$p->id_usuari = $usuari->id;
+			$curso=CursoModel::recuperar($id_curso);
+			if (empty($curso))
+				throw new Exception("No es va trobar el Curs indicat");
+						
 			$p->id_curs= $id_curso;
+			$p->id_usuari= $usuario->id;			
+			
 			
 			if(!$p->guardar())
 				throw new Exception ("No es va poder realitzar la preinscripció");			
-			//mostrar la vista de éxito
+			//mostrar la vista de éxito	
 			$datos = array();
 			$datos['usuario'] = Login::getUsuario();
 			$datos['mensaje'] = "Preinscripció realitzada amb éxit";
