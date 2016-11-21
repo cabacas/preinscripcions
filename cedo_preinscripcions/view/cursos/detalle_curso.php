@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>LListat de Cursos</title>
+		<title>Detall Curs</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -17,7 +17,7 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>Detalles del Curso</h2>
+			<h2>Detall Curs</h2>
 		<?php
 				echo '';
 				echo "<p> ID: $curso->id </p>";
@@ -32,7 +32,12 @@
 				echo "<p> TORN: $curso->torn </p>";
 				echo "<p> TIPUS: $curso->tipus </p>";
 				echo "<p> REQUSITS: $curso->requisits</p>";
-				echo '<p><b><a href="index.php?controlador=preinscipcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
+				echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
+				//Si es administrador
+				if($usuario && $usuario->admin){				
+					echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
+					echo '<p><b><a href="index.php?controlador=Curso&operacion=listar&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
+				}
 				echo '';
 		?>
 

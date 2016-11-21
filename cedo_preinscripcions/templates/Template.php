@@ -61,7 +61,7 @@
 				//pone el menú del administrador
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">				
-															
+					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
