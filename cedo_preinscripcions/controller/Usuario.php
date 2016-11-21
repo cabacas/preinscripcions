@@ -149,11 +149,6 @@
 				$datos = array();
 				$datos['usuario'] = $u;
 				$this->load_view('view/usuarios/baja.php', $datos);
-				
-				
-				var_dump($u);
-
-			
 			
 			//si nos están enviando la confirmación de baja
 			}else{
