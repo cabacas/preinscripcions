@@ -36,7 +36,8 @@
 		}
 		//PROCEDIMIENTO PARA CREAR UN CURSO NUEVO
 		public function crear(){
-			//if($usuario && $usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
 			if(!empty($_POST['nuevo'])){
 				$curso = new CursoModel();
 				$curso->codi = $_POST['codi'] ;
@@ -67,85 +68,52 @@
 				$this->load_view('view/cursos/nuevo_curso.php', $datos);				
 			}						
 		}		
+		
+		//PROCEDIMIENTO PARA MODIFICAR UN CURSO
+		public function modificar($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			//Recuperar el curso indicado
+			$curso = CursoModel::recuperar($id);
+			if(empty($curso)) throw new Exception('No se encontró el Curso indicado');
+			//si no llegan los datos a modificar
+			if(empty($_POST['modificar'])){
+				//mostramos la vista del formulario de curso
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$datos['curso'] = $curso;
+				$this->load_view('view/cursos/modificacion_curso.php', $datos);			
+			}else{ //si llegan los datos por POST
+				$curso->codi = $_POST['codi'] ;
+				$curso->id_area = $_POST['id_area'] ;
+				$curso->nom = $_POST['nom'] ;
+				$curso->descripcio = $_POST['descripcio'] ;
+				$curso->hores = $_POST['hores'] ;
+				$curso->data_inici = $_POST['data_inici'] ;
+				$curso->data_fi = $_POST['data_fi'] ;
+				$curso->horari = $_POST['horari'] ;
+				$curso->torn = $_POST['torn'] ;
+				$curso->tipus = $_POST['tipus'] ;
+				$curso->requisits = $_POST['requisits'] ;
+				//modificar el usuario en BDD
+				if(!$curso->modificar()) throw new Exception("Error al Actualizar la BBDD de Cursos");
+				else {
+				//mostrar la vista de éxito
+					$datos = array();
+					$datos['usuario'] = Login::getUsuario();
+					$datos['mensaje'] = 'Modificació OK';
+					$this->load_view('view/exito.php', $datos);
+				}	
+			}
+		}
+		
+	
 	}
 
 
 
 /*				
-
-		//PROCEDIMIENTO PARA MODIFICAR UN CURSO
-		public function modificacion(){
-			//si no hay usuario identificado... error
-			if(!Login::getUsuario())
-				throw new Exception("Has d'estar identificar per modificar les teves dades");
-				
-			//si no llegan los datos a modificar
-			if(empty($_POST['modificar'])){
-				
-				//mostramos la vista del formulario
-				$datos = array();
-				$datos['usuario'] = Login::getUsuario();
-				$datos['max_image_size'] = Config::get()->user_image_max_size;
-				$this->load_view('view/usuarios/modificacion.php', $datos);
-					
-				//si llegan los datos por POST
-			}else{
-				//recuperar los datos actuales del usuario
-				$u = Login::getUsuario();
-				$conexion = Database::get();
-				
-				//comprueba que el usuario se valide correctamente
-				$p = $conexion->real_escape_string($_POST['data_naixement']);
-				if($u->data_naixement != $p)
-					throw new Exception('La Data de naixement no coincideix, no es pot processar la modificació');
-								
-				//recupera el nuevo password (si se desea cambiar)
-				if(!empty($_POST['newpassword']))
-					$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
-				
-				//recupera el nuevo nombre y el nuevo email
-				$u->nomb = $conexion->real_escape_string($_POST['nom']);
-				$u->email = $conexion->real_escape_string($_POST['email']);
-						
-				//TRATAMIENTO DE LA NUEVA IMAGEN DE PERFIL (si se indicó)
-				if($_FILES['imatge']['error']!=4){
-					//el directorio y el tam_maximo se configuran en el fichero config.php
-					$dir = Config::get()->user_image_directory;
-					$tam = Config::get()->user_image_max_size;
-					
-					//prepara la carga de nueva imagen
-					$upload = new Upload($_FILES['imatge'], $dir, $tam);
-					
-					//guarda la imagen antigua en una var para borrarla 
-					//después si todo ha funcionado correctamente
-					$old_img = $u->imatge;
-					
-					//sube la nueva imagen
-					$u->imatge = $upload->upload_image();
-				}
-				
-				//modificar el usuario en BDD
-				if(!$u->actualizar())
-					throw new Exception('No va ser posible la modificació');
-		
-				//borrado de la imagen antigua (si se cambió)
-				//hay que evitar que se borre la imagen por defecto
-				if(!empty($old_img) && $old_img!= Config::get()->default_user_image)
-					@unlink($old_img);
-						
-				//hace de nuevo "login" para actualizar los datos del usuario
-				//desde la BDD a la variable de sesión.
-				Login::log_in($u->dni, $u->data_naixement);
-					
-				//mostrar la vista de éxito
-				$datos = array();
-				$datos['usuario'] = Login::getUsuario();
-				$datos['mensaje'] = 'Modificació OK';
-				$this->load_view('view/exito.php', $datos);
-			}
-		}
-		
-		
+	
 		//PROCEDIMIENTO PARA DAR DE BAJA UN CURSO
 		//solicita confirmación
 		public function baja(){		

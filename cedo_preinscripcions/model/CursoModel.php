@@ -27,7 +27,6 @@
 					 VALUES('$this->codi', $this->id_area, '$this->nom', '$this->descripcio', 
 					         $this->hores, '$this->data_inici', '$this->data_fi', 
 					         '$this->horari', '$this->torn','$this->tipus', '$this->requisits');";
-			var_dump($consulta);
 			return Database::get()->query($consulta); //ejecutar la consulta
 		}
 		public static function recuperarfiltron($filtro=''){
@@ -58,10 +57,10 @@
 				data_inici='$this->data_inici',
 				data_fi='$this->data_fi',
 				horari='$this->horari',
-				torn=$this->torn,
+				torn='$this->torn',
 				tipus='$this->tipus',
 				requisits='$this->requisits'
-			WHERE id=$this->id;";
+			WHERE id=$this->id;"; var_dump($consulta);
 			return Database::get()->query($consulta);
 		}
 		//PROTOTIPO: public static boolean borrar()

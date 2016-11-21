@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Nou Curs</title>
+		<title>Modificació Curs</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -17,12 +17,12 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>Nou Curs</h2>
+			<h2>Modificació Curs</h2>
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
-				 	<input type='text' name='codi' required="required" /><br>
+				 	<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/><br>
 				 	<label>Area Formativa:</label>
-				 	<select  name='id_area' required="required">
+				 	<select  name='id_area' required="required"  value="<?php echo $curso->id_area;?>">
 						<option value=0>Altres</option>	
 						<option value=1>Soldadura</option>	
 						<option value=2>Mecànica Convencional</option>	
@@ -40,25 +40,25 @@
 	}*/ ?>         								 	
 					</select><br>
 				 	<label>Nom Curs:</label>
-				 	<input type='text' name='nom' required="required" /><br>
+				 	<input type='text' name='nom' required="required"  value="<?php echo $curso->nom;?>"/><br>
 				 	<label>Descripció:</label>
-					<textarea rows="12" cols="60" name='descripcio' required="required"></textarea><br>
+					<textarea rows="12" cols="60" name='descripcio'> <?php echo $curso->descripcio;?></textarea><br>
 				 	<label>Hores:</label>
-				 	<input type='number' name='hores' min="1" max="100000" /><br>
+				 	<input type='number' name='hores' min="1" max="100000"  value="<?php echo $curso->hores;?>"/><br>
 				 	<label>Data d'Inici:</label>
-				 	<input type='date' name='data_inici'/><br>
+				 	<input type='date' name='data_inici' value="<?php echo $curso->data_inici;?>"/><br>
 				 	<label>Data d'Fi:</label>
-				 	<input type='date' name='data_fi'/><br>
+				 	<input type='date' name='data_fi' value="<?php echo $curso->data_fi;?>"/><br>
 				 	<label>Horari:</label>
-				 	<input type='text' name='horari' /><br>
+				 	<input type='text' name='horari'  value="<?php echo $curso->horari;?>"/><br>
 				 	<label>Torn:</label>
-					<select  name='torn'>
+					<select  name='torn'  value="<?php echo $curso->torn;?>">
 					  <option value="M">Mañana</option>
 					  <option value="T">Tarde</option>
 					  <option value="N">Nocturno</option>
 					</select><br>
 				 	<label>Tipus:</label>
-				 	<select  name='tipus'>
+				 	<select  name='tipus' value="<?php echo $curso->tipus;?>">
 					  <option value=0>Desconocido</option>
 					  <option value=0>Manuales</option>
 					  <option value=1>CP nivel 1</option>
@@ -67,9 +67,9 @@
 					  <option value=4>Superior</option>
 					</select><br>
 				 	<label>Requisits:</label>
-				 	<input type='text' name='requisits' /><br>
+				 	<input type='text' name='requisits'  value="<?php echo $curso->requisits;?>"/><br>
 				 				 	    
-			 	    <input type='submit' value='guardar' name='nuevo'/><br>	 	
+			 	    <input type='submit' value='guardar' name='modificar'/><br>	 	
 			 </form>
 		</section>
 		
