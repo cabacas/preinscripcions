@@ -63,6 +63,7 @@
 				}
 			} else {
 				//mostrar la vista de Nuevo Curso
+				
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
 				$this->load_view('view/cursos/nuevo_curso.php', $datos);				
