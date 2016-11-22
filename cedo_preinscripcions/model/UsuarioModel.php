@@ -16,13 +16,13 @@
 					
 			return Database::get()->query($consulta);
 		}
-		
-		
+				
 		//actualiza los datos del usuario en la BDD
 		public function actualizar(){
 			$user_table = Config::get()->db_user_table;
 			$consulta = "UPDATE $user_table
-							  SET dni='$this->dni',
+							  SET 	id='$this->id',
+							  		dni='$this->dni',
 							  		nom='$this->nom', 
 							  		cognom1='$this->cognom1', 
 							  		cognom2='$this->cognom2', 
@@ -37,11 +37,8 @@
 							  		imatge='$this->imatge'				  									  		
 							  WHERE id='$this->id';";
 			
-			echo ($consulta);
-			
 			return Database::get()->query($consulta);
 		}
-		
 		
 		//elimina el usuario de la BDD
 		public function borrar(){
@@ -52,7 +49,7 @@
 		
 		
 		
-		//este método sirve para comprobar user y password (en la BDD)
+		//este método sirve para comprobar dni y data_naixement (en la BDD)
 		public static function validar($u, $p){
 			$user_table = Config::get()->db_user_table;
 			$consulta = "SELECT * FROM $user_table WHERE dni='$u' AND data_naixement='$p';";

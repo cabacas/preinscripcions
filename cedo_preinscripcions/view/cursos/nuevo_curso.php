@@ -21,24 +21,8 @@
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
 				 	<input type='text' name='codi' required="required" /><br>
-				 	<label>Area Formativa:</label>
-				 	<select  name='id_area' required="required">
-						<option value=0>Altres</option>	
-						<option value=1>Soldadura</option>	
-						<option value=2>Mecànica Convencional</option>	
-						<option value=3>Disseny Mecànic</option>	
-						<option value=4>Electricitat</option>	
-						<option value=5>Logística</option>	
-						<option value=6>Comunicacions - microinformàtica</option>	
-						<option value=7>Programació i web</option>	
-						<option value=8>PLCs i automatismes</option>	
-						<option value=9>Pneumàtica i hidràulica</option>	
-						<option value=10>e-commerce</option>	
-						<option value=11>Fontanería, climatització i calefacció</option>		
-<?php /* foreach ($rows as $row) {
-		echo '<option value="'.$row['id_empleado'].'">'.$row['nombre'].'</option>';
-	}*/ ?>         								 	
-					</select><br>
+				 	<label>id_area:</label>
+				 	<input type='text' name='id_area' required="required" /><br>
 				 	<label>Nom Curs:</label>
 				 	<input type='text' name='nom' required="required" /><br>
 				 	<label>Descripció:</label>
@@ -50,22 +34,11 @@
 				 	<label>Data d'Fi:</label>
 				 	<input type='date' name='data_fi'/><br>
 				 	<label>Horari:</label>
-				 	<input type='text' name='horari' /><br>
+				 	<input type='text' name='horari'/><br>
 				 	<label>Torn:</label>
-					<select  name='torn'>
-					  <option value="M">Mañana</option>
-					  <option value="T">Tarde</option>
-					  <option value="N">Nocturno</option>
-					</select><br>
+				 	<input type='text' name='torn' /><br>
 				 	<label>Tipus:</label>
-				 	<select  name='tipus'>
-					  <option value=0>Desconocido</option>
-					  <option value=0>Manuales</option>
-					  <option value=1>CP nivel 1</option>
-					  <option value=2>CP nivel 2</option>
-					  <option value=3>CP nivel 3</option>
-					  <option value=4>Superior</option>
-					</select><br>
+				 	<input type='number' name='tipus' min="1" max="50" /><br>
 				 	<label>Requisits:</label>
 				 	<input type='text' name='requisits' /><br>
 				 				 	    

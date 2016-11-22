@@ -62,6 +62,7 @@
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">				
 					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>
+					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
