@@ -107,54 +107,30 @@
 			}
 		}
 		
-	
-	}
-
-
-
-/*				
-	
 		//PROCEDIMIENTO PARA DAR DE BAJA UN CURSO
 		//solicita confirmación
-		public function baja(){		
-			//recuperar usuario
-			$u = Login::getUsuario();
-			
-			//asegurarse que el usuario está identificado
-			if(!$u) throw new Exception('Si no estàs identificat no pots donar-te de baixa');
-			
-			//si no nos están enviando la conformación de baja
-			if(empty($_POST['confirmar'])){	
-				//carga el formulario de confirmación
+		public function baja($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			//Recuperar el curso indicado
+			$curso = CursoModel::recuperar($id);
+			if(empty($curso)) throw new Exception('No se encontró el Curso indicado');
+
+			if(empty($_POST['borrar'])){ //si no nos están enviando la confirmación de baja
 				$datos = array();
-				$datos['usuario'] = $u;
-				$this->load_view('view/usuarios/baja.php', $datos);
-		
-			//si nos están enviando la confirmación de baja
-			}else{
-				//validar password
-				$p = Database::get()->real_escape_string($_POST['data_naixement']);
-				if($u->data_naixement != $p) 
-					throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
-				
-				//de borrar el usuario actual en la BDD
-				if(!$u->borrar())
-					throw new Exception('No es va poder fer la baixa');
-						
-				//borra la imagen (solamente en caso que no sea imagen por defecto)
-				if($u->imatge!=Config::get()->default_user_image)
-					@unlink($u->imatge); 
-			
-				//cierra la sesion
-				Login::log_out();
-					
+				$datos['usuario'] = $usuario;
+				$datos['curso'] = $curso;				
+				$this->load_view('view/cursos/baja_curso.php', $datos); //carga el formulario de confirmación
+			}else{ 	//si nos están enviando la confirmación de baja
+				if(!CursoModel::borrar($id)) throw new Exception('No es va poder esborrar el curs');
 				//mostrar la vista de éxito
-				$datos = array();
-				$datos['usuario'] = null;
-				$datos['mensaje'] = 'Eliminat OK';
-				$this->load_view('view/exito.php', $datos);
+					$datos = array();
+					$datos['usuario'] = $usuario;
+					$datos['mensaje'] = 'Curs eliminat Correctamente';
+					$this->load_view('view/exito.php', $datos);
 			}
 		}
 		
-	}*/	
+	}
+
 ?>

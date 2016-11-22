@@ -18,19 +18,20 @@
 		?>
 
 		<section id="content">
-			<h2>Presentación</h2>
-			<p>Este micro framework ha sido desarrollado con fines docentes para el CP de 
-			desarrollo de aplicaciones con tecnologías web (IFCD0210) que imparte Robert Sallent.</p>
+			<h2>Presentació</h2>
+			<p>Aquesta Aplicació ha estat realitzada per facilitar la preinscripció als cursos del cifo Vallés.</p>
 			
-			<p>Es un ejemplo de arquitectura modelo-vista-controlador sencillo para entender los
-			conceptos y poder trabajar con él.</p>
+			<p>Es un exemple de arquitectura model-vista-controlador.</p>
 			
-			<p>A lo largo del curso se desarrollarán varios proyectos de ejemplo usando este pequeño framework,
-			para ir entendiendo los conceptos básicos comunes a este tipo de herramientas de trabajo MVC existentes en PHP.</p>
+			<p>Els Usuaris no registrats només podrán veure el llistat de cursos i els detalls dels cursos.</p>
 			
-			<p>NO ES 100% SEGURO, así que no se debe usar para desarrollos en entornos de producción.</p>
+			<p>Els usuaris es podrán registrar amb el DNI com usuari i la data de naixement com a password.</p>
 			
-			<p>En el mismo curso, en el último módulo, utilizaremos otro CodeIgniter para desarrollos más complejos.</p>
+			<p>Un cop registrats al sistema es podrán preinscriure als cursos y suscriures per rebre informació 
+			   sobre els cursos de les arees formatives indicades.</p>
+			   
+			<p>Per últim existirá un perfil administrador que podrá conectar-se remotament y fer el manteniment 
+			   de usuaris, cursos, i suscripcions .</p>   
 		</section>
 		
 		<?php Template::footer();?>

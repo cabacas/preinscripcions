@@ -36,7 +36,7 @@
 				//Si es administrador
 				if($usuario && $usuario->admin){				
 					echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
-					echo '<p><b><a href="index.php?controlador=Curso&operacion=listar&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
+					echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
 				}
 				echo '';
 		?>
