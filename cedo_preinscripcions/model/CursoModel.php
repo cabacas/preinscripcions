@@ -60,7 +60,7 @@
 				torn='$this->torn',
 				tipus='$this->tipus',
 				requisits='$this->requisits'
-			WHERE id=$this->id;"; var_dump($consulta);
+			WHERE id=$this->id;"; 
 			return Database::get()->query($consulta);
 		}
 		//PROTOTIPO: public static boolean borrar()
