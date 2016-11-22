@@ -12,7 +12,7 @@
 			$datos = array();
 			$datos['usuario'] = Login::getUsuario();
 			$datos['subs'] = $subs;
-			$this->load_view('view/subscricions/lista.php', $datos);
+			$this->load_view('view/subscripcions/lista.php', $datos);
 		}
 		
 		//PROCEDIMIENTO PARA GUARDAR LAS SUBSCRIPCIONES

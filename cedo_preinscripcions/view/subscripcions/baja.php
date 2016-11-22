@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Baixa de Prescripcions</title>
+		<title>Baixa de Subscripcions</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -18,7 +18,7 @@
 		?>
 		
 		<section id="content">
-			<h2>Formulari de baixa de Prescripcions</h2>
+			<h2>Formulari de baixa d e Subscripcions</h2>
 			<p>Per favor, confirma la teva sol.licitud de baixa introuïnt la teva data de naixement.</p>
 		
 			<form method="post" autocomplete="off">

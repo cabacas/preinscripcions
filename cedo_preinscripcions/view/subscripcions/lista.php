@@ -22,13 +22,13 @@
 				<tr>
 					<th>ID</th><th>NOM AREA FORMATIVA</th>
 				</tr>
-		<?php
-			foreach($subs as $sub){
+		<?php 
+			foreach($subs as $sub){ 
 				echo '<tr>';
-				echo "<td> $sub->id </td>";
-				echo "<td> $sub->nom </td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=guardar&parametro='.$sub->id.'" >Subscriur-se</a></b></td>';
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id.'" >Esborrar Subscripció</a></b></td>';
+				echo "<td> $sub->id_usuari </td>";
+				echo "<td> $sub->id_area </td>";
+				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=guardar&parametro='.$sub->id_area.'" >Subscriur-se</a></b></td>';
+				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Esborrar Subscripció</a></b></td>';
 				echo '</tr>';
 			}		
 		?>

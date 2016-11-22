@@ -63,7 +63,7 @@
 				<ul class="menu">				
 					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>					
-					<li><a href="index.php?controlador=Subscrinscripcion&operacion=listar">Llistat Subscripcions</a></li>					
+					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
@@ -71,7 +71,7 @@
 					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Modificar Dades</a></li>
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>										
-					<li><a href="index.php?controlador=Subscrinscripcion&operacion=listar">Llistat Subscripcions</a></li>					
+					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
 				</ul>							
 				<?php }	elseif(!$usuario){   ?>
 				<ul class="menu">					
