@@ -15,6 +15,7 @@
 			else Template::logout($usuario); //pone el formulario de logout
 			
 			Template::menu($usuario); //pone el menú
+			var_dump($usuario);
 		?>
 		
 		<section id="content">

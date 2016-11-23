@@ -22,7 +22,7 @@
 			<tr>				
 				<th>DNI</th><th>FOTO</th><th>NOM</th><th>COGNOM</th><th>SEGON COGNOM</th>
 				<th>D. NAIXEMENT</th><th>ESTUDIS</th><th>S. LABORAL</th><th>PRESTACIÓ</th>
-				<th>TEL. MOBIL</th><th>TEL. FIXE</th><th>EMAIL</th><th>VEURE</th><th>EDITAR</th>
+				<th>TEL. MOBIL</th><th>TEL. FIXE</th><th>EMAIL</th>><th>EDITAR</th>
 				<th>BAIXA</th>
 			</tr>
 		<?php
@@ -40,19 +40,10 @@
 					echo "<td> $usuari->telefon_mobil </td>";
 					echo "<td> $usuari->telefon_fix</td>";
 					echo "<td> $usuari->email</td>";
-					
-					echo "<td><b><a href='index.php?controlador=Usuario&operacion=ver&parametro='
-						.$usuari->dni.'>";         
-					echo "<img class='boton' src='images/buttons/ver.png' alt='ver usuari'/>";
-					echo "</a></b></td>";
-					
-					echo "<td><b><a href='index.php?controlador=Usuario&operacion=ver&parametro='
-					.$usuari->dni.'>";
+					echo '<td><b><a href="index.php?controlador=Usuario&operacion=modificacion&parametro='.$usuari->id.'">';
 					echo "<img class='boton' src='images/buttons/editar.png' alt='ver usuari'/>";
 					echo "</a></b></td>";
-					
-					echo "<td><b><a href='index.php?controlador=Usuario&operacion=ver&parametro='
-					.$usuari->dni.'>";
+					echo '<td><b><a href="index.php?controlador=Usuario&operacion=baja&parametro='.$usuari->id.'">';
 					echo "<img class='boton' src='images/buttons/borrar.png' alt='ver usuari'/>";
 					echo "</a></b></td>";
 					

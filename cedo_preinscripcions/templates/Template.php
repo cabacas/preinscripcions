@@ -62,15 +62,20 @@
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">		
 					<li><a href="index.php?controlador=Usuario&operacion=listar">Llistat Alumnes</a></li>
-					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>					
-					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>				
+					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>					
+					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
+					<li><a href="index.php?controlador=Preinscripcion&operacion=guardar">Nova Preinscripció</a></li>
+					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>
+					<li><a href="index.php?controlador=Subscripcion&operacion=guardar">Nova Subscripció</a></li>									
+					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
+					<li><a href="index.php?controlador=Area&operacion=guardar">Nova Àrea Formativa</a></li>
+					
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">														
-					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Modificar Dades</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>
-					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>										
+					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Dades Personals</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>
+					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>															
 					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
 					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
 				</ul>							

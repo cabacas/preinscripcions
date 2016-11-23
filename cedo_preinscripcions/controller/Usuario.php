@@ -61,7 +61,7 @@
 		
 
 		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
-		public function modificacion(){
+		public function modificacion($id){
 			//si no hay usuario identificado... error
 			//if(!Login::getUsuario())
 			//throw new Exception("Has d'estar identificar per modificar les teves dades");
@@ -71,7 +71,7 @@
 				
 				//mostramos la vista del formulario
 				$datos = array();
-				$datos['usuario'] = Login::getUsuario();
+				$datos['usuario'] = UsuarioModel::getUsuario($id);
 				$datos['max_image_size'] = Config::get()->user_image_max_size;
 				$this->load_view('view/usuarios/modificacion.php', $datos);
 					
