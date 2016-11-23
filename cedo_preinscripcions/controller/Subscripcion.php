@@ -49,7 +49,6 @@
 			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");
 			$subs = SubscripcionModel::recuperar($usuario->id);
 			if(empty($subs)) throw new Exception('Usuari no te cap subscripción a la BBDD');
-			var_dump($id_area);
 			$area=AreaModel::recuperar($id_area);// verificamos area
 			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");			
 			//si no nos están enviando la confirmación de baja
