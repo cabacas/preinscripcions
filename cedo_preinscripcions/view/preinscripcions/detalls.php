@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Detall Curs</title>
+		<title>Detall Preinscripció</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -17,18 +17,18 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>Detall Curs</h2>
-		<?php				
+			<h2>Detall Preinscripció</h2>
+		<?php
 				
-			echo "<p> DNI: $preinscripcio->id </p>";
-			echo "<p> NOM: $preinscripcio->codi </p>";
-			echo "<p> TEL. MOBIL: $preinscripcio->id_area </p>";
-			echo "<p> TEL. FIXE: $preinscripcio->nom </p>";
-			echo "<p> EMAIL: $preinscripcio->descripcio </p>";
-			echo "<p> DATA: $preinscripcio->hores </p>";
-			echo "<p> ID CURS: $preinscripcion->id_curs </p>";
+			echo "<p> DNI: $usuario->dni </p>";
+			echo "<p> NOM: $preinscripcion->nom </p>";
+			echo "<p> TEL. MOBIL: $usuario->telefon_mobil </p>";
+			echo "<p> TEL. FIXE: $usuario->telefon_fix</p>";
+			echo "<p> EMAIL: $usuario->email</p>";
+			echo "<p> DATA: $preinscripcion->data</p>";
+			echo "<p> ID CURS: $preinscripcion->id_curs</p>";
 			echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=baja&parametro='.
-					$preinscripcio->id.'" >Baixa Preinscripció</a></b></p>';
+					$usuario->dni.'" >Baixa Preinscripció</a></b></p>';
 								
 		?>
 

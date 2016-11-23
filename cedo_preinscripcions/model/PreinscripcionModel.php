@@ -1,7 +1,7 @@
 <?php	
 	class PreinscripcionModel{
 		//PROPIEDADES		
-		public  $id_usuari,	$id_curs;
+		public  $id_usuari,	$id_curs, $data, $dni, $nom, $telefon_fix, $telefon_mobil;
 				
 		//METODOS				
 		//guarda la preinscripci�n en la BDD
@@ -10,8 +10,7 @@
 			VALUES ('$this->id_usuari','$this->id_curs');";					
 			return Database::get()->query($consulta);
 		}
-		
-		
+				
 		//actualiza los datos de la preinscripcion  en la BDD
 		public function actualizar(){			
 			$consulta = "UPDATE presinscripcions

@@ -24,6 +24,9 @@
 				<th>ID_CURS</th>
 			</tr>
 		<?php
+			
+		var_dump($preinscripcions);
+			
 			foreach($preinscripcions as $preinscripcio){
 				echo '<tr>';
 				echo "<td> $preinscripcio->dni </td>";
@@ -33,8 +36,8 @@
 				echo "<td> $preinscripcio->email</td>";
 				echo "<td> $preinscripcio->data</td>";
 				echo "<td> $preinscripcio->id_curs</td>";				
-				echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=ver&parametro='
-				.$preinscripcio->id_usuari.'" >Detalle</a></b></td>';
+				echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
+				.$preinscripcio->id_curs.'" >Baixa</a></b></td>';
 				echo '</tr>';
 			}		
 		?>
