@@ -62,8 +62,12 @@
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">				
 					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>
+<<<<<<< HEAD
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>					
 					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
+=======
+					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
+>>>>>>> branch 'master' of https://github.com/cabacas/preinscripcions.git
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">
