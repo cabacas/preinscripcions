@@ -32,38 +32,29 @@
 		}		
 		
 		//PROCEDIMIENTO PARA LISTAR LAS PREINSCRIPCIONES
-		public function listar(){
-			
-			//si no llegan los datos a guardar
-			//si llegan los datos por POST
-			/*if(!empty($_POST['filtro1'])){
-				$filtro=$_POST['filtro2'];
-				$cursos = PreinscrionModel::;
-			}elseif(!empty($_POST['filtraa'])){
-				$filtro=$_POST['filtroa'];
-				$cursos = CursoModel::recuperarfiltroa($filtro);
-			}elseif(empty($_POST['filtran'])&& empty($_POST['filtraa']))*/
+	public function listar(){
+			$usuario=Login::getUsuario();
+			if($usuario->admin){
+				//recuperamos todas las preinscripciones
+				$preinscripcions = PreinscripcionModel::recuperartodo();
+				
+				//mostrar la vista de lista de preinscripciones
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$datos['preinscripcions'] = $preinscripcions;
+				$this->load_view('view/preinscripcions/listar.php', $datos);
+			}else{
+				//Recuperar el curso indicado
+				$preinscripcion = PreinscripcionModel::recuperar($usuario->id);
+				if(empty($preinscripcion)) throw new Exception("No es va trobar l'usuari indicat");
+				//mostrar la vista de detalle de curso
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$datos['preinscripcion'] = $preinscripcion;
+				$this->load_view('view/preinscripcions/detalls.php', $datos);
+			}
+		}		
 		
-			//recuperamos todas las preinscripciones
-			$preinscripcions = PreinscripcionModel::recuperartodo();
-			
-			//mostrar la vista de lista de cursos
-			$datos = array();
-			$datos['usuario'] = Login::getUsuario();
-			$datos['preinscripcions'] = $preinscripcions;
-			$this->load_view('view/preinscripcions/listar.php', $datos);
-		}
-		//PROCEDIMIENTO PARA VER LOS DETALLES DE UN CURSO
-		public function ver($id_usuari){
-			//Recuperar el curso indicado
-			$preinscripcion = PreinscripcionModel::recuperar($id_usuari);
-			if(empty($preinscripcion)) throw new Exception("No es va trobar l'usuari indicat");
-			//mostrar la vista de detalle de curso
-			$datos = array();
-			$datos['usuario'] = Login::getUsuario();
-			$datos['preinscripcion'] = $preinscripcion;
-			$this->load_view('view/preinscripcions/detalls.php', $datos);
-		}
 		
 		
 		//PROCEDIMIENTO PARA ELIMINAR LAS INSCRIPCIONES

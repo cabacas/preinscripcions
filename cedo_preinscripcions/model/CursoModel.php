@@ -61,11 +61,11 @@
 				torn=$this->torn,
 				tipus='$this->tipus',
 				requisits='$this->requisits'
-<<<<<<< HEAD
+
 			WHERE id=$this->id;"; 
-=======
-			WHERE id=$this->id;";
->>>>>>> branch 'master' of https://github.com/cabacas/preinscripcions.git
+
+
+
 			return Database::get()->query($consulta);
 		}
 		//PROTOTIPO: public static boolean borrar()

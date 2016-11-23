@@ -18,27 +18,15 @@
 		?>
 		<section id="content">
 			<h2>Detall Curs</h2>
-		<?php
-				echo '';
-				echo "<p> ID: $curso->id </p>";
-				echo "<p> CODI: $curso->codi </p>";
-				echo "<p> ID_AREA: $curso->id_area </p>";
-				echo "<p> NOM CURS: $curso->nom </p>";
-				echo "<p> DESCRIPCIÓ: $curso->descripcio </p>";
-				echo "<p> HORES: $curso->hores </p>";
-				echo "<p> DATA D'INICI: $curso->data_inici </p>";
-				echo "<p> DATA DE FI: $curso->data_fi </p>";
-				echo "<p> HORARI: $curso->horari</p>";
-				echo "<p> TORN: $curso->torn </p>";
-				echo "<p> TIPUS: $curso->tipus </p>";
-				echo "<p> REQUSITS: $curso->requisits</p>";
-				echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
-				//Si es administrador
-				if($usuario && $usuario->admin){				
-					echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
-					echo '<p><b><a href="index.php?controlador=Curso&operacion=listar&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
-				}
-				echo '';
+		<?php				
+				echo "<p> DNI: $preinscripcio->id </p>";
+				echo "<p> NOM: $preinscripcio->codi </p>";
+				echo "<p> TELEFON MOBIL: $preinscripcio->id_area </p>";
+				echo "<p> TELEFON FIXE: $preinscripcio->nom </p>";
+				echo "<p> EMAIL: $preinscripcio->descripcio </p>";
+				echo "<p> DATA: $preinscripcio->hores </p>";				
+				echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=baja&parametro='.
+						$preinscripcio->id.'" >Baixa Preinscripció</a></b></p>';		
 		?>
 
 		</section>

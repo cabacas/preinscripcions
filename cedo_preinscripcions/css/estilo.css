@@ -201,6 +201,17 @@ nav ul.menu>li:hover{
 	float: right;
 }
 
+.foto_listado{
+	 max-width: 50px;
+	 max-height: 50px;
+	 
+}
+
+table img.boton{
+	height: 40px;
+	width: 40px;	
+}
+
 
 /* FOOTER */
 footer{
