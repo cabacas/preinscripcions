@@ -13,9 +13,9 @@
 			return $areas;
 		}
 		public static function recuperar($id=0){
-			$consulta = "SELECT * FROM arees_formatives WHERE id=$id;";
-			$datos = Database::get()->query($consulta); //ejecutar la consulta
-			$area = $datos->fetch_object('AreaModel'); //convierte el dato recuperado a area
+			$consulta = "SELECT * FROM arees_formatives WHERE id=".intval($id).";";
+			$datos = Database::get()->query($consulta); //ejecutar la consulta 
+			if($datos) $area = $datos->fetch_object('AreaModel'); //convierte el dato recuperado a area
 			$datos->free();	//libera memoria
 			if ($area) return $area; //retornar el area recuperado
 			else return NULL;
@@ -25,10 +25,6 @@
 			return Database::get()->query($consulta); //ejecutar la consulta
 		}
 
-		public function modificar(){
-			$consulta = "UPDATE arees_formatives SET nom='$this->nom' WHERE id=$this->id;";
-			return Database::get()->query($consulta);
-		}
 		//PROTOTIPO: public static boolean borrar()
 		public static function borrar($id=0){
 			$consulta = "DELETE FROM arees_formatives WHERE id='$id';";

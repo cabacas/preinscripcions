@@ -20,14 +20,22 @@
 			<h2>LListat de Subscripcions</h2>
 			<table border=1 id="list"> 
 				<tr>
-					<th>ID</th><th>NOM AREA FORMATIVA</th>
+					<th>ID USUARI</th><th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>
+					<th>EMAIL</th><th>DATA</th><th>ID AREA FORMATIVA</th><th>NOM AREA FORMATIVA</th>
 				</tr>
 		<?php 
 			foreach($subs as $sub){ 
 				echo '<tr>';
 				echo "<td> $sub->id_usuari </td>";
+				echo "<td> $sub->dni </td>";
+				echo "<td> $sub->nom </td>";
+				echo "<td> $sub->telefon_mobil </td>";
+				echo "<td> $sub->telefon_fix </td>";
+				echo "<td> $sub->email </td>";
+				echo "<td> $sub->data </td>";
 				echo "<td> $sub->id_area </td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=guardar&parametro='.$sub->id_area.'" >Subscriur-se</a></b></td>';
+				echo "<td> $sub->area </td>";
+				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=actualizar&parametro='.$sub->id_area.'" >Modificar Subscripció</a></b></td>';
 				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Esborrar Subscripció</a></b></td>';
 				echo '</tr>';
 			}		

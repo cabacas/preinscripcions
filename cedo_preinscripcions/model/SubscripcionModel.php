@@ -1,34 +1,36 @@
 <?php	
 	class SubscripcionModel{
 		//PROPIEDADES		
-		public  $id_usuari,	$id_area;
+		public  $id_usuari,	$dni, $nom, $telefon_mobil, $telefon_fix, $email, $data, $id_area, $area;
 				
 		//METODOS
 		//Recupera todas las suscripciones de la BDD
 		public static function recuperartodo(){
-			$consulta = "SELECT * FROM subscripcions;";
+			$consulta = "SELECT * FROM v_alumnes_suscrits;";
 			$datos = Database::get()->query($consulta);//ejecutar la consulta
 			$subs = array();
 			while($sub = $datos->fetch_object('SubscripcionModel'))
 				$subs[] = $sub;
-				$datos->free();			//liberar memoria
-				return $subs;
+			$datos->free();			//liberar memoria
+			return $subs;
 		}
 
-		//Recupera 1 suscripción de la BDD
+		//Recupera las suscripciones de la BDD de un usuario
 		public static function recuperar($id=0){
-			$consulta = "SELECT * FROM subscripcions WHERE id_usuario=$id;";
+			$consulta = "SELECT * FROM v_alumnes_suscrits WHERE id_usuari=$id;"; 
 			$datos = Database::get()->query($consulta); //ejecutar la consulta
-			$sub = $datos->fetch_object('SubscripcionModel'); //convierte el dato recuperado a suscripción
+			$subs = array();
+			while($sub = $datos->fetch_object('SubscripcionModel')) 
+					$subs[] = $sub;
 			$datos->free();	//libera memoria
-			if ($sub) return $sub; //retornar el suscripción recuperado
-			else return NULL;
+			return $subs; //retornar las suscripciones recuperadas
 		}
 		
 		//guarda la suscripción en la BDD
-		public function guardar(){			
+		public function guardar(){		
+			
 			$consulta = "INSERT INTO subscripcions(id_usuari, id_area)
-			VALUES ('$this->id_usuari','$this->id_area');";					
+			VALUES ('$this->id_usuari','$this->id_area');"; 			
 			return Database::get()->query($consulta);
 		}
 		
@@ -38,13 +40,14 @@
 							  SET id_usuari='$this->id_usuari',
 							  		id_area='$this->id_area', 
 							  		data=CURRENT_TIMESTAMP					  						  									  		
-							  WHERE id_usuari='$this->id_usuari';";
+							  WHERE id_usuari='$this->id_usuari';"; 
 			return Database::get()->query($consulta);
 		}
 		
 		//elimina la suscripción de la BDD
 		public function borrar(){			
-			$consulta = "DELETE FROM subscripcions WHERE id_usuari='$this->id_usuari';";
+			$consulta = "DELETE FROM subscripcions 
+			WHERE id_usuari='$this->id_usuari' AND id_area='$this->id_area';"; 
 			return Database::get()->query($consulta);
 		}		
 	}
