@@ -169,12 +169,12 @@ nav ul.menu>li:hover{
 
 #content table{
 	margin: auto;
-	width: 90%;
+	width: 80%;
 }
 
 #content table th{
 	color: white;
-	background-color: blue;
+	background-color: blue;	
 	text-align: center;
 	font-weight: bold;
 }
@@ -212,6 +212,9 @@ table img.boton{
 	width: 40px;	
 }
 
+table #list{
+	width:80%;
+}
 
 /* FOOTER */
 footer{

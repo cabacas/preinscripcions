@@ -20,9 +20,9 @@
 			<h2>Llistat d'Alumnes</h2>			
 			<table border=1 id="list"> 
 			<tr>				
-				<th>DNI</th><th>FOTO</th><th>NOM</th><th>PRIMER COGNOM</th><th>SEGON COGNOM</th>
-				<th>DATA_NAIXEMENT</th><th>ESTUDIS</th><th>S. LABORAL</th><th>PRESTACIÓ</th>
-				<th>TEL. MOBIL</th><th>TEL. FIXE</th><th>EMAIL</th><th>VEURE</th><th>MODIFICAR</th>
+				<th>DNI</th><th>FOTO</th><th>NOM</th><th>COGNOM</th><th>SEGON COGNOM</th>
+				<th>D. NAIXEMENT</th><th>ESTUDIS</th><th>S. LABORAL</th><th>PRESTACIÓ</th>
+				<th>TEL. MOBIL</th><th>TEL. FIXE</th><th>EMAIL</th><th>VEURE</th><th>EDITAR</th>
 				<th>BAIXA</th>
 			</tr>
 		<?php

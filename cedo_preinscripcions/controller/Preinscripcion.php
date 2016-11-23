@@ -32,34 +32,25 @@
 		}		
 		
 		//PROCEDIMIENTO PARA LISTAR LAS PREINSCRIPCIONES
-	public function listar(){		
-		
+		public function listar(){		
+			
 			$usuario=Login::getUsuario();
 			if (!$usuario)
 				throw new  Exception("Només per a usuaris enregistrats");
 			
-			if($usuario->admin){
-				
+			if($usuario->admin)				
 				//recuperamos todas las preinscripciones
 				$preinscripcions = PreinscripcionModel::recuperartodo();
+			else				
+				//Recuperar la preinscripción indicada
+				$preinscripcions = PreinscripcionModel::recuperar($usuario->id);
 				
 				//mostrar la vista de lista de preinscripciones
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
 				$datos['preinscripcions'] = $preinscripcions;
 				$this->load_view('view/preinscripcions/listar.php', $datos);
-			}else{
 				
-				//Recuperar la preinscripción indicada
-				$preinscripcions = PreinscripcionModel::recuperar($usuario->id);
-				if(empty($preinscripcions)) throw new Exception("No es va trobar l'usuari indicat");
-				
-				//mostrar la vista de detalle de curso
-				$datos = array();
-				$datos['usuario'] = Login::getUsuario();
-				$datos['preinscripcions'] = $preinscripcions;
-				$this->load_view('view/preinscripcions/listar.php', $datos);
-			}
 		}		
 		
 		

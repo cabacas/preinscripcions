@@ -23,9 +23,7 @@
 				<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 				<th>ID_CURS</th>
 			</tr>
-		<?php
-			
-		var_dump($preinscripcions);
+		<?php					
 			
 			foreach($preinscripcions as $preinscripcio){
 				echo '<tr>';
