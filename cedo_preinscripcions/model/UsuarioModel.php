@@ -61,6 +61,19 @@
 			return $r;
 		}
 		
+		//Recupera todos los usuarios
+		public static function recuperartodo(){
+		
+			$consulta = "SELECT * FROM usuaris;";
+			$datos = Database::get()->query($consulta);//ejecutar la consulta
+			$usuaris = array();
+		
+			while($usuari = $datos->fetch_object('UsuarioModel'))
+				$usuaris[] = $usuari;
+				$datos->free();			//liberar memoria
+				return $usuaris;
+		}
+		
 		//este método debería retornar un usuario creado con los datos 
 		//de la BDD (o NULL si no existe), a partir de un nombre de usuario
 		public static function getUsuario($u){

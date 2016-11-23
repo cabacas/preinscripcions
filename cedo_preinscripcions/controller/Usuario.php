@@ -176,5 +176,18 @@
 			}
 		}
 		
+		//Listar usuarios
+		public function listar(){
+		
+			//recuperamos todos los usuarios
+			$usuaris = UsuarioModel::recuperartodo();
+		
+			//mostrar la vista de lista de usuaris
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['usuaris'] = $usuaris;
+			$this->load_view('view/usuarios/listar.php', $datos);
+		}
+		
 	}
 ?>
