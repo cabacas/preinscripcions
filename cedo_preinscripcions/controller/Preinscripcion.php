@@ -57,15 +57,23 @@
 		
 		//PROCEDIMIENTO PARA ELIMINAR LAS PREINSCRIPCIONES
 		//solicita confirmación
-		public function baja(){
+		public function baja($id_curso){
 			$u = Login::getUsuario();
 				
 			//asegurarse que el usuario está identificado
 			if(!$u) throw new Exception('Si no estàs identificat no pots donar-te de baixa');			
-						
-				
-			//crear una instancia de Preinsripciones
-			$pre = new PreinscripcionModel();
+			
+			if($u->admin)
+				//recuperamos todas las preinscripciones
+				$preinscripcions = PreinscripcionModel::recuperartodo();
+			else
+				//Recuperar la preinscripción indicada
+				$preinscripcions = PreinscripcionModel::recuperar($u->id);
+
+			if(empty($preinscripcions)) throw new Exception('Usuari no te cap preinscripció a la BBDD');
+
+			$curso=CursoModel::recuperar($id_curso);// verificamos area
+			if (empty($curso)) throw new Exception("No es va trobar el curs indicat");
 		
 			//si no nos están enviando la conformación de baja
 			if(empty($_POST['confirmar'])){
@@ -80,15 +88,19 @@
 				$p = Database::get()->real_escape_string($_POST['data_naixement']);
 				if($u->data_naixement != $p)
 					throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
-		
-					//de borrar el usuario actual en la BDD
-					if(!$pre->borrar())
+			
+				foreach($preinscripcions as $preinscripcion){
+						if ($preinscripcion->id_curs == $curso) exit;
+				}
+				if(empty($preinscripcion)) throw new Exception('Preinscripció no trobada');
+				
+				if(!$preinscripcion->borrar())
 						throw new Exception('No es va poder fer la baixa');
 				
-					//mostrar la vista de éxito
+				//mostrar la vista de éxito
 					$datos = array();
-					$datos['usuario'] = null;
-					$datos['mensaje'] = 'Eliminat OK';
+					$datos['usuario'] = $u;
+					$datos['mensaje'] = 'Preinscripció esborrada OK';
 					$this->load_view('view/exito.php', $datos);
 				}				
 				

@@ -21,7 +21,7 @@
 			<table border=1 id="list"> 
 			<tr>
 				<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
-				<th>ID_CURS</th>
+				<th>NOM CURS</th>
 			</tr>
 		<?php					
 			
@@ -33,7 +33,7 @@
 				echo "<td> $preinscripcio->telefon_fix</td>";
 				echo "<td> $preinscripcio->email</td>";
 				echo "<td> $preinscripcio->data</td>";
-				echo "<td> $preinscripcio->id_curs</td>";				
+				echo "<td> $preinscripcio->nom_curs</td>";				
 				echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
 				.$preinscripcio->id_curs.'" >Baixa</a></b></td>';
 				echo '</tr>';

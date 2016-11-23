@@ -45,7 +45,7 @@
 			
 			$datos = Database::get()->query($consulta); //ejecutar la consulta
 			
-			$presinscripcions = array();
+			$preinscripcions = array();
 		
 			while($preinscripcion = $datos->fetch_object('PreinscripcionModel'))
 				$preinscripcions[] = $preinscripcion;

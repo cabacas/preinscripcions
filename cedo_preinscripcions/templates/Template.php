@@ -72,6 +72,7 @@
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>										
 					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
+					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
 				</ul>							
 				<?php }	elseif(!$usuario){   ?>
 				<ul class="menu">					
