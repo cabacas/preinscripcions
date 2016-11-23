@@ -166,18 +166,19 @@ ALTER TABLE `subscripcions`
 
 
 -- VISTES
-CREATE VIEW v_alumnes_preinscrits AS
-SELECT u.dni, CONCAT_WS(' ',u.nom,u.cognom1,u.cognom2) AS nom, 
+CREATE or replace VIEW v_alumnes_preinscrits AS
+SELECT u.id as id_usuari,u.dni, CONCAT_WS(' ',u.nom,u.cognom1,u.cognom2) AS nom, 
 u.telefon_mobil, u.telefon_fix, u.email, 
-DATE_FORMAT(p.data, '%d/%c/%Y') AS data, c.id AS id_curs
+DATE_FORMAT(p.data, '%d/%c/%Y') AS data, c.id AS id_curs, c.nom AS nom_curs
 FROM usuaris u INNER JOIN preinscripcions p ON u.id=p.id_usuari
 INNER  JOIN cursos c ON p.id_curs=c.id;
 
 CREATE OR REPLACE VIEW v_alumnes_suscrits AS
-   SELECT u.dni, CONCAT_WS(' ',u.nom,u.cognom1,u.cognom2) AS nom, 
+   SELECT u.id as id_usuari, u.dni, CONCAT_WS(' ',u.nom,u.cognom1,u.cognom2) AS nom, 
 u.telefon_mobil, u.telefon_fix, u.email, DATE_FORMAT(s.data, '%d/%c/%Y') AS data, s.id_area, a.nom AS area 
 FROM usuaris u INNER JOIN subscripcions s ON u.id=s.id_usuari
 INNER JOIN arees_formatives a ON s.id_area=a.id;
+
 
 
 
