@@ -30,6 +30,36 @@
 			$datos['mensaje'] = "Preinscripció realitzada amb éxit";
 			$this->load_view('view/exito.php', $datos);
 		}		
+
+		//PROCEDIMIENTO PARA GUARDAR LAS NUEVAS PREINSCRIPCIONES
+		public function guardarnueva(){
+			//crear una instancia de Preinscripciones
+			$pre = new PreinscripcionModel();
+			$usuario = Login::getUsuario(); // verificamos usuario			
+			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
+			
+			if(empty($_POST['guardarp'])){
+				//carga el formulario de confirmación
+				$datos = array();
+				$datos['usuario'] = $usuario;
+				$this->load_view('view/preinscripcions/nueva.php', $datos);		
+			}else{ //si nos están enviando datos
+				$dni = Database::get()->real_escape_string($_POST['dni']);
+				$id_curs= Database::get()->real_escape_string($_POST['id_curs']);
+				$curs=CursoModel::recuperar($id_curs);// verificamos curso
+				if (empty($curs)) throw new Exception("No es va trobar el curs indicat");
+				$pre->id_curs= $id_curs;
+				$u=UsuarioModel::getUsuario($dni);
+				$pre->id_usuari= $u->id;			
+				if(!$pre->guardar())
+					throw new Exception ("No es va poder realitzar la Subscripció");			
+				//mostrar la vista de éxito	
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$datos['mensaje'] = "Subscripció realitzada amb éxit";
+				$this->load_view('view/exito.php', $datos);
+			}			
+		}		
 		
 		//PROCEDIMIENTO PARA LISTAR LAS PREINSCRIPCIONES
 		public function listar(){		

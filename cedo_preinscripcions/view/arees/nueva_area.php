@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>LListat de Arees Formatives</title>
+		<title>Nova Area</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -17,21 +17,13 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>LListat de Arees Formatives</h2>
-			<table border=1 id="list"> 
-				<tr>
-					<th>ID</th><th>NOM AREA FORMATIVA</th>
-				</tr>
-		<?php 
-			foreach($areas as $area){ 
-				echo '<tr>';
-				echo "<td> $area->id</td>";
-				echo "<td> $area->nom</td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Esborrar Area</a></b></td>';
-				echo '</tr>';
-			}		
-		?>
-		</table><br>
+			<h2>Nova Area</h2>
+			<form method="post" id="formulario">
+				 	<label>Nom Area:</label>
+				 	<input type='text' name='nom' required="required" /><br>
+				 				 	    
+			 	    <input type='submit' value='guardar' name='nueva'/><br>	 	
+			 </form>
 		</section>
 		
 		<?php Template::footer();?>

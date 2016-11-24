@@ -27,7 +27,7 @@
 			//crear una instancia de Subscripciones
 			$sub = new SubscripcionModel();
 			$usuario = Login::getUsuario(); // verificamos usuario			
-			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");
+			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");			
 			$area=AreaModel::recuperar($id_area);// verificamos area
 			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");
 			$sub->id_area= $id_area;
@@ -40,6 +40,37 @@
 			$datos['mensaje'] = "Subscripció realitzada amb éxit";
 			$this->load_view('view/exito.php', $datos);
 		}		
+
+		//PROCEDIMIENTO PARA GUARDAR LAS NUEVAS SUBSCRIPCIONES
+		public function guardarnueva(){
+			//crear una instancia de Subscripciones
+			$sub = new SubscripcionModel();
+			$usuario = Login::getUsuario(); // verificamos usuario			
+			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
+			
+			if(empty($_POST['guardars'])){
+				//carga el formulario de confirmación
+				$datos = array();
+				$datos['usuario'] = $usuario;
+				$this->load_view('view/subscripcions/nueva.php', $datos);		
+				//si nos están enviando la confirmación de baja
+			}else{
+				$dni = Database::get()->real_escape_string($_POST['dni']);
+				$id_area= Database::get()->real_escape_string($_POST['id_area']);
+				$area=AreaModel::recuperar($id_area);// verificamos area
+				if (empty($area)) throw new Exception("No es va trobar l'Area indicada");
+				$sub->id_area= $id_area;
+				$u=UsuarioModel::getUsuario($dni);
+				$sub->id_usuari= $u->id;			
+				if(!$sub->guardar())
+					throw new Exception ("No es va poder realitzar la Subscripció");			
+				//mostrar la vista de éxito	
+				$datos = array();
+				$datos['usuario'] = Login::getUsuario();
+				$datos['mensaje'] = "Subscripció realitzada amb éxit";
+				$this->load_view('view/exito.php', $datos);
+			}			
+		}
 		
 		//PROCEDIMIENTO PARA ELIMINAR LAS SUBSCRIPCIONES
 		//solicita confirmación
