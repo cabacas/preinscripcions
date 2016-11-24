@@ -21,7 +21,7 @@
 			<table border=1 id="list"> 
 				<tr>
 					<th>ID USUARI</th><th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>
-					<th>EMAIL</th><th>DATA</th><th>ID AREA FORMATIVA</th><th>NOM AREA FORMATIVA</th>
+					<th>EMAIL</th><th>DATA</th><th>ID AREA FORMATIVA</th><th>NOM AREA FORMATIVA</th><th>ACCIÓ</th>
 				</tr>
 		<?php 
 			foreach($subs as $sub){ 
@@ -35,7 +35,7 @@
 				echo "<td> $sub->data </td>";
 				echo "<td> $sub->id_area </td>";
 				echo "<td> $sub->area </td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Baixa Subscripció</a></b></td>';
+				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa Subscripció</a></b></td>';
 				echo '</tr>';
 			}		
 		?>

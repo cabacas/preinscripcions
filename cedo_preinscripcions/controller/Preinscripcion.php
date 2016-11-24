@@ -89,21 +89,21 @@
 		//solicita confirmación
 		public function baja($id_curso){
 			$u = Login::getUsuario();
-				
 			//asegurarse que el usuario está identificado
-			if(!$u) throw new Exception('Si no estàs identificat no pots donar-te de baixa');			
-			
-			if($u->admin)
-				//recuperamos todas las preinscripciones
-				$preinscripcions = PreinscripcionModel::recuperartodo();
-			else
-				//Recuperar la preinscripción indicada
-				$preinscripcions = PreinscripcionModel::recuperar($u->id);
-
-			if(empty($preinscripcions)) throw new Exception('Usuari no te cap preinscripció a la BBDD');
-
 			$curso=CursoModel::recuperar($id_curso);// verificamos curso
 			if (empty($curso)) throw new Exception("No es va trobar el curs indicat");
+				
+			if(!$u) throw new Exception('Si no estàs identificat no pots donar-te de baixa');			
+			if($u->admin){
+				//recuperamos todas las preinscripciones
+				$pu = empty($_GET['pu'])? '' : $_GET['pu'];
+				$preinscripcion = PreinscripcionModel::recuperar2($pu,$id_curso);
+			}else
+				//Recuperar la preinscripción indicada
+				$preinscripcion = PreinscripcionModel::recuperar2($u->id,$id_curso);
+
+			if(empty($preinscripcion)) throw new Exception('Usuari no te cap preinscripció a la BBDD');
+
 			if(!$u->admin){		
 				//si no nos están enviando la conformación de baja
 				if(empty($_POST['confirmar'])){
@@ -118,11 +118,6 @@
 					$p = Database::get()->real_escape_string($_POST['data_naixement']);
 					if($u->data_naixement != $p)
 						throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
-				
-					foreach($preinscripcions as $preinscripcion){
-							if ($preinscripcion->id_curs == $id_curso) break;
-					}
-					if(empty($preinscripcion)) throw new Exception('Preinscripció no trobada');
 									
 					if(!$preinscripcion->borrar())
 							throw new Exception('No es va poder fer la baixa');
@@ -134,10 +129,6 @@
 						$this->load_view('view/exito.php', $datos);
 				}				
 			}else{ //var_dump($preinscripcions);
-				foreach($preinscripcions as $preinscripcion){
-						if ($preinscripcion->id_curs == $id_curso) break;
-				}
-				if(empty($preinscripcion)) throw new Exception('Preinscripció no trobada');
 				if(!$preinscripcion->borrar())
 						throw new Exception('No es va poder fer la baixa');
 				//mostrar la vista de éxito

@@ -25,7 +25,15 @@
 			$datos->free();	//libera memoria
 			return $subs; //retornar las suscripciones recuperadas
 		}
-		
+
+		//Recupera la suscripcion de la BDD de un usuario
+		public static function recuperar2($id=0,$id_area=0){
+			$consulta = "SELECT * FROM v_alumnes_suscrits WHERE id_usuari=$id AND id_area=".intval($id_area).";";
+			$datos = Database::get()->query($consulta); //ejecutar la consulta
+			$sub = $datos->fetch_object('SubscripcionModel');
+			$datos->free();	//libera memoria
+			return $sub; //retornar las suscripciones recuperadas
+		}		
 		//guarda la suscripción en la BDD
 		public function guardar(){		
 			
@@ -47,7 +55,7 @@
 		//elimina la suscripción de la BDD
 		public function borrar(){			
 			$consulta = "DELETE FROM subscripcions 
-			WHERE id_usuari='$this->id_usuari' AND id_area='$this->id_area';"; 
+			WHERE id_usuari='$this->id_usuari' AND id_area=".intval($this->id_area).";"; 
 			return Database::get()->query($consulta);
 		}		
 	}

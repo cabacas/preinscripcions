@@ -77,15 +77,17 @@
 		public function baja($id_area){	
 			//crear una instancia de Subscripciones
 			$usuario = Login::getUsuario(); // verificamos usuario
-			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");
-			if($usuario->admin)//recuperamos todas
-				$subs = SubscripcionModel::recuperartodo();
-			elseif($usuario) //recuperamos las del usuario
-				$subs = SubscripcionModel::recuperar($usuario->id);
-
-			if(empty($subs)) throw new Exception('No hi ha cap subscripción a la BBDD');
 			$area=AreaModel::recuperar($id_area);// verificamos area
-			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");			
+			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");
+			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");
+			if($usuario->admin){//recuperamos todas
+				//recuperar el parámetro usuario que viene por GET
+				$pu = empty($_GET['pu'])? '' : $_GET['pu'];
+				$sub = SubscripcionModel::recuperar2($pu,$id_area);				
+			}elseif($usuario){ //recuperamos las del usuario
+				$sub = SubscripcionModel::recuperar2($usuario->id,$id_area);				
+			}
+			if(empty($sub)) throw new Exception('Subscripció no trobada a la BBDD');
 			//si no nos están enviando la confirmación de baja
 			if(!$usuario->admin){
 				if(empty($_POST['confirmar'])){
@@ -100,10 +102,6 @@
 					if($usuario->data_naixement != $p)
 						throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
 						//de borrar el usuario actual en la BDD
-						foreach($subs as $sub){
-							if ($sub->id_area == $id_area) break;						
-						}
-						if(empty($sub)) throw new Exception('Subscripció no trobada');
 	   					if(!$sub->borrar())
 							throw new Exception('No es va poder fer la baixa de la Subscripció');
 						//mostrar la vista de éxito
@@ -112,12 +110,7 @@
 						$datos['mensaje'] = "Subscripció esborrada amb éxit";
 						$this->load_view('view/exito.php', $datos);   					
 					}		
-			}else{ var_dump($subs);echo "============================";
-				foreach($subs as $sub) 
-					if ($sub->id_area == $id_area) break;
-				var_dump($id_area);echo "============================";
-				var_dump($sub);echo "============================";
-				if(empty($sub)) throw new Exception('Subscripció no trobada');
+			}else{ 
 		   		if(!$sub->borrar())	throw new Exception('No es va poder fer la baixa de la Subscripció');
 		   		//mostrar la vista de éxito
 		   		$datos = array();
@@ -127,6 +120,20 @@
 			}	
 		}
 	}
-				
+		
+	/*
+	 
+	 $id_usuario = 4;
+	 $id_area = 3;
+	 	 
+	 $suscripcion = new SuscripcionModel();
+	 $suscripcion->id_usuario = $id_usuario;
+	 $suscripcion->id_area = $id_area;
+	 
+	 $suscripcion->borrar();
+	 
+	  
+	 * */
+	
 ?>
 		

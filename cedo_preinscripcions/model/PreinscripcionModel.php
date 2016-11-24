@@ -39,22 +39,23 @@
 		}
 		//recupera una preinscripcion en concreto (id_usuari)
 		public static function recuperar($id_usuari=0){
-						
 			$consulta = "SELECT * FROM v_alumnes_preinscrits 
 						 WHERE id_usuari=$id_usuari";			
-			
 			$datos = Database::get()->query($consulta); //ejecutar la consulta
-			
 			$preinscripcions = array();
-		
 			while($preinscripcion = $datos->fetch_object('PreinscripcionModel'))
 				$preinscripcions[] = $preinscripcion;
 			$datos->free();	//libera memoria
-					
 			return $preinscripcions; //retornar el curso recuperado
-		
 		}
-		
+		//Recupera la preinscripcion de la BDD de un usuario
+		public static function recuperar2($id=0,$id_curs=0){
+			$consulta = "SELECT * FROM v_alumnes_preinscrits WHERE id_usuari=$id AND id_curs=".intval($id_curs).";";
+			$datos = Database::get()->query($consulta); //ejecutar la consulta
+			$preinscripcion = $datos->fetch_object('PreinscripcionModel');
+			$datos->free();	//libera memoria
+			return $preinscripcion; //retornar las suscripciones recuperadas
+		}		
 		
 		//elimina la preinscripci�n del usuario de la BDD
 		public function borrar(){			
