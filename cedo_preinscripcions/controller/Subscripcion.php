@@ -78,36 +78,54 @@
 			//crear una instancia de Subscripciones
 			$usuario = Login::getUsuario(); // verificamos usuario
 			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");
-			$subs = SubscripcionModel::recuperar($usuario->id);
-			if(empty($subs)) throw new Exception('Usuari no te cap subscripción a la BBDD');
+			if($usuario->admin)//recuperamos todas
+				$subs = SubscripcionModel::recuperartodo();
+			elseif($usuario) //recuperamos las del usuario
+				$subs = SubscripcionModel::recuperar($usuario->id);
+
+			if(empty($subs)) throw new Exception('No hi ha cap subscripción a la BBDD');
 			$area=AreaModel::recuperar($id_area);// verificamos area
 			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");			
 			//si no nos están enviando la confirmación de baja
-			if(empty($_POST['confirmar'])){
-				//carga el formulario de confirmación
-				$datos = array();
-				$datos['usuario'] = $usuario;
-				$this->load_view('view/subscripcions/baja.php', $datos);		
-				//si nos están enviando la confirmación de baja
-			}else{
-				//validar password
-				$p = Database::get()->real_escape_string($_POST['data_naixement']);
-				if($usuario->data_naixement != $p)
-					throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
-					//de borrar el usuario actual en la BDD
-					foreach($subs as $sub){
-						if ($sub->id_area == $area) exit;						
-					}
-					if(empty($sub)) throw new Exception('Subscripció no trobada');
-   					if(!$sub->borrar())
-						throw new Exception('No es va poder fer la baixa de la Subscripció');
-					//mostrar la vista de éxito
+			if(!$usuario->admin){
+				if(empty($_POST['confirmar'])){
+					//carga el formulario de confirmación
 					$datos = array();
 					$datos['usuario'] = $usuario;
-					$datos['mensaje'] = "Subscripció esborrada amb éxit";
-					$this->load_view('view/exito.php', $datos);   					
-				}		
-			}
+					$this->load_view('view/subscripcions/baja.php', $datos);		
+					//si nos están enviando la confirmación de baja
+				}else{
+					//validar password
+					$p = Database::get()->real_escape_string($_POST['data_naixement']);
+					if($usuario->data_naixement != $p)
+						throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
+						//de borrar el usuario actual en la BDD
+						foreach($subs as $sub){
+							if ($sub->id_area == $id_area) break;						
+						}
+						if(empty($sub)) throw new Exception('Subscripció no trobada');
+	   					if(!$sub->borrar())
+							throw new Exception('No es va poder fer la baixa de la Subscripció');
+						//mostrar la vista de éxito
+						$datos = array();
+						$datos['usuario'] = $usuario;
+						$datos['mensaje'] = "Subscripció esborrada amb éxit";
+						$this->load_view('view/exito.php', $datos);   					
+					}		
+			}else{ var_dump($subs);echo "============================";
+				foreach($subs as $sub) 
+					if ($sub->id_area == $id_area) break;
+				var_dump($id_area);echo "============================";
+				var_dump($sub);echo "============================";
+				if(empty($sub)) throw new Exception('Subscripció no trobada');
+		   		if(!$sub->borrar())	throw new Exception('No es va poder fer la baixa de la Subscripció');
+		   		//mostrar la vista de éxito
+		   		$datos = array();
+		   		$datos['usuario'] = $usuario;
+		   		$datos['mensaje'] = "Subscripció esborrada amb éxit";
+		   		$this->load_view('view/exito.php', $datos);		   		
+			}	
+		}
 	}
 				
 ?>
