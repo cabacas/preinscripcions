@@ -47,8 +47,6 @@
 					$u->imatge = $upload->upload_image();
 				}
 								
-				var_dump($u);
-				
 				//guardar el usuario en BDD
 				if(!$u->guardar())					
 					throw new Exception("No es va poder enregistrar l'usuari");
@@ -139,7 +137,7 @@
 		}
 		
 		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
-		public function modificacion($id){
+		public function modificacion(){
 			//si no hay usuario identificado... error
 			if(!Login::getUsuario())
 				throw new Exception("Has d'estar identificar per modificar les teves dades");
@@ -243,7 +241,9 @@
 			}else{
 				//validar password
 				$p = Database::get()->real_escape_string($_POST['data_naixement']);
-				if($u->data_naixement != $p) 
+								
+				if($u->data_naixement != $p)						
+				
 					throw new Exception('La data de naixement no coincideix, no es pot processar la baixa');
 				
 				//de borrar el usuario actual en la BDD
@@ -254,8 +254,9 @@
 				if($u->imatge!=Config::get()->default_user_image)
 					@unlink($u->imatge); 
 			
-				//cierra la sesion
-				Login::log_out();
+				//cierra la sesion si no es admin
+				if (!Login::isAdmin())
+						Login::log_out();
 					
 				//mostrar la vista de éxito
 				$datos = array();
@@ -263,6 +264,49 @@
 				$datos['mensaje'] = 'Eliminat OK';
 				$this->load_view('view/exito.php', $datos);
 			}
+		}
+		
+		//PROCEDIMIENTO PARA DAR DE BAJA UN USUARIO
+		//solicita confirmación
+		public function baja_admin($id){
+			//recuperar usuario
+			$u = Login::getUsuario();
+			
+			//si no hay usuario identificado... error
+			if(!Login::isAdmin())
+				throw new Exception("Has d'estar identificar com Administrador");
+				
+/*			//si no nos están enviando la conformación de baja
+			if(empty($_POST['confirmar'])){
+				//carga el formulario de confirmación
+				$datos = array();
+				$datos['usuario'] = $u;
+				$datos['usuari'] = UsuarioModel::getUsuari($id);
+				$this->load_view('view/usuarios/baja.php', $datos);
+					
+				//si nos están enviando la confirmación de baja
+			}else{*/
+				//recuperar los datos actuales del usuario
+				$u = UsuarioModel::getUsuari($id);
+						
+				//de borrar el usuario actual en la BDD
+				if(!$u->borrar())
+					throw new Exception('No es va poder fer la baixa');
+	
+				//borra la imagen (solamente en caso que no sea imagen por defecto)
+				if($u->imatge!=Config::get()->default_user_image)
+					@unlink($u->imatge);
+						
+				//cierra la sesion si no es admin
+				if (!Login::isAdmin())
+					Login::log_out();
+						
+					//mostrar la vista de éxito
+					$datos = array();
+					$datos['usuario'] = Login::getUsuario();
+					$datos['mensaje'] = 'Eliminat OK';
+					$this->load_view('view/exito.php', $datos);
+			//}
 		}
 		
 		//Listar usuarios

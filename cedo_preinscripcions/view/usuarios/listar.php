@@ -44,15 +44,20 @@
 						echo '<td><b><a href="index.php?controlador=Usuario&operacion=modificacion&parametro='.$usuari->id.'">';
 						echo "<img class='boton' src='images/buttons/editar.png' alt='ver usuari'/>";
 						echo "</a></b></td>";
+						echo '<td><b><a href="index.php?controlador=Usuario&operacion=baja&parametro='.$usuari->id.'">';
+						echo "<img class='boton' src='images/buttons/borrar.png' alt='ver usuari'/>";
+						echo "</a></b></td>";
 					}else{
 						echo '<td><b><a href="index.php?controlador=Usuario&operacion=modificacion_admin&parametro='.$usuari->id.'">';
 						echo "<img class='boton' src='images/buttons/editar.png' alt='ver usuari'/>";
 						echo "</a></b></td>";
+						echo '<td><b><a href="index.php?controlador=Usuario&operacion=baja_admin&parametro='.$usuari->id.'">';
+						echo "<img class='boton' src='images/buttons/borrar.png' alt='ver usuari'/>";
+						echo "</a></b></td>";
+						
 					}
 					
-					echo '<td><b><a href="index.php?controlador=Usuario&operacion=baja&parametro='.$usuari->id.'">';
-					echo "<img class='boton' src='images/buttons/borrar.png' alt='ver usuari'/>";
-					echo "</a></b></td>";
+					
 					
 				echo '</tr>';
 			}		
