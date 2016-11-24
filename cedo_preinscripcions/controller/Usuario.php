@@ -276,16 +276,6 @@
 			if(!Login::isAdmin())
 				throw new Exception("Has d'estar identificar com Administrador");
 				
-/*			//si no nos están enviando la conformación de baja
-			if(empty($_POST['confirmar'])){
-				//carga el formulario de confirmación
-				$datos = array();
-				$datos['usuario'] = $u;
-				$datos['usuari'] = UsuarioModel::getUsuari($id);
-				$this->load_view('view/usuarios/baja.php', $datos);
-					
-				//si nos están enviando la confirmación de baja
-			}else{*/
 				//recuperar los datos actuales del usuario
 				$u = UsuarioModel::getUsuari($id);
 						
