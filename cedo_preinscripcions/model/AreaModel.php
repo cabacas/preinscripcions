@@ -35,7 +35,7 @@
 
 		//toString()
 		public function __toString(){
-			return "id:$this->id, nom:$this->nom";
+			return "Nom:$this->nom";
 		} 
 	}
 ?>

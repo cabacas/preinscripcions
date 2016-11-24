@@ -68,7 +68,7 @@
 					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>
 					<li><a href="index.php?controlador=Subscripcion&operacion=guardar">Nova Subscripció</a></li>									
 					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
-					<li><a href="index.php?controlador=Area&operacion=guardar">Nova Àrea Formativa</a></li>
+					<li><a href="index.php?controlador=Areas&operacion=crear">Nova Àrea Formativa</a></li>
 					
 				</ul>								
 				<?php } elseif($usuario){	 ?>

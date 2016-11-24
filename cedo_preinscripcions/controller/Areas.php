@@ -2,10 +2,12 @@
 	require_once 'model/AreaModel.php';
 	//CONTROLADOR CURSO 
 	// implementa las operaciones que se pueden realizar el area
-	class Area extends Controller{
+	class Areas extends Controller{
 
 		//PROCEDIMIENTO PARA LISTAR LAS AREAS
 		public function listar(){
+			$usuario=Login::getUsuario();
+			if(!$usuario) throw new Exception('Operació vàlida només per Usuaris Registrats i Administradors');
 			//recuperamos todos los areas
 			$areas = AreaModel::recuperartodo();
 			//mostrar la vista de lista de areas
@@ -14,6 +16,7 @@
 			$datos['areas'] = $areas;
 			$this->load_view('view/areas/lista.php', $datos);
 		}
+		
 		//PROCEDIMIENTO PARA CREAR UN AREA NUEVA
 		public function crear(){
 			$usuario=Login::getUsuario();

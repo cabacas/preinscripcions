@@ -20,14 +20,17 @@
 			<h2>LListat de Arees Formatives</h2>
 			<table border=1 id="list"> 
 				<tr>
-					<th>ID</th><th>NOM AREA FORMATIVA</th>
+					<th>ID</th><th>NOM AREA FORMATIVA</th><th>ACCIO</th>
 				</tr>
 		<?php 
 			foreach($areas as $area){ 
 				echo '<tr>';
 				echo "<td> $area->id</td>";
 				echo "<td> $area->nom</td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Esborrar Area</a></b></td>';
+				if(!$usuario->admin)
+					echo '<td><p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$area->id.'" >Suscrite al Area Formativa</a></b></p></td>';
+				else
+					echo '<td><b><a href="index.php?controlador=Areas&operacion=baja&parametro='.$area->id.'" >Esborrar Area</a></b></td>';
 				echo '</tr>';
 			}		
 		?>

@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Nova Area</title>
+		<title>Esborrar Area Formativa</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -17,12 +17,14 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>Nova Area</h2>
+			<h2>Esborrar Area Formativa</h2>
 			<form method="post" id="formulario">
-				 	<label>Nom Area:</label>
-				 	<input type='text' name='nom' required="required" /><br>
+				<label>Id Area Formativa:</label>
+				<input type='text' name='id' readonly="readonly" required="required" value="<?php echo $area->id;?>"/><br>
+			 	<label>Nom Area:</label>
+				 <input type='text' name='nom' readonly="readonly" required="required"  value="<?php echo $area->nom;?>"/><br>
 				 				 	    
-			 	    <input type='submit' value='guardar' name='nueva'/><br>	 	
+		 	    <input type='submit' value='Confirmar Esborrar' name='borrar'/><br>	 	
 			 </form>
 		</section>
 		

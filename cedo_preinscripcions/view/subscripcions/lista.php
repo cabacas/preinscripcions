@@ -35,8 +35,7 @@
 				echo "<td> $sub->data </td>";
 				echo "<td> $sub->id_area </td>";
 				echo "<td> $sub->area </td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=actualizar&parametro='.$sub->id_area.'" >Modificar Subscripció</a></b></td>';
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Esborrar Subscripció</a></b></td>';
+				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'" >Baixa Subscripció</a></b></td>';
 				echo '</tr>';
 			}		
 		?>
