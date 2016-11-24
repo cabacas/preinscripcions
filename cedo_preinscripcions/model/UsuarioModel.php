@@ -13,7 +13,7 @@
 			VALUES ('$this->dni','$this->nom','$this->cognom1','$this->cognom2','$this->data_naixement','
 					$this->estudis','$this->situacio_laboral','$this->prestacio','$this->telefon_mobil', '
 					$this->telefon_fix','$this->email','$this->admin','$this->imatge');";
-					
+							
 			return Database::get()->query($consulta);
 		}
 				
@@ -38,6 +38,8 @@
 							  WHERE id='$this->id';";
 			
 			return Database::get()->query($consulta);
+			
+			
 		}
 		
 		//elimina el usuario de la BDD
@@ -75,7 +77,7 @@
 		}
 		
 		//este método debería retornar un usuario creado con los datos 
-		//de la BDD (o NULL si no existe), a partir de un nombre de usuario
+		//de la BDD (o NULL si no existe), a partir de un dni
 		public static function getUsuario($u){
 			$user_table = Config::get()->db_user_table;
 			$consulta = "SELECT * FROM $user_table WHERE dni='$u';";
@@ -86,5 +88,17 @@
 			
 			return $us;
 		}	
+		//este método debería retornar un usuario creado con los datos
+		//de la BDD (o NULL si no existe), a partir de un id
+		public static function getUsuari($id){
+			$user_table = Config::get()->db_user_table;
+			$consulta = "SELECT * FROM $user_table WHERE id='$id';";
+			$resultado = Database::get()->query($consulta);
+				
+			$us = $resultado->fetch_object('UsuarioModel');
+			$resultado->free();
+				
+			return $us;
+		}		
 	}
 ?>

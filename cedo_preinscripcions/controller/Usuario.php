@@ -47,6 +47,8 @@
 					$u->imatge = $upload->upload_image();
 				}
 								
+				var_dump($u);
+				
 				//guardar el usuario en BDD
 				if(!$u->guardar())					
 					throw new Exception("No es va poder enregistrar l'usuari");
@@ -59,40 +61,43 @@
 			}
 		}
 		
-
 		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
-		public function modificacion($id){
+		public function modificacion_admin($id){
 			//si no hay usuario identificado... error
-			//if(!Login::getUsuario())
-			//throw new Exception("Has d'estar identificar per modificar les teves dades");
+			if(!Login::isAdmin())
+				throw new Exception("Has d'estar identificar com Administrador");
 				
 			//si no llegan los datos a modificar
 			if(empty($_POST['modificar'])){
 				
 				//mostramos la vista del formulario
-				$datos = array();
-				$datos['usuario'] = UsuarioModel::getUsuario($id);
+				$datos = array();				
+				$datos['usuario'] = Login::getUsuario();
+				$datos['usuari'] = UsuarioModel::getUsuari($id);
 				$datos['max_image_size'] = Config::get()->user_image_max_size;
-				$this->load_view('view/usuarios/modificacion.php', $datos);
+				$this->load_view('view/usuarios/modificacion_admin.php', $datos);
 					
 				//si llegan los datos por POST
 			}else{
 				//recuperar los datos actuales del usuario
-				$u = Login::getUsuario();
-				$conexion = Database::get();
-				
-				//comprueba que el usuario se valide correctamente
-				$p = $conexion->real_escape_string($_POST['data_naixement']);
-				if($u->data_naixement != $p)
-					throw new Exception('La Data de naixement no coincideix, no es pot processar la modificació');
-								
-				//recupera el nuevo password (si se desea cambiar)
-				//if(!empty($_POST['newpassword']))
-				//	$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
+				$u = UsuarioModel::getUsuari($id);
+				$conexion = Database::get();							
 				
 				//recupera el nuevo nombre y el nuevo email
+				$u->dni = $conexion->real_escape_string($_POST['dni']);
+				$u->data_naixement = $conexion->real_escape_string($_POST['data_naixement']);
 				$u->nom = $conexion->real_escape_string($_POST['nom']);
+				$u->cognom1 = $conexion->real_escape_string($_POST['cognom1']);
+				$u->cognom2= $conexion->real_escape_string($_POST['cognom2']);
+				$u->estudis = $conexion->real_escape_string($_POST['estudis']);
+				$u->situacio_laboral = $conexion->real_escape_string($_POST['situacio_laboral']);
+				$u->prestacio = $conexion->real_escape_string($_POST['prestacio']);
+				$u->telefon_mobil = $conexion->real_escape_string($_POST['telefon_mobil']);
+				$u->telefon_fix = $conexion->real_escape_string($_POST['telefon_fix']);
 				$u->email = $conexion->real_escape_string($_POST['email']);
+				//$u->admin = $conexion->real_escape_string($_POST['admin']);
+				$u->imatge = Config::get()->default_user_image;
+								
 						
 				//TRATAMIENTO DE LA NUEVA IMAGEN DE PERFIL (si se indicó)
 				if($_FILES['imagen']['error']!=4){
@@ -123,7 +128,7 @@
 						
 				//hace de nuevo "login" para actualizar los datos del usuario
 				//desde la BDD a la variable de sesión.
-				Login::log_in($u->dni, $u->data_naixement);
+				//Login::log_in($u->dni, $u->data_naixement);
 					
 				//mostrar la vista de éxito
 				$datos = array();
@@ -131,6 +136,90 @@
 				$datos['mensaje'] = 'Modificació OK';
 				$this->load_view('view/exito.php', $datos);
 			}
+		}
+		
+		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
+		public function modificacion($id){
+			//si no hay usuario identificado... error
+			if(!Login::getUsuario())
+				throw new Exception("Has d'estar identificar per modificar les teves dades");
+		
+				//si no llegan los datos a modificar
+				if(empty($_POST['modificar'])){
+		
+					//mostramos la vista del formulario
+					$datos = array();
+					$datos['usuario'] = Login::getUsuario();				
+					$datos['max_image_size'] = Config::get()->user_image_max_size;
+					$this->load_view('view/usuarios/modificacion.php', $datos);
+						
+					//si llegan los datos por POST
+				}else{
+					//recuperar los datos actuales del usuario
+					$u = Login::getUsuario();
+					$conexion = Database::get();
+		
+					//comprueba que el usuario se valide correctamente
+					//$p = $conexion->real_escape_string($_POST['data_naixement']);
+					//if($u->data_naixement != $p)
+					//	throw new Exception('La Data de naixement no coincideix, no es pot processar la modificació');
+		
+					//recupera el nuevo password (si se desea cambiar)
+					//if(!empty($_POST['newpassword']))
+					//	$u->data_naixement = $conexion->real_escape_string($_POST['newpassword']);
+		
+						//recupera el nuevo nombre y el nuevo email						
+						$u->dni = $conexion->real_escape_string($_POST['dni']);
+						$u->data_naixement = $conexion->real_escape_string($_POST['data_naixement']);
+						$u->nom = $conexion->real_escape_string($_POST['nom']);
+						$u->cognom1 = $conexion->real_escape_string($_POST['cognom1']);
+						$u->cognom2= $conexion->real_escape_string($_POST['cognom2']);
+						$u->estudis = $conexion->real_escape_string($_POST['estudis']);
+						$u->situacio_laboral = $conexion->real_escape_string($_POST['situacio_laboral']);
+						$u->prestacio = $conexion->real_escape_string($_POST['prestacio']);
+						$u->telefon_mobil = $conexion->real_escape_string($_POST['telefon_mobil']);
+						$u->telefon_fix = $conexion->real_escape_string($_POST['telefon_fix']);
+						$u->email = $conexion->real_escape_string($_POST['email']);
+						//$u->admin = $conexion->real_escape_string($_POST['admin']);
+						$u->imatge = Config::get()->default_user_image;
+														
+						//TRATAMIENTO DE LA NUEVA IMAGEN DE PERFIL (si se indicó)
+						if($_FILES['imagen']['error']!=4){
+							//el directorio y el tam_maximo se configuran en el fichero config.php
+							$dir = Config::get()->user_image_directory;
+							$tam = Config::get()->user_image_max_size;
+								
+							//prepara la carga de nueva imagen
+							$upload = new Upload($_FILES['imagen'], $dir, $tam);
+								
+							//guarda la imagen antigua en una var para borrarla
+							//después si todo ha funcionado correctamente
+							$old_img = $u->imatge;
+								
+							//sube la nueva imagen
+							$u->imatge = $upload->upload_image();
+						}
+		
+		
+						//modificar el usuario en BDD
+						if(!$u->actualizar())
+							throw new Exception('No va ser posible la modificació');
+		
+							//borrado de la imagen antigua (si se cambió)
+							//hay que evitar que se borre la imagen por defecto
+							if(!empty($old_img) && $old_img!= Config::get()->default_user_image)
+								@unlink($old_img);
+		
+								//hace de nuevo "login" para actualizar los datos del usuario
+								//desde la BDD a la variable de sesión.
+								Login::log_in($u->dni, $u->data_naixement);
+									
+								//mostrar la vista de éxito
+								$datos = array();
+								$datos['usuario'] = Login::getUsuario();
+								$datos['mensaje'] = 'Modificació OK';
+								$this->load_view('view/exito.php', $datos);
+				}
 		}
 		
 		
