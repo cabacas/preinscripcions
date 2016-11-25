@@ -73,8 +73,8 @@ body{
 
 /* HEADER */
 header{
-	padding: 20px;
-	background-color: #eef;
+	padding: 5px;
+	background-color: #babdb6;
 	color: white;
 	text-shadow: 1px 1px 3px #99a;
 }
@@ -88,11 +88,13 @@ header h1{
 }
 
 header figure{
-	flex: 1;
+	flex: 1;	
 }
 
 header figure img{
 	width: 80%;
+	border-radius: 49px 49px 49px 49px;
+	border: 7px solid #d1cad1;	
 }
 
 header hgroup{
@@ -129,7 +131,7 @@ header hgroup{
 
 /* BARRA DE NAVEGACION */
 nav{
-	background-color: #aaf;
+	background-color: #babdb6;
 	color: white;
 	display: flex;
 	border: solid 2px #aaf;
@@ -155,8 +157,34 @@ nav ul.menu>li{
 }
 nav ul.menu>li:hover{
 	color: #aaf;
-	background-color: white;	
+	background-color: white;
+	color: black;	
 }
+
+.submenu {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+}
+
+nav ul.submenu>li{
+	display: inline-block;
+	list-style-type: none;
+	padding: 8px;	
+	transition: 0.5s;
+}
+
+nav ul.submenu>li:hover{
+	color: #aaf;
+	background-color: white;
+	color: black;	
+}
+
+
+
 
 /* AREA PARA EL CONTENIDO */
 #content{

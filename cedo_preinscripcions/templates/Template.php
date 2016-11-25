@@ -6,13 +6,13 @@
 			<header>
 				<figure>
 					<a href="index.php">
-						<img alt="Robs Micro Framework logo" src="images/logos/logo.png" />
+						<img alt="Robs Micro Framework logo" src="images/logos/logo_gencat.png" />
 					</a>
 				</figure>
 				<hgroup>
-					<h1>RMF - RobS Micro Framework</h1>
-					<h2>Para el desarrollo de aplicaciones web</h2>
-				</hgroup>
+					<h1>CEDO - CENTRE DE FORMACIÓ OCUPACIONAL</h1>
+					<h2>Preinscripcions d'Alumnes a Cursos</h2>
+				</hgroup>				
 			</header>
 		<?php }
 		
@@ -60,7 +60,11 @@
 				
 				//pone el menú del administrador
 				if($usuario && $usuario->admin){?>	
-				<ul class="menu">		
+				<ul class="menu">
+					<ul class="submenu">
+						<li><a href="#Hola"></a></li>
+						<li><a href="#Adios"></a></li>
+					</ul>		
 					<li><a href="index.php?controlador=Usuario&operacion=listar">Llistat Alumnes</a></li>
 					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>					
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
