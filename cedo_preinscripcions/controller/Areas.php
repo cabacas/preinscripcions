@@ -1,9 +1,27 @@
 <?php
 	require_once 'model/AreaModel.php';
+	require_once 'model/SubscripcionModel.php';
 	//CONTROLADOR CURSO 
 	// implementa las operaciones que se pueden realizar el area
 	class Areas extends Controller{
 
+			//PROCEDIMIENTO PARA VER UN AREA
+		public function ver($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario) throw new Exception('Operació vàlida només per Usuaris Registrats i Administradors');
+			//recuperamos todos los areas
+			$area = AreaModel::recuperar($id);
+			if(!$area) throw new Exception('Area Formativa no trobada a la BBDD');
+			$subs = SubscripcionModel::recuperar3($id);
+			//mostrar la vista de lista de areas
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['subs'] = $subs;
+			$datos['area'] = $area;
+			$this->load_view('view/areas/detalle.php', $datos);
+		}
+		
+			
 		//PROCEDIMIENTO PARA LISTAR LAS AREAS
 		public function listar(){
 			$usuario=Login::getUsuario();

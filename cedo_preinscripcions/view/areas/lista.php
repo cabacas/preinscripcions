@@ -20,7 +20,9 @@
 			<h2>LListat de Arees Formatives</h2>
 			<table border=1 id="list"> 
 				<tr>
-					<th>ID</th><th>NOM AREA FORMATIVA</th><th>ACCIO</th>
+					<th>ID</th><th>NOM AREA FORMATIVA</th>
+					<?php if($usuario->admin) echo"</th><th>VEURE</th><th>ESBORRAR</th>";
+						  else echo"<th>SUSCRIUTE</th>"; ?>
 				</tr>
 		<?php 
 			foreach($areas as $area){ 
@@ -29,8 +31,10 @@
 				echo "<td> $area->nom</td>";
 				if(!$usuario->admin)
 					echo '<td><p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$area->id.'" >Suscrite al Area Formativa</a></b></p></td>';
-				else
+			    else{
+					echo '<td><p><b><a href="index.php?controlador=Areas&operacion=ver&parametro='.$area->id.'" >Detalls</a></b></p></td>';
 					echo '<td><b><a href="index.php?controlador=Areas&operacion=baja&parametro='.$area->id.'" >Esborrar Area</a></b></td>';
+			    }
 				echo '</tr>';
 			}		
 		?>
