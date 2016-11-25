@@ -34,7 +34,7 @@
 						echo '<table border=1 id="list">';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
-						<th>NOM CURS</th>'; 
+						<th>NOM AREA</th>'; 
 						if($usuario->admin) echo '<th>ESBORRAR</th>';
 						echo '<tr>';	
 						foreach($subs as $sub){ 

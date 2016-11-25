@@ -82,6 +82,33 @@
 				<label></label>
 				<input type="submit" name="modificar" value="modificar"/><br/>
 			</form>
+			<?php echo '<br><br><h2>Subscripcions del Alumne<h2>'; 
+				echo '<table border=1 id="list">';
+				echo '<tr>';
+				echo '<th>SUBSCRIPCIONS AREA</th><th>ESBORRAR</th>';
+				echo '<tr>';	
+				foreach($subs as $sub){ 
+					echo '<tr>';
+					echo "<td> $sub->area</td>";
+   				    echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
+						.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+					echo '</tr>';
+				}
+				echo '</table><br>';
+				echo '<br><h2>Preinscripcions del Alumne<h2>';
+				echo '<table border=1 id="list">';
+				echo '<tr>';
+				echo '<th>PREISCRIPCIONS CURS</th><th>ESBORRAR</th>';
+				echo '<tr>';
+				foreach($preinscripcions as $preinscripcion){
+					echo '<tr>';
+					echo "<td> $preinscripcion->nom_curs</td>";
+					echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
+							.$preinscripcion->id_curs.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+							echo '</tr>';
+				}
+				echo '</table><br>';				
+			?>
 			
 				
 		</section>
