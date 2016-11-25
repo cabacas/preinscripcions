@@ -62,8 +62,8 @@
 		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
 		public function modificacion_admin($id){
 			//si no hay usuario identificado... error
-			if(!Login::isAdmin())
-				throw new Exception("Has d'estar identificar com Administrador");
+			if(!Login::getUsuario())throw new Exception("Has d'estar identificar");
+			if (!Login::isAdmin())	throw new Exception("Has de ser Administrador");
 				
 			//si no llegan los datos a modificar
 			if(empty($_POST['modificar'])){

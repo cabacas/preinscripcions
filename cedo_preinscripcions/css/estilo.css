@@ -173,13 +173,15 @@ nav ul.menu>li:hover{
 }
 
 #content table th{
-	color: white;
-	background-color: blue;	
+	color: black;
+	background-color: grey;	
 	text-align: center;
 	font-weight: bold;
+	font-size: small;
 }
 #content table td, #content table th{
-	padding: 10px;
+	padding: 4px;
+	font-size: small;
 }
 #content table tr:nth-of-type(even){
 	background-color: #eef;
