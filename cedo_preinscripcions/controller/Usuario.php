@@ -307,7 +307,11 @@ require_once 'model/PreinscripcionModel.php';
 		
 		//Listar usuarios
 		public function listar(){
-		
+			if(!Login::getUsuario())
+				throw new Exception("Has d'estar identificar per veure les dades");
+			if (!Login::isAdmin())
+				throw new Exception("Has de ser Administrador per accedir a aquesta vista");
+						
 			//recuperamos todos los usuarios
 			$usuaris = UsuarioModel::recuperartodo();
 		
