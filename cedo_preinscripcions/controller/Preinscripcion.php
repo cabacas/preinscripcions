@@ -67,10 +67,13 @@
 			$usuario=Login::getUsuario();
 			if (!$usuario)
 				throw new  Exception("Només per a usuaris enregistrats");
-			
 			if($usuario->admin)				
-				//recuperamos todas las preinscripciones
-				$preinscripcions = PreinscripcionModel::recuperartodo();
+				if(!empty($_POST['filtracurs'])){ // Recupera filtrado
+					$filtro=$_POST['filtrocurs'];
+					$preinscripcions = PreinscripcionModel::recuperarfiltro($filtro);
+				}else	//recuperamos todas
+					$preinscripcions = PreinscripcionModel::recuperartodo();
+				
 			else				
 				//Recuperar la preinscripción indicada
 				$preinscripcions = PreinscripcionModel::recuperar($usuario->id);

@@ -8,8 +8,11 @@
 		public function listar(){
 			$usuario=Login::getUsuario();
 			if(!$usuario)  throw new Exception('Operación válida solo usuarios registrados y Administradores');
-			if($usuario->admin){			
-				//recuperamos todas 
+			if($usuario->admin){
+				if(!empty($_POST['filtrarea'])){
+					$filtro=$_POST['filtroarea'];
+					$subs = SubscripcionModel::recuperarfiltro($filtro);
+				}else	//recuperamos todas 
 				$subs = SubscripcionModel::recuperartodo();
 			}elseif($usuario){
 				//recuperamos las del usuario

@@ -18,6 +18,15 @@
 		?>
 		<section id="content">
 			<h2>LListat de Subscripcions</h2>
+			<?php 
+			if($usuario->admin){ //pone el filtro
+				echo'<form id="filtro" method="post">';
+				 echo"<label>Filtro por Area: </label>";
+  				 echo"<input type='text' name='filtroarea'/>";	
+  				 echo"<input type='submit' value='Filtrar' name='filtrarea'/>";	
+				echo"</form>";
+			}
+			?>
 			<table border=1 id="list"> 
 				<tr>
 					<th>ID USUARI</th><th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>

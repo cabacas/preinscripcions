@@ -17,7 +17,17 @@
 			Template::menu($usuario); //pone el menú
 		?>
 		<section id="content">
-			<h2>Llistat de preinscripcions</h2>			
+			<h2>Llistat de preinscripcions</h2>
+			<?php 
+			if($usuario->admin){ //pone el filtro
+				echo'<form id="filtro" method="post">';
+					echo"<label>Nom Curs:</label>";
+					echo"<input type='text' name='filtrocurs'/>";				
+					echo"<input type='submit' value='Filtrar' name='filtracurs'/>";	
+				echo"</form>";
+			}
+			?>
+						
 			<table border=1 id="list"> 
 			<tr>
 				<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>

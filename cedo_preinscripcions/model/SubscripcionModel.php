@@ -14,7 +14,17 @@
 			$datos->free();			//liberar memoria
 			return $subs;
 		}
-
+		//Recupera todas las suscripciones filtrando por Area formativa
+		public static function recuperarfiltro($filtro=''){
+			if ($filtro=='') $consulta = "SELECT * FROM v_alumnes_suscrits;";
+			else $consulta = "SELECT * FROM v_alumnes_suscrits WHERE area LIKE '%$filtro%';";
+			$datos = Database::get()->query($consulta);//ejecutar la consulta
+			$subs = array();
+			while($sub = $datos->fetch_object('SubscripcionModel'))
+				$subs[] = $sub;
+			$datos->free();			//liberar memoria
+			return $subs;
+		}
 		//Recupera las suscripciones de la BDD de un usuario
 		public static function recuperar($id=0){
 			$consulta = "SELECT * FROM v_alumnes_suscrits WHERE id_usuari=$id;"; 

@@ -34,6 +34,18 @@
 			$datos->free();			//liberar memoria
 			return $preinscripcions;
 		}
+		//Recupera todas las suscripciones filtrando por Curso
+		public static function recuperarfiltro($filtro=''){
+			if ($filtro=='') $consulta = $consulta = "SELECT * FROM v_alumnes_preinscrits;";
+			else $consulta = "SELECT * FROM v_alumnes_preinscrits WHERE nom_curs LIKE '%$filtro%';";
+			$datos = Database::get()->query($consulta);//ejecutar la consulta
+			$presinscripcions = array();
+			while($preinscripcio = $datos->fetch_object('PreinscripcionModel'))
+				$preinscripcions[] = $preinscripcio;
+			$datos->free();			//liberar memoria
+			return $preinscripcions;
+		}
+				
 		//recupera una preinscripcion en concreto (id_usuari)
 		public static function recuperar($id_usuari=0){
 			$consulta = "SELECT * FROM v_alumnes_preinscrits 
