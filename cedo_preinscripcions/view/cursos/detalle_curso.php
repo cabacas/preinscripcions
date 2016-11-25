@@ -35,13 +35,38 @@
 				if($usuario){
 					echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
 					echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
-				}
-				//Si es administrador
-				if($usuario && $usuario->admin){				
-					echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
-					echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
-				}
-				echo '';
+				
+					//Si es administrador
+					if($usuario->admin){				
+						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
+						echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
+					}
+					if($usuario || $usuario->admin){
+						echo '<h2>Alumnes Preinscrits al Curs<h2>'; 
+						echo '<table border=1 id="list">';
+						echo '<tr>';
+						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
+						<th>NOM CURS</th>'; 
+						if($usuario->admin) echo '<th>ACCIÓ</th>';
+						echo '<tr>';	
+						foreach($preinscripcions as $preinscripcio){
+							echo '<tr>';
+							echo "<td> $preinscripcio->dni </td>";
+							echo "<td> $preinscripcio->nom </td>";
+							echo "<td> $preinscripcio->telefon_mobil </td>";
+							echo "<td> $preinscripcio->telefon_fix</td>";
+							echo "<td> $preinscripcio->email</td>";
+							echo "<td> $preinscripcio->data</td>";
+							echo "<td> $preinscripcio->nom_curs</td>";
+							if($usuario->admin)
+							  echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
+								.$preinscripcio->id_curs.'&pu='.$preinscripcio->id_usuari.'" >Baixa</a></b></td>';
+							echo '</tr>';
+						}
+						echo '</table><br>';
+					}
+				}	
+				echo '';				
 		?>
 
 		</section>

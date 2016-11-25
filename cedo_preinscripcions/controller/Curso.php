@@ -1,5 +1,6 @@
 <?php
 	require_once 'model/CursoModel.php';
+	require_once 'model/PreinscripcionModel.php';
 	//CONTROLADOR CURSO 
 	// implementa las operaciones que se pueden realizar el curso
 	class Curso extends Controller{
@@ -26,12 +27,15 @@
 		//PROCEDIMIENTO PARA VER LOS DETALLES DE UN CURSO
 		public function ver($id){
      		//Recuperar el curso indicado
-			$curso = CursoModel::recuperar($id);
+			$curso = CursoModel::recuperar($id); 
 			if(empty($curso)) throw new Exception('No se encontró el id indicado');
+			//Recuperar las preinscripciones del curso en concreto
+			$preinscripcions = PreinscripcionModel::recuperar3($id);	
      		//mostrar la vista de detalle de curso
 			$datos = array();
 			$datos['usuario'] = Login::getUsuario();
 			$datos['curso'] = $curso;
+			$datos['preinscripcions'] = $preinscripcions;
 			$this->load_view('view/cursos/detalle_curso.php', $datos);
 		}
 		//PROCEDIMIENTO PARA CREAR UN CURSO NUEVO

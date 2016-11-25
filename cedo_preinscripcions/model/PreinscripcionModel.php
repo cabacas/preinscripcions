@@ -26,16 +26,13 @@
 		
 		//Recupera todas las preinscripciones
 		public static function recuperartodo(){
-			
-			$consulta = "SELECT * 
-						 FROM v_alumnes_preinscrits;";
+			$consulta = "SELECT * FROM v_alumnes_preinscrits;";
 			$datos = Database::get()->query($consulta);//ejecutar la consulta
-			$presinscripcions = array();
-		
+			$presinscripcions = array();		
 			while($preinscripcio = $datos->fetch_object('PreinscripcionModel'))
 				$preinscripcions[] = $preinscripcio;
-				$datos->free();			//liberar memoria
-				return $preinscripcions;
+			$datos->free();			//liberar memoria
+			return $preinscripcions;
 		}
 		//recupera una preinscripcion en concreto (id_usuari)
 		public static function recuperar($id_usuari=0){
@@ -55,8 +52,17 @@
 			$preinscripcion = $datos->fetch_object('PreinscripcionModel');
 			$datos->free();	//libera memoria
 			return $preinscripcion; //retornar las suscripciones recuperadas
+		}
+		//Recupera las preinscripciones de la BDD de un curso
+		public static function recuperar3($id_curs=0){ 
+			$consulta = "SELECT * FROM v_alumnes_preinscrits WHERE id_curs=".intval($id_curs).";";
+			$datos = Database::get()->query($consulta); //ejecutar la consulta
+			$presinscripcions = array();		
+			while($preinscripcio = $datos->fetch_object('PreinscripcionModel'))
+				$presinscripcions[] = $preinscripcio;
+			$datos->free();	//liberar memoria
+			return $presinscripcions;
 		}		
-		
 		//elimina la preinscripci�n del usuario de la BDD
 		public function borrar(){			
 			$consulta = "DELETE FROM preinscripcions 
