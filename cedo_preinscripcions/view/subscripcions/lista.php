@@ -14,42 +14,43 @@
 			if(!$usuario) Template::login(); //pone el formulario de login
 			else Template::logout($usuario); //pone el formulario de logout
 			
-			Template::menu($usuario); //pone el menú
+			Template::menu($usuario); //pone el menÃº
 		?>
 		<section id="content">
-			<h2>LListat de Subscripcions</h2>
+			<h2>LListat de Subscripcions</h2>			
 			<?php 
 			if($usuario->admin){ //pone el filtro
 				echo'<form id="filtro" method="post">';
 				 echo"<label>Filtro por Area: </label>";
   				 echo"<input type='text' name='filtroarea'/>";	
-  				 echo"<input type='submit' value='Filtrar' name='filtrarea'/>";	
+  				 echo"<input type='submit' value='Filtrar' class='botonbuscar' name='filtrarea'/>";	
 				echo"</form>";
 			}
 			?>
-			<table border=1 id="list"> 
+			<table border=0.2 id="list"> 
 				<tr>
-					<th>ID USUARI</th><th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>
-					<th>EMAIL</th><th>DATA</th><th>ID AREA FORMATIVA</th><th>NOM AREA FORMATIVA</th><th>ACCIÓ</th>
+					<th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>
+					<th>EMAIL</th><th>DATA</th><th>NOM AREA FORMATIVA</th><th>ACCIÃ</th>
 				</tr>
 		<?php 
 			foreach($subs as $sub){ 
 				echo '<tr>';
-				echo "<td> $sub->id_usuari </td>";
-				echo "<td> $sub->dni </td>";
-				echo "<td> $sub->nom </td>";
-				echo "<td> $sub->telefon_mobil </td>";
-				echo "<td> $sub->telefon_fix </td>";
-				echo "<td> $sub->email </td>";
-				echo "<td> $sub->data </td>";
-				echo "<td> $sub->id_area </td>";
-				echo "<td> $sub->area </td>";
-				echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa Subscripció</a></b></td>';
+					echo "<td> $sub->dni </td>";
+					echo "<td> $sub->nom </td>";
+					echo "<td> $sub->telefon_mobil </td>";
+					echo "<td> $sub->telefon_fix </td>";
+					echo "<td> $sub->email </td>";
+					echo "<td> $sub->data </td>";
+					//echo "<td> $sub->id_area </td>";
+					echo "<td> $sub->area </td>";				
+					echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='.$sub->id_area.' &pu='.$sub->id_usuari.'">';
+					echo "<img class='boton' src='images/buttons/borrar.png' alt='esborrar subscripció'/>";
+					echo "</a></b></td>";					
 				echo '</tr>';
 			}		
 		?>
 			</table><br>
-			<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>
+			<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" ><h2>Exportar Totes a XML</h2></a></b>
 		</section>
 		
 		<?php Template::footer();?>

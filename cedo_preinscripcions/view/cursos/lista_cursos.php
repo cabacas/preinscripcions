@@ -19,27 +19,28 @@
 		<section id="content">
 			<h2>Listado de Cursos</h2>
 			<form id="filtron" method="post">
-				<label>Filtre per Nom Curs: </label> <input type="text" name="filtron"/>
-				<input type="submit" value="Filtrar" name="filtran"/>
-			</form>
+				<label>Filtrar per Nom:</label>
+				<input type="text" name="filtron"/>				
+				<input type="submit" value="Filtrar" class="botonbuscar" title="filtre" name="filtran"/>
+			</form>			
 			<form id="filtron" method="post">
-				<label>Filtre per nom Area: </label> <input type="text" name="filtroa"/>
-				<input type="submit" value="Filtrar" name="filtraa"/>
+				<label>Filtrar per Àrea:</label> 
+				<input type="text" name="filtroa"/>
+				<input type="submit" value="Filtrar" class="botonbuscar" title="filtre" name="filtraa"/>
 			</form>						
-		<table border=1 id="list"> 
+		<table border=0.2 id="list"> 
 			<tr>
-				<th>ID</th><th>CODI</th><th>ID AREA</th><th>NOM AREA</th><th>NOM CURS</th><th>DESCRIPCIÓ</th><th>HORES</th>
-				<th>DATA D'INICI</th><th>DATA DE FI</th><th>HORARI</th><th>TORN</th><th>TIPUS</th><th>REQUSITS</th><th>DETALLS</th>
+				<th>CODI</th><th>NOM CURS</th><th>HORES</th><th>DATA D'INICI</th><th>DATA FI</th>
+				<th>HORARI</th><th>TORN</th><th>TIPUS</th><th>REQUSITS</th><th>ACCIÓ</th>
 			</tr>
 		<?php
 			foreach($cursos as $curso){
 				echo '<tr>';
-				echo "<td> $curso->id </td>";
+				//echo "<td> $curso->id </td>";
 				echo "<td> $curso->codi </td>";
-				echo "<td> $curso->id_area </td>";
-				echo "<td> $curso->nom_area </td>";
+				//echo "<td> $curso->id_area </td>";
 				echo "<td> $curso->nom </td>";
-				echo "<td> $curso->descripcio </td>";
+				//echo "<td> $curso->descripcio </td>";
 				echo "<td> $curso->hores </td>";
 				echo "<td> $curso->data_inici </td>";
 				echo "<td> $curso->data_fi </td>";
@@ -47,7 +48,13 @@
 				echo "<td> $curso->torn </td>";
 				echo "<td> $curso->tipus </td>";
 				echo "<td> $curso->requisits</td>";
-				echo '<td><b><a href="index.php?controlador=Curso&operacion=ver&parametro='.$curso->id.'" >Detalle</a></b></td>';
+				//echo '<td><b><a href="index.php?controlador=Curso&operacion=ver&parametro='.$curso->id.'" >Detalle</a></b></td>';
+				
+				echo '<td><b><a href="index.php?controlador=Curso&operacion=ver&parametro='
+						.$curso->id.'">';
+				echo "<img class='boton' src='images/buttons/ver.png' alt='detalls' title='detalls curs'/>";
+				echo "</a></b></td>";
+				
 				echo '</tr>';
 			}		
 		?>

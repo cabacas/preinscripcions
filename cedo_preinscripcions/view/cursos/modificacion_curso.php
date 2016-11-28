@@ -21,7 +21,7 @@
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
 				 	<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/><br>
-				 	<label>Area Formativa:</label>
+				 	<label>Àrea Formativa:</label>
 				 	<select  name='id_area' required="required">
 						<option value=0 <?php if($curso->id_area == '0'){echo("selected");}?>>Altres</option>	
 						<option value=1 <?php if($curso->id_area == '1'){echo("selected");}?>>Soldadura</option>	
@@ -69,7 +69,7 @@
 				 	<label>Requisits:</label>
 				 	<input type='text' name='requisits'  value="<?php echo $curso->requisits;?>"/><br>
 				 				 	    
-			 	    <input type='submit' value='guardar' name='modificar'/><br>	 	
+			 	    <input type='submit' value='guardar' class="botoneditar" name='modificar'/><br>	 	
 			 </form>
 		</section>
 		

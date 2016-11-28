@@ -37,7 +37,7 @@
 				 	<label>DNI Usuari:</label>
 				 	<input type='text' name='dni' /><br>
 				 				 	    
-			 	    <input type='submit' value='guardars' name='nuevo'/><br>	 	
+			 	    <input type='submit' value='guardars' class="botonguardar" title="guardar" name='nuevo'/><br>	 	
 			 </form>
 		</section>
 		

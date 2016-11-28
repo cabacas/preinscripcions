@@ -28,8 +28,10 @@
 				<label>Data de Naixement:</label>
 				<input type="text" name="data_naixement" required="required"/><br/>
 				
-				<label></label>
+				<label>Eliminar Preinscripció				
 				<input type="submit" name="confirmar" value="Confirmar"/><br/>
+				</label>
+				
 			</form>
 		</section>
 		

@@ -5,8 +5,8 @@
 		public static function header(){	?>
 			<header>
 				<figure>
-					<a href="index.php">
-						<img alt="Robs Micro Framework logo" src="images/logos/logo_gencat.png" />
+					<a href="http://web.gencat.cat/ca/inici/" target="_blank">
+						<img alt="Generalitat de Catalunya" src="images/logos/logo_gencat.png" />
 					</a>
 				</figure>
 				<hgroup>
@@ -103,7 +103,7 @@
 					<a href="http://www.twitter.com/robertsallent">
          				<img class="logo" alt="twitter logo" src="images/logos/twitter.png" />
 					</a> -  
-					<a href="https://www.facebook.com/cifovalles">CIFO del Vallès'16</a>. 
+					<a href="../images/logos/gencat_ensenyament.png">CEDO Vallès'16</a>. 
          		</p>
 			</footer>
 		<?php }

@@ -47,14 +47,22 @@
 							echo "<td> $sub->data</td>";
 							echo "<td> $sub->area</td>";
 							if($usuario->admin)
-							  echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
-								.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+							  //echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
+							//	.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+								echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
+								.$sub->id_area.'&pu=' .$sub->id_usuari.'>';
+								echo "<img class='boton' src='images/buttons/borrar.png' alt='borrar'/>";
+								echo "</a></b></td>";
+								
 							echo '</tr>';
 						}
 						echo '</table><br>';
 					}
+					if($usuario->admin)
+						echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';
+
 				}	
-				echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';								
+				echo '';				
 		?>
 		</section>
 		<?php Template::footer();?>

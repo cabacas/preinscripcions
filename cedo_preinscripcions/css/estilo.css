@@ -33,7 +33,7 @@ RESET DE ESTILO Y REGLAS GENERALES
 	font-size: 1.2em;
 }
 
-h1, h2, h3{
+h1, h3{
 	margin: 10px 0px 10px 0px;
 }
 
@@ -92,7 +92,7 @@ header figure{
 }
 
 header figure img{
-	width: 80%;
+	width: 70%;
 	border-radius: 49px 49px 49px 49px;
 	border: 7px solid #d1cad1;	
 }
@@ -103,6 +103,7 @@ header hgroup{
 
 
 /* ZONAS DE LOGIN Y LOGOUT */
+
 #login, #logout{
 	text-align: right;
 	padding: 5px 0px 5px 0px;
@@ -130,6 +131,7 @@ header hgroup{
 
 
 /* BARRA DE NAVEGACION */
+
 nav{
 	background-color: #babdb6;
 	color: white;
@@ -161,16 +163,17 @@ nav ul.menu>li:hover{
 	color: black;	
 }
 
-.submenu {
-    list-style-type: none;
+nav ul.submenu li {	
+    list-style-type: none;    
     margin: 0px;
     padding: 0px;
-    width: 200px;
+    width: 150px;
     font-family: Arial, sans-serif;
     font-size: 11pt;
 }
 
 nav ul.submenu>li{
+	
 	display: inline-block;
 	list-style-type: none;
 	padding: 8px;	
@@ -178,12 +181,13 @@ nav ul.submenu>li{
 }
 
 nav ul.submenu>li:hover{
-	color: #aaf;
+	color: white;	
 	background-color: white;
 	color: black;	
 }
 
 /* AREA PARA EL CONTENIDO */
+
 #content{
 	padding: 20px 0px 20px 0px;
 }
@@ -191,6 +195,11 @@ nav ul.submenu>li:hover{
 #content p{
 	text-align: justify;
 }
+
+#content h2{
+	margin: 10px 0px 10px 100px;
+}
+
 
 #content table{
 	margin: auto;
@@ -205,8 +214,9 @@ nav ul.submenu>li:hover{
 	font-size: small;
 }
 #content table td, #content table th{
-	padding: 4px;
-	font-size: small;
+	padding: 1px;
+	font-size: small;	
+	text-align: center;
 }
 #content table tr:nth-of-type(even){
 	background-color: #eef;
@@ -219,6 +229,7 @@ nav ul.submenu>li:hover{
 #content form label{
 	display: inline-block;
 	min-width: 140px;
+	margin-left: 105px;
 }
 
 #content form img.imagenactual{
@@ -243,15 +254,97 @@ table #list{
 	width:80%;
 }
 
+/*BUTTONS*/
+
+.botonguardar{
+	background-image:url(../images/buttons/guardar.png);
+	background-repeat:no-repeat;
+	background-size: 80px 80px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+}
+
+.botonmodificar{
+	background-image:url(../images/buttons/editar.png);
+	background-repeat:no-repeat;
+	background-size: 80px 80px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+}
+
+
+.botonbaja{
+	background-image:url(../images/buttons/borrar.png);
+	background-repeat:no-repeat;
+	background-size: 80px 80px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+}
+.botonbuscar{
+	background-image:url(../images/buttons/buscar.png);
+	background-repeat:no-repeat;
+	background-size: 80px 80px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+}
+
+.botonconfirmar{
+	background-image:url(../images/buttons/confirmar.png);
+	background-repeat:no-repeat;
+	background-size: 50px 50px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+  	background-color:white;
+}
+
+.botonimprimir{
+	background-image:url(../images/buttons/imprimir.png);
+	background-repeat:no-repeat;
+	background-size: 50px 50px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+  	background-color:white;
+}
+
+/* CLASE NO VISIBLE PARA IMPRIMIR */
+
+.nover {
+	display:none
+}
+
 /* FOOTER */
 footer{
 	padding: 20px;
-	background-color: #eef;
+	background-color: #babdb6;
 	
-	background-image: url('../images/logos/wide.png');
+	background-image: url('../images/logos/gencat_ensenyament.png');
 	background-repeat: no-repeat;
 	background-size: 40%;
-	background-position: right top;
+	background-position: right;
 }
 
 footer a:hover{
