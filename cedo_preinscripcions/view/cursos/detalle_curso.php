@@ -18,20 +18,22 @@
 		?>
 		<section id="content">
 			<h2>Detall Curs</h2>
-		<?php
+			<div id="detall">			
+			<?php
 				echo '';
-				echo "<p> ID: $curso->id </p>";
-				echo "<p> CODI: $curso->codi </p>";
-				echo "<p> ID_AREA: $curso->id_area </p>";
-				echo "<p> NOM CURS: $curso->nom </p>";
-				echo "<p> DESCRIPCIÓ: $curso->descripcio </p>";
-				echo "<p> HORES: $curso->hores </p>";
-				echo "<p> DATA D'INICI: $curso->data_inici </p>";
-				echo "<p> DATA DE FI: $curso->data_fi </p>";
-				echo "<p> HORARI: $curso->horari</p>";
-				echo "<p> TORN: $curso->torn </p>";
-				echo "<p> TIPUS: $curso->tipus </p>";
-				echo "<p> REQUSITS: $curso->requisits</p>";
+				//echo "ID: $curso->id";
+				echo "<b>CODI:</b> $curso->codi<br/>";
+				//echo "ID_AREA: $curso->id_area";
+				echo "<b>NOM CURS:</b> $curso->nom<br/>";
+				echo "<b>DESCRIPCIÓ:</b> $curso->descripcio<br/>";
+				echo "<b>HORES:</b> $curso->hores<br/>";
+				echo "<b>DATA D'INICI:</b> $curso->data_inici<br/>";
+				echo "<b>DATA DE FI:</b> $curso->data_fi<br/>";
+				echo "<b>HORARI:</b> $curso->horari<br/>";
+				echo "<b>TORN:</b> $curso->torn<br/>";
+				echo "<b>TIPUS:</b> $curso->tipus<br/>";
+				echo "<b>REQUSITS:</b> $curso->requisits<br/><br/>";
+			 
 				if($usuario){
 					echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
 					echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
@@ -40,10 +42,13 @@
 					if($usuario->admin){				
 						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
 						echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
+					?>
+						</div>
+					<?php 
 					}
 					if($usuario || $usuario->admin){
 						echo '<h2>Alumnes Preinscrits al Curs<h2>'; 
-						echo '<table border=1 id="list">';
+						echo '<table border=0.2 id="list">';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM CURS</th>'; 
@@ -66,9 +71,11 @@
 						echo '</table><br>';
 					}
 					if($usuario->admin)
-						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >Exportar Subscripcions a XML</a></b>';
-				}
+						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >Exportar Preinscripcions a XML</a></b>';
+				}	
+				echo '';				
 		?>
+
 		</section>
 		
 		<?php Template::footer();?>

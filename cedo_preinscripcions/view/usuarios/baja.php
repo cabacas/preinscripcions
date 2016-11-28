@@ -26,10 +26,12 @@
 				<input type="text" readonly="readonly" value="<?php echo $usuario->dni;?>" /><br/>
 				
 				<label>Data de Naixement:</label>
-				<input type="text" name="data_naixement" required="required"/><br/>
+				<input type="text" name="data_naixement" required="required"/>
 				
-				<label></label>
-				<input type="submit" name="confirmar" value="Confirmar"/><br/>
+				<label>Baixa:				
+				<input type="submit" name="confirmar" class="botonbaja" value="Confirmar"/><br/>
+				</label>
+				
 			</form>
 		</section>
 		
