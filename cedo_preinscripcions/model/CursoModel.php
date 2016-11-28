@@ -2,10 +2,11 @@
     class CursoModel{
 		//PROPIEDADES
 		public $id, $codi, $id_area, $nom, $descripcio, $hores, $data_inici, $data_fi, 
-		       $horari, $torn, $tipus, $requisits;
+		       $horari, $torn, $tipus, $requisits, $nom_area;
 		//Metodos
 		public static function recuperartodo(){
-			$consulta = "SELECT * FROM cursos;";
+			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
+							INNER JOIN arees_formatives as a ON c.id_area=a.id ;";
 			$datos = Database::get()->query($consulta);//ejecutar la consulta
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
@@ -14,7 +15,9 @@
 			return $cursos;
 		}
 		public static function recuperar($id=0){
-			$consulta = "SELECT * FROM cursos WHERE id=$id;";
+			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
+						INNER JOIN arees_formatives as a ON c.id_area=a.id 
+						WHERE c.id=$id;";
 			$datos = Database::get()->query($consulta); //ejecutar la consulta
 			$curso = $datos->fetch_object('CursoModel'); //convierte el dato recuperado a curso
 			$datos->free();	//libera memoria
@@ -31,7 +34,9 @@
 			return Database::get()->query($consulta); //ejecutar la consulta
 		}
 		public static function recuperarfiltron($filtro=''){
-			$consulta = "SELECT * FROM cursos WHERE nom LIKE '%$filtro%';";
+			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
+						INNER JOIN arees_formatives as a ON c.id_area=a.id
+						WHERE c.nom LIKE '%$filtro%';";
 			$datos = Database::get()->query($consulta);
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
@@ -40,7 +45,9 @@
 			return $cursos;
 		}
 		public static function recuperarfiltroa($filtro=''){
-			$consulta = "SELECT * FROM cursos WHERE id_area=$filtro;";
+			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
+						INNER JOIN arees_formatives as a ON c.id_area=a.id
+						WHERE nom_area LIKE '%$filtro%';";
 			$datos = Database::get()->query($consulta);
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
@@ -75,7 +82,7 @@
 		
 		//toString()
 		public function __toString(){
-			return "codi:$this->codi, id_area:$this->id_area, nom:$this->nom, descripcio:$this->descripcio, 
+			return "codi:$this->codi, id_area:$this->id_area, nom_area:$this->nom_area,nom:$this->nom, descripcio:$this->descripcio, 
 			hores:$this->hores, data_fi:$this->data_fi, data_inici:$this->data_inici, horari:$this->horari, 
 			torn:$this->torn, tipus:$this->tipus, requisits:$this->requisits ";
 		} 

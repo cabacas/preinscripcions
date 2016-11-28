@@ -19,17 +19,17 @@
 		<section id="content">
 			<h2>Listado de Cursos</h2>
 			<form id="filtron" method="post">
-				<label>Filtro por Nombre: </label> <input type="text" name="filtron"/>
+				<label>Filtre per Nom Curs: </label> <input type="text" name="filtron"/>
 				<input type="submit" value="Filtrar" name="filtran"/>
 			</form>
 			<form id="filtron" method="post">
-				<label>Filtro por Area: </label> <input type="text" name="filtroa"/>
+				<label>Filtre per nom Area: </label> <input type="text" name="filtroa"/>
 				<input type="submit" value="Filtrar" name="filtraa"/>
 			</form>						
 		<table border=1 id="list"> 
 			<tr>
-				<th>ID</th><th>CODI</th><th>ID_AREA</th><th>NOM CURS</th><th>DESCRIPCIÓ</th><th>HORES</th>
-				<th>DATA D'INICI</th><th>DATA DE FI</th><th>HORARI</th><th>TORN</th><th>TIPUS</th><th>REQUSITS</th>
+				<th>ID</th><th>CODI</th><th>ID AREA</th><th>NOM AREA</th><th>NOM CURS</th><th>DESCRIPCIÓ</th><th>HORES</th>
+				<th>DATA D'INICI</th><th>DATA DE FI</th><th>HORARI</th><th>TORN</th><th>TIPUS</th><th>REQUSITS</th><th>DETALLS</th>
 			</tr>
 		<?php
 			foreach($cursos as $curso){
@@ -37,6 +37,7 @@
 				echo "<td> $curso->id </td>";
 				echo "<td> $curso->codi </td>";
 				echo "<td> $curso->id_area </td>";
+				echo "<td> $curso->nom_area </td>";
 				echo "<td> $curso->nom </td>";
 				echo "<td> $curso->descripcio </td>";
 				echo "<td> $curso->hores </td>";
