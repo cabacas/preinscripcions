@@ -54,7 +54,7 @@
 						echo '</table><br>';
 					}
 				}	
-				echo '';				
+				echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';								
 		?>
 		</section>
 		<?php Template::footer();?>

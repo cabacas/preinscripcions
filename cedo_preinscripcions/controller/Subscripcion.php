@@ -44,6 +44,23 @@
 			$this->load_view('view/exito.php', $datos);
 		}		
 
+		//PROCEDIMIENTO PARA exportar a XML
+		public function exportXML($id_area){		
+			
+			$usuario=Login::getUsuario();
+			if (!$usuario || !$usuario->admin)
+				throw new  Exception("Només per a Administradors");
+				
+			if (!$id_area) $subs = SubscripcionModel::recuperartodo();//recuperamos todas
+			else $subs = SubscripcionModel::recuperar3($id_area); //Recuperar la preinscripciones del Area
+				
+			//mostrar la vista de lista de subscripciones
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['subs'] = $subs;
+			$this->load_view('view/subscripcions/listaxml.php', $datos);				
+		}	
+		
 		//PROCEDIMIENTO PARA GUARDAR LAS NUEVAS SUBSCRIPCIONES
 		public function guardarnueva(){
 			//crear una instancia de Subscripciones
@@ -123,20 +140,5 @@
 			}	
 		}
 	}
-		
-	/*
-	 
-	 $id_usuario = 4;
-	 $id_area = 3;
-	 	 
-	 $suscripcion = new SuscripcionModel();
-	 $suscripcion->id_usuario = $id_usuario;
-	 $suscripcion->id_area = $id_area;
-	 
-	 $suscripcion->borrar();
-	 
-	  
-	 * */
 	
 ?>
-		

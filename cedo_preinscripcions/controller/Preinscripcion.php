@@ -85,8 +85,23 @@
 				$this->load_view('view/preinscripcions/listar.php', $datos);
 				
 		}		
-		
-		
+
+		//PROCEDIMIENTO PARA exportar a XML
+		public function exportXML($id_curso){		
+			
+			$usuario=Login::getUsuario();
+			if (!$usuario || !$usuario->admin)
+				throw new  Exception("Només per a Administradors");
+				
+			if (!$id_curso) $preinscripcions = PreinscripcionModel::recuperartodo();//recuperamos todas
+			else $preinscripcions = PreinscripcionModel::recuperar3($id_curso); //Recuperar la preinscripciones del Curso
+				
+			//mostrar la vista de lista de preinscripciones
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$datos['preinscripcions'] = $preinscripcions;
+			$this->load_view('view/preinscripcions/listaxml.php', $datos);				
+		}		
 		
 		//PROCEDIMIENTO PARA ELIMINAR LAS PREINSCRIPCIONES
 		//solicita confirmación
@@ -145,4 +160,3 @@
 	}
 				
 ?>
-		

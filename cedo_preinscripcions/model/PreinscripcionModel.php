@@ -6,10 +6,8 @@
 		//METODOS				
 		//guarda la preinscripci�n en la BDD
 		public function guardar(){			
-			
 			$consulta = "INSERT INTO preinscripcions(id_usuari, id_curs)
 						 VALUES ('$this->id_usuari','$this->id_curs');";	
-			
 			return Database::get()->query($consulta);
 		}
 				
@@ -20,7 +18,6 @@
 							  		id_curs='$this->id_curs', 
 							  		data=CURRENT_TIMESTAMP					  						  									  		
 							  WHERE id_usuari='$this->id_usuari';";
-									
 			return Database::get()->query($consulta);
 		}		
 		
@@ -34,7 +31,7 @@
 			$datos->free();			//liberar memoria
 			return $preinscripcions;
 		}
-		//Recupera todas las suscripciones filtrando por Curso
+		//Recupera todas las suscripciones filtrando por nombre del Curso
 		public static function recuperarfiltro($filtro=''){
 			if ($filtro=='') $consulta = $consulta = "SELECT * FROM v_alumnes_preinscrits;";
 			else $consulta = "SELECT * FROM v_alumnes_preinscrits WHERE nom_curs LIKE '%$filtro%';";
@@ -55,7 +52,7 @@
 			while($preinscripcion = $datos->fetch_object('PreinscripcionModel'))
 				$preinscripcions[] = $preinscripcion;
 			$datos->free();	//libera memoria
-			return $preinscripcions; //retornar el curso recuperado
+			return $preinscripcions; //retornar el preinscripcion recuperado
 		}
 		//Recupera la preinscripcion de la BDD de un usuario
 		public static function recuperar2($id=0,$id_curs=0){
@@ -81,6 +78,26 @@
 							WHERE id_usuari='$this->id_usuari' 
 							   && id_curs='$this->id_curs';";
 			return Database::get()->query($consulta);
-		}		
+		}
+
+		//metodo que convierte un listado de preinscricions a XML construyendo la cadena de texto con XML válido
+		public static function toXML($lista){
+			//encabezado del fichero XML y elemento raíz
+			$xml="<?xml version='1.0' encoding='UTF-8'?>\n";
+			$xml.='<!DOCTYPE preinscripcions>'."\n";
+			$xml.="<preinscripcions xmlns='http://ejemplos.preinscripcions.com/preinscripcions/xml/preinscripcion'>\n";
+			//para cadapreinscripcion que hay
+			foreach ($lista as $preinscripcion){
+				$xml .="\t<preinscripcion>\n";					
+				//para cada campo de preinscripcion
+				foreach ($preinscripcion as $campo=>$valor)
+					$xml .="\t\t<$campo>".htmlspecialchars($valor)."</$campo>\n";
+				$xml.="\t</preinscripcion>\n"; //cierre de la preinscripcion
+			}
+			$xml.="</preinscripcions>"; //cierre del elemento raiz
+			return $xml; //davuelve el código XML
+		}
+
+			
 	}
 ?>

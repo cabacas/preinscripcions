@@ -48,7 +48,8 @@
 				echo '</tr>';
 			}		
 		?>
-		</table><br>
+			</table><br>
+			<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>
 		</section>
 		
 		<?php Template::footer();?>

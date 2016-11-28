@@ -65,10 +65,10 @@
 						}
 						echo '</table><br>';
 					}
-				}	
-				echo '';				
+					if($usuario->admin)
+						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >Exportar Subscripcions a XML</a></b>';
+				}
 		?>
-
 		</section>
 		
 		<?php Template::footer();?>

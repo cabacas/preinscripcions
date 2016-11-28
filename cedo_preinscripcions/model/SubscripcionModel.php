@@ -78,5 +78,22 @@
 			WHERE id_usuari='$this->id_usuari' AND id_area=".intval($this->id_area).";"; 
 			return Database::get()->query($consulta);
 		}		
+		//metodo que convierte un listado de preinscricions a XML construyendo la cadena de texto con XML válido
+		public static function toXML($lista){
+			//encabezado del fichero XML y elemento raíz
+			$xml="<?xml version='1.0' encoding='UTF-8'?>\n";
+			$xml.='<!DOCTYPE subscripcions>'."\n";
+			$xml.="<subscripcions xmlns='http://ejemplos.preinscripcions.com/subscripcions/xml/subscripcions'>\n";
+			//para cadapreinscripcion que hay
+			foreach ($lista as $subscripcions){
+				$xml .="\t<subscripcion>\n";					
+				//para cada campo de la subscripcion
+				foreach ($subscripcions as $campo=>$valor)
+					$xml .="\t\t<$campo>".htmlspecialchars($valor)."</$campo>\n";
+				$xml.="\t</subscripcion>\n"; //cierre de la subscripcions
+			}
+			$xml.="</subscripcions>"; //cierre del elemento raiz
+			return $xml; //davuelve el código XML
+		}		
 	}
 ?>

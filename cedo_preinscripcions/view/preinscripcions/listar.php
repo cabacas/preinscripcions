@@ -50,6 +50,7 @@
 			}		
 		?>
 			</table><br>
+			<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>
 		</section>
 		
 		<?php Template::footer();?>

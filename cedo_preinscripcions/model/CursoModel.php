@@ -63,9 +63,6 @@
 				requisits='$this->requisits'
 
 			WHERE id=$this->id;"; 
-
-
-
 			return Database::get()->query($consulta);
 		}
 		//PROTOTIPO: public static boolean borrar()
@@ -74,75 +71,6 @@
 			$c = Database::get();
 			$c->query($consulta);
 			return $c->affected_rows; 
-		}
-
-		//metodo que convierte un listado de socios a XML
-		//lo hace "a saco" construyendo la cadena de texto con XML válido
-		public static function toXML($lista){
-			//encabezado del fichero XML y elemento raíz
-			$xml="<?xml version='1.0' encoding='UTF-8'?>\n";
-			$xml.='<!DOCTYPE cursos SYSTEM "/xml/Cursos.dtd">'."\n";
-			$xml.="<cursos xmlns='http://ejemplos.mike.com/cursos/xml/curso'>\n";
-			//para cada tipo de curso que hay
-			foreach ($lista as $curso){
-				$xml .="\t<curso>\n";					
-				//para cada campo de curso
-				foreach ($curso as $campo=>$valor)
-					$xml .="\t\t<$campo>".htmlspecialchars($valor)."</$campo>\n";
-				$xml.="\t</curso>\n"; //cierre de la curso
-			}
-			$xml.="</cursos>"; //cierre del elemento raiz
-			return $xml; //davuelve el código XML
-		}
-		
-		public static function toSimpleXML($lista){
-			//encabezado del fichero XML y elemento raíz
-//			$xml=new SimpleXMLElement('<!DOCTYPE Cursos SYSTEM /xml/Cursos.dtd>');
-			$xml=new SimpleXMLElement('<cursos></cursos>');
-			$xml->addAttribute('xmlns','http://ejemplos.mike.com/cursos/xml/curso');
-			//para cada curso
-			foreach ($lista as $curso){
-				$s=$xml->addChild('curso');
-				//para cada atributo
-				foreach ($curso as $campo=>$valor)
-					$s ->addChild($campo, htmlspecialchars($valor));
-			}
-			return $xml->asXML(); //devuelve el código XML
-		}
-		
-		//método toXML con DOMDocument
-		public static function toDomDocumentXML($lista){
-			$xml = new DOMDocument("1.0","utf-8");
-			$xml->preserveWhiteSpace = false;
-			$xml->formatOutput=true;
-			$cursos = $xml->createElement('cursos');
-			$cursos->setAttribute('xmlns','http://ejemplols.mike.com/cursos/xml/curso');
-			//para cada curso
-			foreach ($lista as $elcurso){
-				$curso=$xml->createElement('curso');
-				//para cada curso
-				foreach ($elcurso as $campo=>$valor)
-					$curso->appendChild($xml->createElement($campo,$valor));
-				$cursos->appendChild($curso);
-			}
-			$xml->appendChild($cursos);
-			return $xml->saveXML();
-		}
-		
-		//recuperar un listado de cursos a partir de un xml
-		public static function fromsimpleXML($origen,$file=true){
-			if($file) $xml=simplexml_load_file($origen);
-			else $xml =simplexml_load_string($origen);
-			$lista=array(); //array para la lista de salida
-			//para cada curso del fichero...
-			foreach($xml as $cursoXML){
-				$s=new CursoModel();//crea un curso					
-				//mapea datos desde el objeto simplexml al objeto curso
-				foreach($cursoXML as $propiedad=>$valor)
-					$s->$propiedad=$valor;
-					$lista[]=$s;//añade curso a la lista de salida
-			}
-			return $lista;
 		}
 		
 		//toString()
