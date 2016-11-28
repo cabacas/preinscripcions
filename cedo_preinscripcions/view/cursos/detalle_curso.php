@@ -25,6 +25,7 @@
 				echo "<b>CODI:</b> $curso->codi<br/>";
 				//echo "ID_AREA: $curso->id_area";
 				echo "<b>NOM CURS:</b> $curso->nom<br/>";
+				echo "<b> NOM_AREA:</b> $curso->nom_area </br>";
 				echo "<b>DESCRIPCIÓ:</b> $curso->descripcio<br/>";
 				echo "<b>HORES:</b> $curso->hores<br/>";
 				echo "<b>DATA D'INICI:</b> $curso->data_inici<br/>";

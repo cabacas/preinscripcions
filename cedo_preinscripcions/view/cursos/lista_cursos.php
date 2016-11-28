@@ -19,18 +19,16 @@
 		<section id="content">
 			<h2>Listado de Cursos</h2>
 			<form id="filtron" method="post">
-				<label>Filtrar per Nom:</label>
-				<input type="text" name="filtron"/>				
-				<input type="submit" value="Filtrar" class="botonbuscar" title="filtre" name="filtran"/>
-			</form>			
+				<label>Filtre per Nom Curs: </label> <input type="text" name="filtron"/>
+				<input type="submit" value="Filtrar" name="filtran"/>
+			</form>
 			<form id="filtron" method="post">
-				<label>Filtrar per Àrea:</label> 
-				<input type="text" name="filtroa"/>
-				<input type="submit" value="Filtrar" class="botonbuscar" title="filtre" name="filtraa"/>
+				<label>Filtre per Nom Area: </label> <input type="text" name="filtroa"/>
+				<input type="submit" value="Filtrar" name="filtraa"/>
 			</form>						
 		<table border=0.2 id="list"> 
 			<tr>
-				<th>CODI</th><th>NOM CURS</th><th>HORES</th><th>DATA D'INICI</th><th>DATA FI</th>
+				<th>CODI</th><th>NOM CURS</th><th>NOM AREA</th><th>HORES</th><th>DATA D'INICI</th><th>DATA FI</th>
 				<th>HORARI</th><th>TORN</th><th>TIPUS</th><th>REQUSITS</th><th>ACCIÓ</th>
 			</tr>
 		<?php
@@ -40,6 +38,7 @@
 				echo "<td> $curso->codi </td>";
 				//echo "<td> $curso->id_area </td>";
 				echo "<td> $curso->nom </td>";
+				echo "<td> $curso->nom_area </td>";
 				//echo "<td> $curso->descripcio </td>";
 				echo "<td> $curso->hores </td>";
 				echo "<td> $curso->data_inici </td>";
