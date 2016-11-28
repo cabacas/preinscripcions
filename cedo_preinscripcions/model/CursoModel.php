@@ -17,7 +17,7 @@
 		public static function recuperar($id=0){
 			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
 						INNER JOIN arees_formatives as a ON c.id_area=a.id 
-						WHERE c.id=$id;";
+						WHERE c.id=".intval($id).";";
 			$datos = Database::get()->query($consulta); //ejecutar la consulta
 			$curso = $datos->fetch_object('CursoModel'); //convierte el dato recuperado a curso
 			$datos->free();	//libera memoria
