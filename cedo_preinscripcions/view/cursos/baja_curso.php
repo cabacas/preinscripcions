@@ -66,7 +66,7 @@
 					<label>Requisits:</label>
 				 	<input type='text' name='requisits' readonly="readonly" value="<?php echo $curso->requisits;?>"/><br>
 				 				 	    
-			 	    <input type='submit' value='Confirmar Esborrar' name='borrar'/><br>	 	
+			 	    <input type='submit' value='Confirmar Esborrar' class="botonconfirmar" name='borrar'/><br>	 	
 			 </form>
 		</section>
 		

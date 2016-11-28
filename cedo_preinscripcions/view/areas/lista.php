@@ -29,14 +29,11 @@
 				echo '<tr>';
 				echo "<td> $area->id</td>";
 				echo "<td> $area->nom</td>";
-				if(!$usuario->admin){
-					//echo '<td><p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$area->id.'" >Suscrite al Area Formativa</a></b></p></td>';
+				if(!$usuario->admin){					
 					echo '<td><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$area->id.'">';
 					echo "<img class='boton' src='images/buttons/guardar.png' alt='detalls'title='subscriu-te'/>";
 					echo "</a></b></td>";
-				}else{
-					//echo '<td><p><b><a href="index.php?controlador=Areas&operacion=ver&parametro='.$area->id.'" >Detalls</a></b></p></td>';
-					//echo '<td><b><a href="index.php?controlador=Areas&operacion=baja&parametro='.$area->id.'" >Esborrar Area</a></b></td>';					
+				}else{				
 					echo '<td><b><a href="index.php?controlador=Areas&operacion=ver&parametro='.$area->id.'">';
 					echo "<img class='boton' src='images/buttons/editar.png' alt='detalls'title='detalls àrea'/>";
 					echo "</a></b></td>";

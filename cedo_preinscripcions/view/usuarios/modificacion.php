@@ -77,10 +77,11 @@
 				<label>Nueva imagen:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />
-				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span><br />
+				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span>
 				
-				<label></label>
+				<label>Modificar Dades:
 				<input type="submit" name="modificar" class="botonmodificar" value="modificar"/><br/>
+				</label>
 			</form>
 			
 				

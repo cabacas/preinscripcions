@@ -47,13 +47,13 @@
 		public static function recuperarfiltroa($filtro=''){
 			$consulta = "SELECT c.*,a.nom as nom_area FROM cursos AS c 
 						INNER JOIN arees_formatives as a ON c.id_area=a.id
-						WHERE nom_area LIKE '%$filtro%';";
+						WHERE a.nom LIKE '%$filtro%';";
 			$datos = Database::get()->query($consulta);
 			$cursos = array();
 			while($curso = $datos->fetch_object('CursoModel'))
 				$cursos[] = $curso;
-				$datos->free();
-				return $cursos;
+			$datos->free();
+			return $cursos;
 		}
 		public function modificar(){
 			$consulta = "UPDATE cursos SET

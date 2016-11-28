@@ -23,8 +23,9 @@
 				<input type='text' name='id' readonly="readonly" required="required" value="<?php echo $area->id;?>"/><br>
 			 	<label>Nom Area:</label>
 				 <input type='text' name='nom' readonly="readonly" required="required"  value="<?php echo $area->nom;?>"/><br>
-				 				 	    
-		 	    <input type='submit' value='Confirmar Esborrar' name='borrar'/><br>	 	
+				 <label>Confirmació:				 	    
+		 	    <input type='submit' value='Confirmar Esborrar' class="botonconfirmar" title="confirmar" name='borrar'/>
+		 	    </label>	 	
 			 </form>
 		</section>
 		

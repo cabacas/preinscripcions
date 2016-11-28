@@ -31,7 +31,7 @@
 						echo '<p><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='.$area->id.'" >Esborrar Area</a></b></p>';
 					if($usuario || $usuario->admin){
 						echo '<br><br><h2>Alumnes Subscrits al Area Formativa<h2>'; 
-						echo '<table border=1 id="list">';
+						echo '<table border=0.2 id="list">';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM AREA</th>'; 
@@ -39,30 +39,26 @@
 						echo '<tr>';	
 						foreach($subs as $sub){ 
 							echo '<tr>';
-							echo "<td> $sub->dni </td>";
-							echo "<td> $sub->nom </td>";
-							echo "<td> $sub->telefon_mobil </td>";
-							echo "<td> $sub->telefon_fix</td>";
-							echo "<td> $sub->email</td>";
-							echo "<td> $sub->data</td>";
-							echo "<td> $sub->area</td>";
-							if($usuario->admin)
-							  //echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
-							//	.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+								echo "<td> $sub->dni </td>";
+								echo "<td> $sub->nom </td>";
+								echo "<td> $sub->telefon_mobil </td>";
+								echo "<td> $sub->telefon_fix</td>";
+								echo "<td> $sub->email</td>";
+								echo "<td> $sub->data</td>";
+								echo "<td> $sub->area</td>";
+								if($usuario->admin)									
 								echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
-								.$sub->id_area.'&pu=' .$sub->id_usuari.'>';
-								echo "<img class='boton' src='images/buttons/borrar.png' alt='borrar'/>";
+									.$sub->id_area.'&pu='.$sub->id_usuari.'">';
+								echo "<img class='boton' src='images/buttons/borrar.png' alt='baixa' title='baixa àrea'/>";
 								echo "</a></b></td>";
-								
 							echo '</tr>';
 						}
 						echo '</table><br>';
 					}
 					if($usuario->admin)
 						echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';
-
 				}	
-				echo '';				
+												
 		?>
 		</section>
 		<?php Template::footer();?>

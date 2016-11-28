@@ -24,7 +24,7 @@
 				 	<label>DNI Usuari:</label>
 				 	<input type='text' name='dni' /><br>
 				 				 	    
-			 	    <input type='submit' value='guardarp' name='nuevo'/><br>	 	
+			 	    <input type='submit' value='guardarp' class="botonguardar" title="nova preinscripció" name='nuevo'/><br>	 	
 			 </form>
 		</section>
 		
