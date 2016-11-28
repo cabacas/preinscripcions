@@ -1,6 +1,7 @@
 <?php
 	require_once 'model/CursoModel.php';
 	require_once 'model/PreinscripcionModel.php';
+	require_once 'model/AreaModel.php';
 	//CONTROLADOR CURSO 
 	// implementa las operaciones que se pueden realizar el curso
 	class Curso extends Controller{
@@ -70,6 +71,7 @@
 				
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
+				$datos['areas'] = AreaModel::recuperartodo();
 				$this->load_view('view/cursos/nuevo_curso.php', $datos);				
 			}						
 		}		

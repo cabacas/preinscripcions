@@ -38,25 +38,25 @@
 			$usuario = Login::getUsuario(); // verificamos usuario			
 			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			
-			if(empty($_POST['guardarp'])){
+			if(empty($_POST['nuevo'])){
 				//carga el formulario de confirmación
 				$datos = array();
+				$datos['cursos'] = CursoModel::recuperartodo();
 				$datos['usuario'] = $usuario;
 				$this->load_view('view/preinscripcions/nueva.php', $datos);		
 			}else{ //si nos están enviando datos
 				$dni = Database::get()->real_escape_string($_POST['dni']);
-				$id_curs= Database::get()->real_escape_string($_POST['id_curs']);
-				$curs=CursoModel::recuperar($id_curs);// verificamos curso
-				if (empty($curs)) throw new Exception("No es va trobar el curs indicat");
-				$pre->id_curs= $id_curs;
-				$u=UsuarioModel::getUsuario($dni);
-				$pre->id_usuari= $u->id;			
+				$us = UsuarioModel::getUsuario($dni);
+				if (empty($us)) throw new Exception('Usuari No tobat per DNI');					
+				$id_curs= $_POST['id_curs'];
+				$pre->id_curs= $id_curs;				
+				$pre->id_usuari= $us->id;			
 				if(!$pre->guardar())
-					throw new Exception ("No es va poder realitzar la Subscripció");			
+					throw new Exception ("No es va poder realitzar la Preinscripció");			
 				//mostrar la vista de éxito	
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
-				$datos['mensaje'] = "Subscripció realitzada amb éxit";
+				$datos['mensaje'] = "Preinscripció realitzada amb éxit";
 				$this->load_view('view/exito.php', $datos);
 			}			
 		}		

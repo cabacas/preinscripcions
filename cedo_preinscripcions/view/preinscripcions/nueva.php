@@ -19,8 +19,13 @@
 		<section id="content">
 			<h2>Nova Preiscripció</h2>
 			<form method="post" id="formulario">
-				 	<label>Id_Curs:</label>
-				 	<input type='text'  name='id_curs' required="required"/><br>				 	
+					<label>Selecciona el Curs:</label>
+					<select  name='id_curs' required="required"> 
+					    <?php foreach($cursos as $c)   
+					      echo '<option value="'.$c->id.'" >'.$c->nom.'</option>';
+				        ?>					
+					</select><br>				 	
+				 	<br>				 	
 				 	<label>DNI Usuari:</label>
 				 	<input type='text' name='dni' /><br>
 				 				 	    
