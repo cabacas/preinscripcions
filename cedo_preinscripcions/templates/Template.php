@@ -68,7 +68,7 @@
 					<li><a href="index.php?controlador=Usuario&operacion=listar">Llistat Alumnes</a></li>
 					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>					
 					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=guardar">Nova Preinscripció</a></li>
+					<li><a href="index.php?controlador=Preinscripcion&operacion=guardarnueva">Nova Preinscripció</a></li>
 					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>
 					<li><a href="index.php?controlador=Subscripcion&operacion=guardar">Nova Subscripció</a></li>									
 					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>

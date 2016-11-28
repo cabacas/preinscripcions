@@ -77,35 +77,43 @@
 				<label>Nueva imagen:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />
-				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span><br />
+				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span>
 				
 				<label></label>
-				<input type="submit" name="modificar" value="modificar"/><br/>
+				<input type="submit" name="modificar" class="botonmodificar" value="modificar"/><br/>
 			</form>
 			<?php echo '<br><br><h2>Subscripcions del Alumne<h2>'; 
-				echo '<table border=1 id="list">';
+				echo '<table border=0.2 id="list">';
 				echo '<tr>';
 				echo '<th>SUBSCRIPCIONS AREA</th><th>ESBORRAR</th>';
 				echo '<tr>';	
 				foreach($subs as $sub){ 
 					echo '<tr>';
-					echo "<td> $sub->area</td>";
-   				    echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
-						.$sub->id_area.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
+						echo "<td> $sub->area</td>";	   				    
+						echo '<td><b><a href="index.php?controlador=Subscripcion&operacion=baja&parametro='
+							.$sub->id_area.'&pu='.$sub->id_usuari.'">';
+						echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar subscripció'/>";
+						echo "</a></b></td>";
+							
 					echo '</tr>';
 				}
 				echo '</table><br>';
 				echo '<br><h2>Preinscripcions del Alumne<h2>';
-				echo '<table border=1 id="list">';
+				echo '<table border=0.2 id="list">';
 				echo '<tr>';
 				echo '<th>PREISCRIPCIONS CURS</th><th>ESBORRAR</th>';
 				echo '<tr>';
 				foreach($preinscripcions as $preinscripcion){
 					echo '<tr>';
-					echo "<td> $preinscripcion->nom_curs</td>";
-					echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
-							.$preinscripcion->id_curs.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';
-							echo '</tr>';
+						echo "<td> $preinscripcion->nom_curs</td>";
+						//echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
+						//		.$preinscripcion->id_curs.'&pu='.$sub->id_usuari.'" >Baixa</a></b></td>';						
+						echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
+							.$preinscripcion->id_curs.'&pu='.$sub->id_usuari.'">';
+						echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar preinscripció'/>";
+						echo "</a></b></td>";
+						
+					echo '</tr>';
 				}
 				echo '</table><br>';				
 			?>

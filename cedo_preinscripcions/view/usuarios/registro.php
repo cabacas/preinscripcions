@@ -56,10 +56,10 @@
 				<label>Imatge:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />
-				<span>max <?php echo intval($max_image_size/1024);?>kb</span><br />
+				<span>max <?php echo intval($max_image_size/1024);?>kb</span>
 				
 				<label></label>
-				<input type="submit" name="guardar" class="botonguardar" value="guardar"/><br/>
+				<input type="submit" name="guardar" class="botonguardar" title="Registre" value="guardar"/><br/>
 			</form>
 		</section>
 		

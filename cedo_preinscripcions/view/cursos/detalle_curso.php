@@ -41,7 +41,15 @@
 				
 					//Si es administrador
 					if($usuario->admin){				
-						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='.$curso->id.'" >Modificar Curs</a></b></p>';
+						//echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='
+						//	.$curso->id.'" >Modificar Curs</a></b></p>';
+						
+						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='
+							.$curso->id.'">';
+						echo "<img class='boton' src='images/buttons/editar.png' alt='detalls' title='detall curs'/>";
+						echo '</a></b></p>';
+						
+						
 						echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
 					?>
 						</div>
