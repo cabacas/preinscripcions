@@ -35,7 +35,7 @@
 					echo "</a></b></td>";
 				}else{				
 					echo '<td><b><a href="index.php?controlador=Areas&operacion=ver&parametro='.$area->id.'">';
-					echo "<img class='boton' src='images/buttons/editar.png' alt='detalls'title='detalls àrea'/>";
+					echo "<img class='boton' src='images/buttons/ver.png' alt='detalls'title='detalls àrea'/>";
 					echo "</a></b></td>";
 					echo '<td><b><a href="index.php?controlador=Areas&operacion=baja&parametro='.$area->id.'">';
 					echo "<img class='boton' src='images/buttons/borrar.png' alt='baixa' title='eliminar àrea'/>";

@@ -250,8 +250,16 @@ table img.boton{
 	width: 40px;	
 }
 
+
+
 table #list{
 	width:80%;
+}
+
+.boton{
+	height: 40px;
+	width: 40px;	
+	cursor: pointer;
 }
 
 /*BUTTONS*/
@@ -349,4 +357,13 @@ footer{
 
 footer a:hover{
 	color: blue;
+}
+
+@media print{
+
+/*REGLAS PARA IMPRIMIR*/
+header, footer, button{
+	display:none;
+}
+	
 }

@@ -18,7 +18,7 @@
 		?>
 		<section id="content">
 			<h2>Llistat d'Alumnes</h2>			
-			<table border=1 id="list"> 
+			<table border=0.2 id="list"> 
 			<tr>				
 				<th>DNI</th><th>FOTO</th><th>NOM</th><th>COGNOM</th><th>SEGON COGNOM</th>
 				<th>D. NAIXEMENT</th><th>ESTUDIS</th><th>S. LABORAL</th><th>PRESTACIÓ</th>

@@ -21,14 +21,28 @@
 			<h2>Detall Area</h2>
 		<?php
 				echo '';
-				echo "<p> ID_AREA: $area->id </p>";
-				echo "<p> NOM AREA: $area->nom </p>";
+				echo "<p><b>ID_AREA:</b> $area->id </p>";
+				echo "<p><b>NOM AREA:</b> $area->nom </p>";
 				if($usuario){
-					if(!$usuario->admin)
-						echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$area->id.'" >Suscrite al Area Formativa</a></b></p>';
-					//Si es administrador
-					if($usuario->admin)				
-						echo '<p><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='.$area->id.'" >Esborrar Area</a></b></p>';
+					if(!$usuario->admin)											
+						echo '<table border=0 id="list">';
+							echo '<tr>';
+							echo '<td><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='
+									.$area->id.'">';
+									echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='alta subscripció'/>";
+									echo "</a></b></td>";
+							
+						//Si es administrador
+						if($usuario->admin)				
+							
+							echo '<td><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='
+									.$area->id.'">';
+							echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar' title='baixa subscripció'/>";
+							echo "</a></b></td>";
+							echo '</tr>';
+						echo '</table>';
+						
+						
 					if($usuario || $usuario->admin){
 						echo '<br><br><h2>Alumnes Subscrits al Area Formativa<h2>'; 
 						echo '<table border=0.2 id="list">';

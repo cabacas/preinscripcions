@@ -28,7 +28,7 @@
 					echo"<label><b>Nom Curs:</b></label>";
 					echo"<input type='text' name='filtrocurs'/>";				
 					echo"<input type='submit' class='botonbuscar' value='Filtrar' name='filtracurs'/>";					
-					echo"<input type='submit' class='botonimprimir' 
+					echo"<input type='buttton' class='botonimprimir' 
 						value='Imprimir' name='imprimir'onclick='window.print();'/>";										
 				echo"</form>";
 			}
