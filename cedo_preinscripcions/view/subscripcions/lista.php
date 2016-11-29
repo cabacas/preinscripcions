@@ -36,7 +36,7 @@
 			<table border=0.2 id="list"> 
 				<tr>
 					<th>DNI</th><th>NOM</th><th>TELEFON MOVIL</th><th>TELEFON FIX</th>
-					<th>EMAIL</th><th>DATA</th><th>NOM AREA FORMATIVA</th><th>ACCIÃ</th>
+					<th>EMAIL</th><th>DATA</th><th>NOM AREA FORMATIVA</th><th class="accio">ACCIÓ</th>
 				</tr>
 		<?php 
 			foreach($subs as $sub){ 

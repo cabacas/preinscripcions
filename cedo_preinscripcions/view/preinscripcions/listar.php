@@ -41,7 +41,7 @@
 			<table border=0.2 id="list"> 
 			<tr>
 				<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
-				<th>NOM CURS</th><th>ACCIÓ</th>
+				<th>NOM CURS</th><th class="accio">ACCIÓ</th>
 			</tr>
 			<?php					
 			

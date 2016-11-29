@@ -382,12 +382,9 @@ footer{
 footer a:hover{
 	color: blue;
 }
+/*REGLAS PARA IMPRIMIR*/
 
 @media print{
-
-/*REGLAS PARA IMPRIMIR*/
-header, footer, button{
-	display:none;
-}
-	
+header, footer, button, nav, a, .accio, #login, #logout, #filtro {display:none;}
+body{box-shadow:none;}	
 }
