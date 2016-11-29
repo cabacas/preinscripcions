@@ -59,7 +59,9 @@
 			?>			
 			</table><br>			
 			</div>		
-			<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>				
+			<?php if($usuario->admin)
+			echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>';
+			?>
  		</section>
 		
 		<?php Template::footer();?>

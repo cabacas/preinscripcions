@@ -50,7 +50,10 @@
 			}		
 		?>
 			</table><br>
-			<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" ><h2>Exportar Totes a XML</h2></a></b>
+			<?php 
+			if($usuario->admin)
+				echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" ><h2>Exportar Totes a XML</h2></a></b>';
+			?>
 		</section>
 		
 		<?php Template::footer();?>
