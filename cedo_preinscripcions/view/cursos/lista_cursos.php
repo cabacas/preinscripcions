@@ -19,12 +19,16 @@
 		<section id="content">
 			<h2>Listado de Cursos</h2>
 			<form id="filtron" method="post">
-				<label>Filtre per Nom Curs: </label> <input type="text" name="filtron"/>
-				<input type="submit" value="Filtrar" name="filtran"/>
-			</form>
-			<form id="filtron" method="post">
-				<label>Filtre per Nom Area: </label> <input type="text" name="filtroa"/>
-				<input type="submit" value="Filtrar" name="filtraa"/>
+				<label><b>Nom Curs:</b>  
+					<input type="text" name="filtron"/>
+					<input type="submit" value="Filtrar" class="botonbuscar" name="filtran"/>
+				</label>
+			<!-- </form>
+			<form id="filtron" method="post"> -->
+				<label><b  style="margin-left: -60px;">Nom Area:</b>  
+					<input type="text" name="filtroa"/>
+					<input type="submit" value="Filtrar" class="botonbuscar" name="filtraa"/>
+				</label>
 			</form>						
 		<table border=0.2 id="list"> 
 			<tr>

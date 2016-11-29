@@ -110,7 +110,7 @@ header hgroup{
 }
 
 #login input{
-	width: 80px;
+	width: 85px;
 }
 
 #logout img{
@@ -152,6 +152,7 @@ nav ul:nth-of-type(2){
 }
 
 nav ul.menu>li{
+	position: relative;
 	display: inline-block;
 	list-style-type: none;
 	padding: 8px;	
@@ -171,16 +172,21 @@ nav ul.menu>li:hover{
 
 nav ul.submenu{
 	position: absolute;
+	left: 0px;
+	top: 35px;
 	visibility: hidden;
 	background-color: #babdb6;	
 }
 
 nav ul.submenu>li{
-	padding: 5px;
-	width: 100px;
 	transition: .5s;
+	display: block;
+    list-style-type: none;       
+    padding: 5px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
 }
-
 
 
 nav ul.submenu>li:hover{
@@ -189,15 +195,6 @@ nav ul.submenu>li:hover{
 	color:black;
 }
 
-nav ul.submenu li {	
-	display: inline-block;
-    list-style-type: none;       
-    padding: 8px;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    font-size: 11pt;
-    transition: 0.5s;
-}
 
 /* AREA PARA EL CONTENIDO */
 
@@ -317,8 +314,8 @@ table #list{
 	background-image:url(../images/buttons/buscar.png);
 	background-repeat:no-repeat;
 	background-size: 80px 80px;
-  	height:80px;
-  	width:80px;
+  	height:45px;
+  	width:45px;
   	border:none;
   	background-position:center;  	
   	cursor: pointer; 

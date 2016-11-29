@@ -41,7 +41,8 @@
 											  width: 50px;
 											  padding-left: 0px;
 							                  border-left-width: 80px; 
-							                  border-left-style: solid;' class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
+							                  border-left-style: solid;' 
+								 class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
 							
 							
 							
@@ -81,8 +82,7 @@
 					}
 					if($usuario->admin)
 						echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';
-				}	
-												
+				}													
 		?>
 		</section>
 		<?php Template::footer();?>

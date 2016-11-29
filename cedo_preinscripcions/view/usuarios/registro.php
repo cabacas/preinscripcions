@@ -3,7 +3,7 @@
 	<head>
 		<base href="<?php echo Config::get()->url_base;?>" />
 		<meta charset="UTF-8">
-		<title>Registro de usuarios</title>
+		<title>Registre de usuaris</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo Config::get()->css;?>" />
 	</head>
 	
@@ -18,34 +18,33 @@
 		?>
 		
 		<section id="content">
-			<h2>Formulario de registro</h2>
+			<h2>Formulari de registre</h2>
 			<form method="post" enctype="multipart/form-data" autocomplete="off">
 				<label>DNI:</label>
-				<input type="text" name="dni" required="required"/><br />				
+				<input type="text" name="dni" required="required"/>		
 				
 				<label>Nom:</label>
 				<input type="text" name="nom" required="required"/><br />
 									
 				<label>Primer Cognom:</label>
-				<input type="text" name="cognom1" required="required"/><br/>
+				<input type="text" name="cognom1" required="required"/>
 				
 				<label>Segon Cognom:</label>
 				<input type="text" name="cognom2" required="required"/><br/>
 				
 				<label>Data de Naixement:</label>
-				<input type="date" name="data_naixement" required="required"/><br/>
-				
+				<input type="date" name="data_naixement" required="required"/>
 				<label>Estudis:</label>
 				<input type="text" name="estudis" required="required"/><br/>
 				
 				<label>Situació Laboral:</label>
-				<input type="text" name="situacio_laboral" required="required"/><br/>
+				<input type="text" name="situacio_laboral" required="required"/>
 				
 				<label>Reb Prestació:</label>
 				<input type="text" name="prestacio" required="required"/><br/>
 				
 				<label>Telefon Mobil:</label>
-				<input type="tel" name="telefon_mobil" required="required"/><br/>
+				<input type="tel" name="telefon_mobil" required="required"/>
 				
 				<label>Telefon Fixe:</label>
 				<input type="tel" name="telefon_fix" required="required"/><br/>
@@ -58,8 +57,10 @@
 				<input type="file" accept="image/*" name="imagen" />
 				<span>max <?php echo intval($max_image_size/1024);?>kb</span>
 				
-				<label></label>
-				<input type="submit" name="guardar" class="botonguardar" title="Registre" value="guardar"/><br/>
+				<label style="margin-left: 80%;">
+					<input  type="submit"  name="guardar" class="botonguardar" title="Registre" value="guardar"/><br/>
+					<span>Ok Registre</span>
+				</label>
 			</form>
 		</section>
 		

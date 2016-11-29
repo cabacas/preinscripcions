@@ -18,7 +18,7 @@
 		?>
 		<section id="content">
 			<h2>Detall Curs</h2>
-			<div id="detall">			
+			<div style="margin-left: 150px; id="detall">			
 			<?php
 				echo '';
 				//echo "ID: $curso->id";
