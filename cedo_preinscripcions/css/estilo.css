@@ -163,27 +163,40 @@ nav ul.menu>li:hover{
 	color: black;	
 }
 
-nav ul.submenu li {	
-    list-style-type: none;    
-    margin: 0px;
-    padding: 0px;
-    width: 150px;
-    font-family: Arial, sans-serif;
-    font-size: 11pt;
+.menu>li:hover .submenu{
+	visibility: initial;
+}
+
+/* SUBMENU */
+
+nav ul.submenu{
+	position: absolute;
+	visibility: hidden;
+	background-color: #babdb6;	
 }
 
 nav ul.submenu>li{
-	
-	display: inline-block;
-	list-style-type: none;
-	padding: 8px;	
-	transition: 0.5s;
+	padding: 5px;
+	width: 100px;
+	transition: .5s;
 }
 
+
+
 nav ul.submenu>li:hover{
-	color: white;	
+	color:white;
 	background-color: white;
-	color: black;	
+	color:black;
+}
+
+nav ul.submenu li {	
+	display: inline-block;
+    list-style-type: none;       
+    padding: 8px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    transition: 0.5s;
 }
 
 /* AREA PARA EL CONTENIDO */
@@ -336,6 +349,20 @@ table #list{
   	cursor: pointer; 
   	color: transparent; 	
   	background-color:white;
+}
+
+.botonexportxml{
+	background-image:url(../images/buttons/exportxml.png);
+	background-repeat:no-repeat;
+	background-size: 50px 50px;
+  	height:80px;
+  	width:80px;
+  	border:none;
+  	background-position:center;  	
+  	cursor: pointer; 
+  	color: transparent; 	
+  	background-color:white;
+  	margin-bottom:-30px;
 }
 
 /* CLASE NO VISIBLE PARA IMPRIMIR */

@@ -29,7 +29,11 @@
 					echo"<input type='text' name='filtrocurs'/>";				
 					echo"<input type='submit' class='botonbuscar' value='Filtrar' name='filtracurs'/>";					
 					echo"<input type='buttton' class='botonimprimir' 
-						value='Imprimir' name='imprimir'onclick='window.print();'/>";										
+						value='Imprimir' name='imprimir'onclick='window.print();'/>";
+					echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >';						
+					echo "<img class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
+					echo "</a></b>";
+					
 				echo"</form>";
 			}
 			?>
@@ -59,9 +63,7 @@
 			?>			
 			</table><br>			
 			</div>		
-			<?php if($usuario->admin)
-			echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >Exportar Totes a XML</a></b>';
-			?>
+			
  		</section>
 		
 		<?php Template::footer();?>

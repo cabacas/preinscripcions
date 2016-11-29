@@ -61,27 +61,34 @@
 				//pone el menú del administrador
 				if($usuario && $usuario->admin){?>	
 				<ul class="menu">
-					<ul class="submenu">
-						<li><a href="#Hola"></a></li>
-						<li><a href="#Adios"></a></li>
-					</ul>		
-					<li><a href="index.php?controlador=Usuario&operacion=listar">Llistat Alumnes</a></li>
-					<li><a href="index.php?controlador=Curso&operacion=crear">Crear Curs</a></li>					
-					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Llistat Preinscripcions</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=guardarnueva">Nova Preinscripció</a></li>
-					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>
-					<li><a href="index.php?controlador=Subscripcion&operacion=guardar">Nova Subscripció</a></li>									
-					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
-					<li><a href="index.php?controlador=Areas&operacion=crear">Nova Àrea Formativa</a></li>
-					
+					<li>Llistats		
+						<ul class="submenu">					
+							<li><a href="index.php?controlador=Usuario&operacion=listar">Alumnes</a></li>
+							<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Preinscripcions</a></li>
+							<li><a href="index.php?controlador=Subscripcion&operacion=listar">Subscripcions</a></li>
+							<li><a href="index.php?controlador=Areas&operacion=listar">A.Formatives</a></li>
+						</ul>	
+					</li>
+					<li>Introducció dades
+						<ul class="submenu">	
+							<li><a href="index.php?controlador=Curso&operacion=crear">Nou Curs</a></li>					
+							<li><a href="index.php?controlador=Preinscripcion&operacion=guardarnueva">Nova Preinscripció</a></li>					
+							<li><a href="index.php?controlador=Subscripcion&operacion=guardarnueva">Nova Subscripció</a></li>					
+							<li><a href="index.php?controlador=Areas&operacion=crear">Nova Àrea Formativa</a></li>
+						</ul>
+					</li>
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">														
 					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Dades Personals</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>															
-					<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
-					<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
+					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>
+					<ul class="submenu">
+						<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
+						<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
+					</ul>
+																				
+					
 				</ul>							
 				<?php }	elseif(!$usuario){   ?>
 				<ul class="menu">					

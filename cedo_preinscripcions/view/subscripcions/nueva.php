@@ -35,7 +35,7 @@
 						<option value=11 >Fontanería, climatització i calefacció</option>		       								 	
 					</select><br>				 	
 				 	<label>DNI Usuari:</label>
-				 	<input type='text' name='dni' /><br>
+				 	<input type='text' name='dni' />
 				 				 	    
 			 	    <input type='submit' value='guardars' class="botonguardar" title="guardar" name='nuevo'/><br>	 	
 			 </form>

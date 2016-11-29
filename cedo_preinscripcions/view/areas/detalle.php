@@ -34,10 +34,20 @@
 							
 						//Si es administrador
 						if($usuario->admin)				
+							echo '<td>';
+							echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >';
+							echo "<img style='margin-bottom: 0px;
+											  height: 50px;
+											  width: 50px;
+											  padding-left: 0px;
+							                  border-left-width: 80px; 
+							                  border-left-style: solid;' class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
 							
-							echo '<td><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='
-									.$area->id.'">';
-							echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar' title='baixa subscripció'/>";
+							
+							
+							//echo '<td><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='
+							//		.$area->id.'">';
+							//echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar' title='baixa subscripció'/>";
 							echo "</a></b></td>";
 							echo '</tr>';
 						echo '</table>';

@@ -20,7 +20,7 @@
 			<h2>Nou Curs</h2>
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
-				 	<input type='text' name='codi' required="required" /><br>
+				 	<input type='text' name='codi' required="required" />
 					<label>Selecciona Area Formativa:</label>
 					<select  name='id_area' required="required"> 
 					    <?php foreach($areas as $c)   
@@ -28,25 +28,25 @@
 				        ?>					
 					</select><br>					
 				 	<label>Nom Curs:</label>
-				 	<input type='text' name='nom' required="required" /><br>
-				 	<label>Descripció:</label>
-					<textarea rows="12" cols="60" name='descripcio' required="required"></textarea><br>
-				 	<label>Hores:</label>
-				 	<input type='number' name='hores' min="1" max="100000" /><br>
+				 	<input type='text' name='nom' required="required" />
+				 	<label>Tipus:</label>
+				 	<input type='number' name='tipus' min="1" max="50" /><br>
 				 	<label>Data d'Inici:</label>
-				 	<input type='date' name='data_inici'/><br>
+				 	<input type='date' name='data_inici'/>
 				 	<label>Data d'Fi:</label>
 				 	<input type='date' name='data_fi'/><br>
 				 	<label>Horari:</label>
-				 	<input type='text' name='horari'/><br>
+				 	<input type='text' name='horari'/>
 				 	<label>Torn:</label>
 				 	<input type='text' name='torn' /><br>
-				 	<label>Tipus:</label>
-				 	<input type='number' name='tipus' min="1" max="50" /><br>
 				 	<label>Requisits:</label>
-				 	<input type='text' name='requisits' /><br>
-				 				 	    
-			 	    <input type='submit' value='guardar' name='nuevo'/><br>	 	
+				 	<input type='text' name='requisits' />
+				 	<label>Hores:</label>
+				 	<input type='number' name='hores' min="1" max="100000" /><br>
+				 	
+				 	<label>Descripció:</label>
+					<textarea rows="12" cols="60" name='descripcio' required="required"></textarea>
+			 	    <input type='submit' value='guardar' class="botonguardar" title="guardar curs" name='nuevo'/><br>	 	
 			 </form>
 		</section>
 		
