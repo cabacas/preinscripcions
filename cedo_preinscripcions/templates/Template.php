@@ -20,8 +20,8 @@
 		//PONE EL FORMULARIO DE LOGIN
 		public static function login(){?>
 			<form method="post" id="login" autocomplete="off">
-				<label>DNI:</label><input type="text" name="dni" required="required" />
-				<label>Data de Naixement:</label><input type="text" name="data_naixement" required="required"/>
+				<label>DNI:</label><input type="text" name="dni" required="required" placeholder="99888777V"/>
+				<label>Data de Naixement:</label><input type="text" name="data_naixement" placeholder="1971-01-01" required="required"/>
 				<input type="submit" name="login" value="Login" />
 			</form>
 		<?php }

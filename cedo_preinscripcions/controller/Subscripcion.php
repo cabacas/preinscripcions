@@ -68,10 +68,11 @@
 			$usuario = Login::getUsuario(); // verificamos usuario			
 			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			
-			if(empty($_POST['guardars'])){
+			if(empty($_POST['nuevas'])){
 				//carga el formulario de confirmación
 				$datos = array();
 				$datos['usuario'] = $usuario;
+				$datos['areas'] = AreaModel::recuperartodo();
 				$this->load_view('view/subscripcions/nueva.php', $datos);		
 				//si nos están enviando la confirmación de baja
 			}else{
