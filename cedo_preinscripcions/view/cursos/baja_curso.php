@@ -55,14 +55,7 @@
 					  <option value="N" <?php if($curso->torn == 'N'){echo("selected");}?>>Nocturno</option>
 					</select><br>
 				 	<label>Tipus:</label>
-				 	<select  name='tipus' readonly="readonly">
-					  <option value=0 <?php if($curso->tipus == '0'){echo("selected");}?> >Desconocido</option>
-					  <option value=1 <?php if($curso->tipus == '1'){echo("selected");}?>>Manuales</option>
-					  <option value=2 <?php if($curso->tipus == '2'){echo("selected");}?>>CP nivel 1</option>
-					  <option value=3 <?php if($curso->tipus == '3'){echo("selected");}?>>CP nivel 2</option>
-					  <option value=4 <?php if($curso->tipus == '4'){echo("selected");}?>>CP nivel 3</option>
-					  <option value=5 <?php if($curso->tipus == '5'){echo("selected");}?>>Superior</option>
-					</select><br>
+				 	<input type='text' name='tipus' readonly="readonly" value="<?php echo $curso->tipus;?>"/><br>
 					<label>Requisits:</label>
 				 	<input type='text' name='requisits' readonly="readonly" value="<?php echo $curso->requisits;?>"/><br>
 				 				 	    

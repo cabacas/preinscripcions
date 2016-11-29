@@ -20,24 +20,15 @@
 			<h2>Nova Subscripció</h2>
 			<form method="post" id="formulario">
 				 	<label>Area Formativa:</label>
-				 	<select  name='id_area' required="required">
-						<option value=0 >Altres</option>	
-						<option value=1 >Soldadura</option>	
-						<option value=2 >Mecànica Convencional</option>	
-						<option value=3 >Disseny Mecànic</option>	
-						<option value=4 >Electricitat</option>	
-						<option value=5 >Logística</option>	
-						<option value=6 >Comunicacions - microinformàtica</option>	
-						<option value=7 >Programació i web</option>	
-						<option value=8 >PLCs i automatismes</option>	
-						<option value=9 >Pneumàtica i hidràulica</option>	
-						<option value=10 >e-commerce</option>	
-						<option value=11 >Fontanería, climatització i calefacció</option>		       								 	
-					</select><br>				 	
+					<select  name='id_area' required="required"> 
+					    <?php foreach($areas as $c)   
+					      echo '<option value="'.$c->id.'" >'.$c->nom.'</option>';
+				        ?>					
+					</select><br>					
 				 	<label>DNI Usuari:</label>
-				 	<input type='text' name='dni' />
+				 	<input type="text" name="dni" required="required" placeholder="99888777V"/>
 				 				 	    
-			 	    <input type='submit' value='guardars' class="botonguardar" title="guardar" name='nuevo'/><br>	 	
+			 	    <input type='submit' value='guardars' class="botonguardar" title="guardar" name='nuevas'/><br>	 	
 			 </form>
 		</section>
 		

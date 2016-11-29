@@ -20,7 +20,7 @@
 			<h2>Nova Area Formativa</h2>
 			<form method="post" id="formulario">
 				 	<label>Nom Area:</label>
-				 	<input type='text' name='nom' required="required" />
+				 	<input type='text' name='nom' required="required" placeholder="Ej:Electromecànica" />
 				 				 	    
 			 	    <input type='submit' value='guardar'class="botonguardar" title="guardar àrea" name='nueva'/><br>	 	
 			 </form>

@@ -46,7 +46,7 @@
 						
 						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='
 							.$curso->id.'">';
-						echo "<img class='boton' src='images/buttons/editar.png' alt='detalls' title='detall curs'/>";
+						echo "<img class='boton' src='images/buttons/editar.png' alt='detalls' title='Modificar curs'/>";
 						echo '</a></b></p>';
 						
 						
