@@ -43,9 +43,6 @@
 							                  border-left-width: 80px; 
 							                  border-left-style: solid;' 
 								 class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
-							
-							
-							
 							//echo '<td><b><a href="index.php?controlador=subscripcion&operacion=baja&parametro='
 							//		.$area->id.'">';
 							//echo "<img class='boton' src='images/buttons/borrar.png' alt='eliminar' title='baixa subscripció'/>";

@@ -36,21 +36,55 @@
 				echo "<b>REQUSITS:</b> $curso->requisits<br/><br/>";
 			 
 				if($usuario){
-					echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
-					echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
-				
+					if(!$usuario->admin){
+					//echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
+					
+					echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='
+							.$curso->id.'">';
+							
+							echo "";
+							echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='Preinscribir-se curs'
+									<span>Preinscriure's</span>";							
+					echo '</a></b>';
+					
+					echo '<b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >';
+						echo "<img class='boton' src='images/buttons/listado.png' alt='Subscripció àrea' title='Subscripció àrea'
+								style='margin-left:100px;/>";	
+						
+					echo "</a></b></p>";
+							
+							
+					//echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
+					}
 					//Si es administrador
 					if($usuario->admin){				
 						//echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='
 						//	.$curso->id.'" >Modificar Curs</a></b></p>';
-						
 						echo '<p><b><a href="index.php?controlador=Curso&operacion=modificar&parametro='
 							.$curso->id.'">';
 						echo "<img class='boton' src='images/buttons/editar.png' alt='detalls' title='Modificar curs'/>";
-						echo '</a></b></p>';
+						echo '</a></b>';	
 						
+						echo '<b><a href="index.php?controlador=Curso&operacion=baja&parametro='
+								.$curso->id.'">';
+						echo "<img class='boton' src='images/buttons/borrar.png' 
+								style='margin-left: 20px; alt='elimiar' title='eliminar curs'/>";
+						echo '</a></b>';
 						
-						echo '<p><b><a href="index.php?controlador=Curso&operacion=baja&parametro='.$curso->id.'" >Esborrar Curs</a></b></p>';
+						echo"<input type='buttton' class='botonimprimir'
+						value='Imprimir' name='imprimir'onclick='window.print();'/>";
+						
+						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >';
+						echo "<img style='margin-bottom: 0px;
+											  height: 50px;
+											  width: 50px;
+											  padding-left: 0px;
+							                  border-left-width: 20px;
+							                  border-left-style: solid;
+											  margin-bottom:-5px;'
+								 class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";
+						echo "</a></b></p>";
+						//echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >Exportar Preinscripcions a XML</a></b>';						
 					?>
 						</div>
 					<?php 
@@ -61,7 +95,7 @@
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM CURS</th>'; 
-						if($usuario->admin) echo '<th>ACCIÓ</th>';
+						if($usuario->admin) echo '<th class="">ACCIÓ</th>';
 						echo '<tr>';	
 						foreach($preinscripcions as $preinscripcio){
 							echo '<tr>';
@@ -79,8 +113,7 @@
 						}
 						echo '</table><br>';
 					}
-					if($usuario->admin)
-						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >Exportar Preinscripcions a XML</a></b>';
+					
 				}	
 				echo '';				
 		?>
