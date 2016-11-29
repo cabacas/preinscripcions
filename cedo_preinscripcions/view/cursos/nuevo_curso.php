@@ -21,8 +21,12 @@
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
 				 	<input type='text' name='codi' required="required" /><br>
-				 	<label>id_area:</label>
-				 	<input type='text' name='id_area' required="required" /><br>
+					<label>Selecciona Area Formativa:</label>
+					<select  name='id_area' required="required"> 
+					    <?php foreach($areas as $c)   
+					      echo '<option value="'.$c->id.'" >'.$c->nom.'</option>';
+				        ?>					
+					</select><br>					
 				 	<label>Nom Curs:</label>
 				 	<input type='text' name='nom' required="required" /><br>
 				 	<label>Descripció:</label>

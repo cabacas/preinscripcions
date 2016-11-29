@@ -21,24 +21,16 @@
 			<form method="post" id="formulario">
 				 	<label>Codi:</label>
 				 	<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/><br>
-				 	<label>Àrea Formativa:</label>
-				 	<select  name='id_area' required="required">
-						<option value=0 <?php if($curso->id_area == '0'){echo("selected");}?>>Altres</option>	
-						<option value=1 <?php if($curso->id_area == '1'){echo("selected");}?>>Soldadura</option>	
-						<option value=2 <?php if($curso->id_area == '2'){echo("selected");}?>>Mecànica Convencional</option>	
-						<option value=3 <?php if($curso->id_area == '3'){echo("selected");}?>>Disseny Mecànic</option>	
-						<option value=4 <?php if($curso->id_area == '4'){echo("selected");}?>>Electricitat</option>	
-						<option value=5 <?php if($curso->id_area == '5'){echo("selected");}?>>Logística</option>	
-						<option value=6 <?php if($curso->id_area == '6'){echo("selected");}?>>Comunicacions - microinformàtica</option>	
-						<option value=7 <?php if($curso->id_area == '7'){echo("selected");}?>>Programació i web</option>	
-						<option value=8 <?php if($curso->id_area == '8'){echo("selected");}?>>PLCs i automatismes</option>	
-						<option value=9 <?php if($curso->id_area == '9'){echo("selected");}?>>Pneumàtica i hidràulica</option>	
-						<option value=10 <?php if($curso->id_area == '10'){echo("selected");}?>>e-commerce</option>	
-						<option value=11 <?php if($curso->id_area == '11'){echo("selected");}?>>Fontanería, climatització i calefacció</option>		
-<?php /* foreach ($rows as $row) {
-		echo '<option value="'.$row['id_empleado'].'">'.$row['nombre'].'</option>';
-	}*/ ?>         								 	
-					</select><br>
+					<label>Selecciona Area Formativa:</label>
+					<select  name="id_area" required="required"> 
+					    <?php 
+					    	foreach($areas as $c) {  
+					     		echo '<option value="'.$c->id.'"';
+						  		if($curso->id_area == $c->id)echo(" selected='selected' ");
+						  		echo '>'.$c->nom.'</option>';
+					    	}
+				        ?>					
+					</select><br>   
 				 	<label>Nom Curs:</label>
 				 	<input type='text' name='nom' required="required"  value="<?php echo $curso->nom;?>"/><br>
 				 	<label>Descripció:</label>

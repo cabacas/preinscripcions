@@ -88,6 +88,7 @@
 				//mostramos la vista del formulario de curso
 				$datos = array();
 				$datos['usuario'] = Login::getUsuario();
+				$datos['areas'] = AreaModel::recuperartodo();
 				$datos['curso'] = $curso;
 				$this->load_view('view/cursos/modificacion_curso.php', $datos);			
 			}else{ //si llegan los datos por POST
