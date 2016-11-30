@@ -95,7 +95,7 @@
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM CURS</th>'; 
-						if($usuario->admin) echo '<th class="">ACCIÓ</th>';
+						if($usuario->admin) echo '<th class="accio">ACCIÓ</th>';
 						echo '<tr>';	
 						foreach($preinscripcions as $preinscripcio){
 							echo '<tr>';

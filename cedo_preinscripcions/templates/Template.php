@@ -101,15 +101,8 @@
 		//PONE EL PIE DE PAGINA 
 		public static function footer(){	?>
 			<footer>
-				<p>
-					<a href="http://recursos.robertsallent.com/mvc/robs_micro_fw_1.0.zip">
-						RobS micro Framework</a> - solo para fines docentes
-				</p>
-				<p> 
-					<a rel="author" href="http://www.robertsallent.com">Robert Sallent</a>
-					<a href="http://www.twitter.com/robertsallent">
-         				<img class="logo" alt="twitter logo" src="images/logos/twitter.png" />
-					</a> -  
+				<p>	Desarrollado por Rafa & Mike - practica para el CIFO Vallés</p>
+				<p> <a rel="author" href="http://www.rafamike.com">Rafael Cabacas y Miguel Moreno</a><br>
 					<a href="../images/logos/gencat_ensenyament.png">CEDO Vallès'16</a>. 
          		</p>
 			</footer>

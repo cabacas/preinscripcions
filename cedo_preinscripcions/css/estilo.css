@@ -385,6 +385,7 @@ footer a:hover{
 /*REGLAS PARA IMPRIMIR*/
 
 @media print{
+body {margin: 0mm;padding: 0mm;}	
 header, footer, button, nav, a, .accio, #login, #logout, #filtro {display:none;}
 body{box-shadow:none;}	
 }
