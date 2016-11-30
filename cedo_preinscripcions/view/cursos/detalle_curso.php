@@ -53,9 +53,8 @@
 			 	<label>Requisits:</label>
 			 	<input type='text' readonly="readonly" name='requisits'  value="<?php echo $curso->requisits;?>"/><br>
 			 	<label>Descripció:</label>
-				<textarea rows="12" cols="60" readonly="readonly" name='descripcio'> <?php echo $curso->descripcio;?></textarea>
-				 	
-		 </form>
+				<textarea rows="12" cols="60" readonly="readonly" name='descripcio'> <?php echo $curso->descripcio;?></textarea><br>
+		 </form><br>
 			<?php				
 				if($usuario){
 					if(!$usuario->admin){
@@ -65,15 +64,15 @@
 							.$curso->id.'">';
 							
 							echo "";
-							echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='Preinscribir-se curs'
+							echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='Preinscribir-se curs'/>
 									<span>Preinscriure's</span>";							
 					echo '</a></b>';
 					
 					echo '<b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >';
-						echo "<img class='boton' src='images/buttons/listado.png' alt='Subscripció àrea' title='Subscripció àrea'
-								style='margin-left:100px;/>";	
+						echo "<img class='boton' src='images/buttons/listado.png' alt='Subscripció àrea' title='Subscripció àrea'/>
+							  <span>Preinscriure's</span>";	
 						
-					echo "</a></b></p>";
+					echo "</a></b></p><br>";
 							
 							
 					//echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
