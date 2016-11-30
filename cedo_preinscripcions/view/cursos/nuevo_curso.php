@@ -42,11 +42,13 @@
 				 	<label>Requisits:</label>
 				 	<input type='text' name='requisits'  placeholder="Batxillerat"/>
 				 	<label>Hores:</label>
-				 	<input type='number' name='hores' min="1" max="100000" /><br>
+				 	<input type='number' name='hores' min="1" max="100000" /><br><br>
 				 	<label>Descripció:</label>
 					<textarea rows="12" cols="60" name='descripcio' placeholder="breu descripció ..." ></textarea>
-
-			 	    <input type='submit' value='guardar' class="botonguardar" title="guardar curs" name='nuevo'/><br>	 	
+					<label>
+			 	    <input type='submit' value='guardar' class="botonconfirmar" title="guardar curs" name='nuevo'/>
+			 	    		<br>Ok Nou Curs<br>
+			 	    </label>	 	
 			 </form>
 		</section>
 		

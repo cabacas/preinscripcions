@@ -19,7 +19,7 @@
 		<section id="content">
 			<h2>Nova Preiscripció</h2>
 			<form method="post" id="formulario">
-					<label>Selecciona el Curs:</label>
+					<label>Selecciona Curs:</label>
 					<select  name='id_curs' required="required"> 
 					    <?php foreach($cursos as $c)   
 					      echo '<option value="'.$c->id.'" >'.$c->nom.'</option>';
@@ -28,8 +28,10 @@
 				 	<br>				 	
 				 	<label>DNI Usuari:</label>
 				 	<input type='text' name='dni'  required="required" placeholder="99888777V"/>
-				 				 	    
-			 	    <input type='submit' value='guardarp' class="botonguardar" title="nova preinscripció" name='nuevo'/><br>	 	
+				 	<label>			 	    
+			 	    <input type='submit' value='guardarp' class="botonconfirmar" title="nova preinscripció" name='nuevo'/>
+			 	    		Ok Preinscripció<br>
+			 	    </label>	 	
 			 </form>
 		</section>
 		

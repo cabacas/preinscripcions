@@ -21,8 +21,10 @@
 			<form method="post" id="formulario">
 				 	<label>Nom Area:</label>
 				 	<input type='text' name='nom' required="required" placeholder="Ej:Electromecànica" />
-				 				 	    
-			 	    <input type='submit' value='guardar'class="botonguardar" title="guardar àrea" name='nueva'/><br>	 	
+				 	<label>			 	    
+			 	    <input type='submit' value='guardar'class="botonconfirmar" title="guardar àrea" name='nueva'/>
+			 	    		Ok Àrea<br>
+			 	    </label>	 	
 			 </form>
 		</section>
 		

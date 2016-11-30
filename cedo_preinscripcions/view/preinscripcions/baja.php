@@ -25,11 +25,12 @@
 				<label>DNI:</label>
 				<input type="text" readonly="readonly" value="<?php echo $usuario->dni;?>" /><br/>
 				
-				<label>Data de Naixement:</label>
+				<label>Data Naixement:</label>
 				<input type="text" name="data_naixement" required="required"/>
 				
-				<label>Eliminar Preinscripció				
-				<input type="submit" name="confirmar" class="botonconfirmar" title="confirmar baixa" value="Confirmar"/><br/>
+				<label>				
+				<input type="submit" name="confirmar" class="botonconfirmar" title="confirmar baixa" value="Confirmar"/>
+					Ok Eliminar Preinscripció<br/>
 				</label>
 				
 			</form>

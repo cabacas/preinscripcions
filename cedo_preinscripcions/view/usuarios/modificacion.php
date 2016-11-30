@@ -32,7 +32,7 @@
 																				
 				<label>DNI:</label>
 				<input type="text" name="dni" required="required"
-						value="<?php echo $usuario->dni;?>" /><br/>				
+						value="<?php echo $usuario->dni;?>" />				
 				
 				<label>Nom:</label>
 				<input type="text" name="nom" required="required"
@@ -40,7 +40,7 @@
 									
 				<label>Primer Cognom:</label>
 				<input type="text" name="cognom1" required="required" 
-						value="<?php echo $usuario->cognom1;?>"/><br/>
+						value="<?php echo $usuario->cognom1;?>"/>
 				
 				<label>Segon Cognom:</label>
 				<input type="text" name="cognom2" required="required"
@@ -48,7 +48,7 @@
 				
 				<label>Data Naixement:</label>
 				<input type="date" name="data_naixement" required="required" 
-					   readonly="readonly" value="<?php echo $usuario->data_naixement;?>" /><br/>
+					   readonly="readonly" value="<?php echo $usuario->data_naixement;?>" />
 					   				
 				<label>Estudis:</label>
 				<input type="text" name="estudis" required="required"
@@ -56,7 +56,7 @@
 				
 				<label>Situació Laboral:</label>
 				<input type="text" name="situacio_laboral" required="required"
-						value="<?php echo $usuario->situacio_laboral;?>"/><br/>
+						value="<?php echo $usuario->situacio_laboral;?>"/>
 				
 				<label>Reb Prestació:</label>
 				<input type="text" name="prestacio" required="required"
@@ -64,7 +64,7 @@
 				
 				<label>Telefon Mobil:</label>
 				<input type="tel" name="telefon_mobil" required="required"
-						value="<?php echo $usuario->telefon_mobil;?>"/><br/>
+						value="<?php echo $usuario->telefon_mobil;?>"/>
 				
 				<label>Telefon Fixe:</label>
 				<input type="tel" name="telefon_fix" required="required"
@@ -79,8 +79,9 @@
 				<input type="file" accept="image/*" name="imagen" />
 				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span>
 				
-				<label>Modificar Dades:
-				<input type="submit" name="modificar" class="botonmodificar" value="modificar"/><br/>
+				<label>
+				<input type="submit" name="modificar" class="botonconfirmar" title="Ok Confirmació dades" value="modificar"/>
+						Ok Modificació Dades<br/>				 
 				</label>
 			</form>
 			

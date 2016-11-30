@@ -25,11 +25,12 @@
 				<label>DNI:</label>
 				<input type="text" readonly="readonly" value="<?php echo $usuario->dni;?>" /><br/>
 				
-				<label>Data de Naixement:</label>
+				<label>Data Naixement:</label>
 				<input type="text" name="data_naixement" required="required"/>
 				
-				<label>Baixa:				
-				<input type="submit" name="confirmar" class="botonbaja" value="Confirmar"/><br/>
+				<label>				
+				<input type="submit" name="confirmar" class="botonconfirmar" title="baixa usuari" value="Confirmar"/>
+					Ok Baixa Usuari<br/>
 				</label>
 				
 			</form>

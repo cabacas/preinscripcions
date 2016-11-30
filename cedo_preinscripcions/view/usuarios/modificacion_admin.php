@@ -84,7 +84,7 @@
 				</label>
 			</form>
 			<?php echo '<br><br><h2>Subscripcions de l\'Alumne<h2>'; 
-				echo '<table border=0.2 id="list">';
+				echo '<table border=0.2 id="list_detalle">';
 				echo '<tr>';
 				echo '<th>SUBSCRIPCIONS AREA</th><th>ESBORRAR</th>';
 				echo '<tr>';	
@@ -100,7 +100,7 @@
 				}
 				echo '</table>';
 				echo '<h2>Preinscripcions de l\'Alumne<h2>';
-				echo '<table border=0.2 id="list">';
+				echo '<table border=0.2 id="list_detalle">';
 				echo '<tr>';
 				echo '<th>PREISCRIPCIONS CURS</th><th>ESBORRAR</th>';
 				echo '<tr>';

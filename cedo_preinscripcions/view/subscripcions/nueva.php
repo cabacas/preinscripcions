@@ -27,8 +27,10 @@
 					</select><br>					
 				 	<label>DNI Usuari:</label>
 				 	<input type="text" name="dni" required="required" placeholder="99888777V"/>
-				 				 	    
-			 	    <input type='submit' value='guardars' class="botonguardar" title="guardar" name='nuevas'/><br>	 	
+					<label>				 				 	    
+			 	    <input type='submit' value='guardars' class="botonconfirmar" title="guardar" name='nuevas'/>
+			 	    		Ok Subscripció<br>
+			 	    </label>	 	
 			 </form>
 		</section>
 		

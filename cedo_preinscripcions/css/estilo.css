@@ -237,6 +237,11 @@ nav ul.submenu>li:hover{
 	padding: 4px;
 	max-width: 150px;	
 }
+
+#content form select{
+	width: 170px;
+}
+
 #content form label{
 	display: inline-block;
 	min-width: 130px;
@@ -355,14 +360,14 @@ table img.boton{
 	background-image:url(../images/buttons/exportxml.png);
 	background-repeat:no-repeat;
 	background-size: 50px 50px;
-  	height:80px;
-  	width:80px;
+  	height:60px;
+  	width:60px;
   	border:none;
   	background-position:center;  	
   	cursor: pointer; 
   	color: transparent; 	
   	background-color:white;
-  	margin-bottom:-30px;
+  	margin-bottom:-20px;
 }
 
 /* CLASE NO VISIBLE PARA IMPRIMIR */

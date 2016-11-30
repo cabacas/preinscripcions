@@ -58,7 +58,7 @@
 				<span>max <?php echo intval($max_image_size/1024);?>kb</span>
 				
 				<label style="margin-left: 80%;">
-					<input  type="submit"  name="guardar" class="botonguardar" title="Registre" value="guardar"/><br/>
+					<input  type="submit"  name="guardar" class="botonconfirmar" title="Registre" value="guardar"/><br/>
 					<span>Ok Registre</span>
 				</label>
 			</form>
