@@ -35,6 +35,7 @@
      		//mostrar la vista de detalle de curso
 			$datos = array();
 			$datos['usuario'] = Login::getUsuario();
+			$datos['areas'] = AreaModel::recuperartodo();
 			$datos['curso'] = $curso;
 			$datos['preinscripcions'] = $preinscripcions;
 			$this->load_view('view/cursos/detalle_curso.php', $datos);

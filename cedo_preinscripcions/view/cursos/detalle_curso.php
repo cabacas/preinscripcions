@@ -19,22 +19,44 @@
 		<section id="content">
 			<h2>Detall Curs</h2>
 			<div style="margin-left: 150px; id="detall">			
-			<?php
-				echo '';
-				//echo "ID: $curso->id";
-				echo "<b>CODI:</b> $curso->codi<br/>";
-				//echo "ID_AREA: $curso->id_area";
-				echo "<b>NOM CURS:</b> $curso->nom<br/>";
-				echo "<b>NOM_AREA:</b> $curso->nom_area</br>";
-				echo "<b>DESCRIPCIÓ:</b> $curso->descripcio<br/>";
-				echo "<b>HORES:</b> $curso->hores<br/>";
-				echo "<b>DATA D'INICI:</b> $curso->data_inici<br/>";
-				echo "<b>DATA DE FI:</b> $curso->data_fi<br/>";
-				echo "<b>HORARI:</b> $curso->horari<br/>";
-				echo "<b>TORN:</b> $curso->torn<br/>";
-				echo "<b>TIPUS:</b> $curso->tipus<br/>";
-				echo "<b>REQUSITS:</b> $curso->requisits<br/><br/>";
-			 
+			<form method="post" id="formulario">
+				<label>Codi:</label>
+				<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/>
+				<label>Nom Curs:</label>
+			 	<input type='text' name='nom' readonly="readonly" required="required"  value="<?php echo $curso->nom;?>"/><br>				
+				<label>Area Formativa:</label>
+				<select  name="id_area" required="required">
+				<?php
+				foreach($areas as $c) {
+					echo '<option value="'.$c->id.'"';
+					if($curso->id_area == $c->id)echo(" selected='selected' ");
+					echo '>'.$c->nom.'</option>';
+				}
+				?>
+				</select>  
+			 	<label>Tipus:</label>
+			 	<input type='text' name='tipus' readonly="readonly" value="<?php echo $curso->tipus;?>"/><br>
+			 	<label>Hores:</label>
+			 	<input type='number' name='hores' readonly="readonly" min="1" max="100000"  value="<?php echo $curso->hores;?>"/>
+			 	<label>Data d'Inici:</label>
+			 	<input type='date' name='data_inici' readonly="readonly" value="<?php echo $curso->data_inici;?>"/><br>
+			 	<label>Data d'Fi:</label>
+			 	<input type='date' name='data_fi' readonly="readonly" value="<?php echo $curso->data_fi;?>"/>
+			 	<label>Horari:</label>
+			 	<input type='text' name='horari' readonly="readonly" value="<?php echo $curso->horari;?>"/><br>
+			 	<label>Torn:</label>
+				<select  name='torn'  readonly="readonly">
+				  <option value="M" <?php if($curso->torn == 'M'){echo("selected");}?>>Mañana</option>
+				  <option value="T" <?php if($curso->torn == 'T'){echo("selected");}?>>Tarde</option>
+				  <option value="N" <?php if($curso->torn == 'N'){echo("selected");}?>>Nocturno</option>
+				</select><br>
+			 	<label>Requisits:</label>
+			 	<input type='text' readonly="readonly" name='requisits'  value="<?php echo $curso->requisits;?>"/><br>
+			 	<label>Descripció:</label>
+				<textarea rows="12" cols="60" readonly="readonly" name='descripcio'> <?php echo $curso->descripcio;?></textarea>
+				 	
+		 </form>
+			<?php				
 				if($usuario){
 					if(!$usuario->admin){
 					//echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
