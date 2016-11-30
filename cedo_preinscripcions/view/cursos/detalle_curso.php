@@ -91,7 +91,7 @@
 					}
 					if($usuario || $usuario->admin){
 						echo '<h2>Alumnes Preinscrits al Curs<h2>'; 
-						echo '<table border=0.2 id="list">';
+						echo '<table border=0.2 id="list_detalle">';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM CURS</th>'; 

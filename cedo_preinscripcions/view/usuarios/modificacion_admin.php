@@ -54,7 +54,7 @@
 				<input type="tel" name="telefon_fix" required="required"
 						value="<?php echo $usuari->telefon_fix;?>"/><br/>
 				
-				<label>Data de Naixement:</label>
+				<label>Data Naixement:</label>
 				<input type="date" name="data_naixement" required="required" 
 					   readonly="readonly" value="<?php echo $usuari->data_naixement;?>" />
 					   				
@@ -98,8 +98,8 @@
 							
 					echo '</tr>';
 				}
-				echo '</table><br>';
-				echo '<br><h2>Preinscripcions de l\'Alumne<h2>';
+				echo '</table>';
+				echo '<h2>Preinscripcions de l\'Alumne<h2>';
 				echo '<table border=0.2 id="list">';
 				echo '<tr>';
 				echo '<th>PREISCRIPCIONS CURS</th><th>ESBORRAR</th>';
