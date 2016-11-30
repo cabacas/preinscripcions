@@ -32,8 +32,11 @@
 			<div id="logout">
 				<span>
 					Hola 
-					<a href="index.php?controlador=Usuario&operacion=modificacion" title="modificar datos">
-						<?php echo $usuario->nom;?></a>
+					<?php if($usuario->admin) 
+							echo "<a href='index.php?controlador=Usuario&operacion=modificacion_admin&parametro=$usuario->id' title='modificar datos'>";
+						  else	
+						  	echo '<a href="index.php?controlador=Usuario&operacion=modificacion" title="modificar datos">';
+						  echo $usuario->nom;?></a>
 					<span class="mini">
 						<?php echo ' ('.$usuario->email.')';?>
 					</span>
