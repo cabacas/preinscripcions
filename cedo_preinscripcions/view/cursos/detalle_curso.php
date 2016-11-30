@@ -8,7 +8,7 @@
 	</head>
 	
 	<body>
-		<?php 
+		<?php  
 			Template::header(); //pone el header
 
 			if(!$usuario) Template::login(); //pone el formulario de login
