@@ -18,6 +18,7 @@
 		?>
 		<section id="content">
 			<h2>Detall Curs</h2>
+<<<<<<< HEAD
 			<div style="margin-left: 60px; id="detall">			
 				<form method="post" id="formulario">
 					<label>Codi:</label>
@@ -31,6 +32,66 @@
 						echo '<option value="'.$c->id.'"';
 						if($curso->id_area == $c->id)echo(" selected='selected' ");
 						echo '>'.$c->nom.'</option>';
+=======
+			<div style="margin-left: 150px; id="detall">			
+			<form method="post" id="formulario">
+				<label>Codi:</label>
+				<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/>
+				<label>Nom Curs:</label>
+			 	<input type='text' name='nom' readonly="readonly" required="required"  value="<?php echo $curso->nom;?>"/><br>				
+				<label>Area Formativa:</label>
+				<select  name="id_area" required="required">
+				<?php
+				foreach($areas as $c) {
+					echo '<option value="'.$c->id.'"';
+					if($curso->id_area == $c->id)echo(" selected='selected' ");
+					echo '>'.$c->nom.'</option>';
+				}
+				?>
+				</select>  
+			 	<label>Tipus:</label>
+			 	<input type='text' name='tipus' readonly="readonly" value="<?php echo $curso->tipus;?>"/><br>
+			 	<label>Hores:</label>
+			 	<input type='number' name='hores' readonly="readonly" min="1" max="100000"  value="<?php echo $curso->hores;?>"/>
+			 	<label>Data d'Inici:</label>
+			 	<input type='date' name='data_inici' readonly="readonly" value="<?php echo $curso->data_inici;?>"/><br>
+			 	<label>Data d'Fi:</label>
+			 	<input type='date' name='data_fi' readonly="readonly" value="<?php echo $curso->data_fi;?>"/>
+			 	<label>Horari:</label>
+			 	<input type='text' name='horari' readonly="readonly" value="<?php echo $curso->horari;?>"/><br>
+			 	<label>Torn:</label>
+				<select  name='torn'  readonly="readonly">
+				  <option value="M" <?php if($curso->torn == 'M'){echo("selected");}?>>Mañana</option>
+				  <option value="T" <?php if($curso->torn == 'T'){echo("selected");}?>>Tarde</option>
+				  <option value="N" <?php if($curso->torn == 'N'){echo("selected");}?>>Nocturno</option>
+				</select><br>
+			 	<label>Requisits:</label>
+			 	<input type='text' readonly="readonly" name='requisits'  value="<?php echo $curso->requisits;?>"/><br>
+			 	<label>Descripció:</label>
+				<textarea rows="12" cols="60" readonly="readonly" name='descripcio'> <?php echo $curso->descripcio;?></textarea><br>
+		 </form><br>
+			<?php				
+				if($usuario){
+					if(!$usuario->admin){
+					//echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='.$curso->id.'" >Preinscrivirse</a></b></p>';
+					
+					echo '<p><b><a href="index.php?controlador=preinscripcion&operacion=guardar&parametro='
+							.$curso->id.'">';
+							
+							echo "";
+							echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='Preinscribir-se curs'/>
+									<span>Preinscriure's</span>";							
+					echo '</a></b>';
+					
+					echo '<b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >';
+						echo "<img class='boton' src='images/buttons/listado.png' alt='Subscripció àrea' title='Subscripció àrea'/>
+							  <span>Preinscriure's</span>";	
+						
+					echo "</a></b></p><br>";
+							
+							
+					//echo '<p><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >Suscrite al Area Formativa</a></b></p>';
+>>>>>>> branch 'master' of https://github.com/cabacas/preinscripcions.git
 					}
 					?>
 					</select>  

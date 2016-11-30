@@ -33,8 +33,8 @@
 			if (!$usuario) throw new  Exception("Només per a usuaris enregistrats");			
 			$area=AreaModel::recuperar($id_area);// verificamos area
 			if (empty($area)) throw new Exception("No es va trobar l'Area indicada");
-			$sub->id_area= $id_area;
-			$sub->id_usuari= $usuario->id;			
+			$sub->id_area= $area->id;
+			$sub->id_usuari= $usuario->id;	
 			if(!$sub->guardar())
 				throw new Exception ("No es va poder realitzar la Subscripció");			
 			//mostrar la vista de éxito	
