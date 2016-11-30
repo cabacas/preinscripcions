@@ -32,7 +32,7 @@
 				<label>Segon Cognom:</label>
 				<input type="text" name="cognom2" required="required"/><br/>
 				
-				<label>Data de Naixement:</label>
+				<label>Data Naixement:</label>
 				<input type="date" name="data_naixement" required="required"/>
 				<label>Estudis:</label>
 				<input type="text" name="estudis" required="required"/><br/>

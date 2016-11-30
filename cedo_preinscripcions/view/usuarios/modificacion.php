@@ -46,7 +46,7 @@
 				<input type="text" name="cognom2" required="required"
 						value="<?php echo $usuario->cognom2;?>"/><br/>
 				
-				<label>Data de Naixement:</label>
+				<label>Data Naixement:</label>
 				<input type="date" name="data_naixement" required="required" 
 					   readonly="readonly" value="<?php echo $usuario->data_naixement;?>" /><br/>
 					   				
