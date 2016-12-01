@@ -308,7 +308,7 @@ require_once 'model/PreinscripcionModel.php';
 		//Listar usuarios
 		public function listar(){
 			if(!Login::getUsuario())
-				throw new Exception("Has d'estar identificar per veure les dades");
+				throw new Exception("Has d'estar identificat per veure les dades");
 			if (!Login::isAdmin())
 				throw new Exception("Has de ser Administrador per accedir a aquesta vista");
 						
@@ -321,6 +321,14 @@ require_once 'model/PreinscripcionModel.php';
 			$datos['usuaris'] = $usuaris;
 			$this->load_view('view/usuarios/listar.php', $datos);
 		}
+		//Ver Política de privacidad
+		public function politica(){
+		//mostrar la vista de politica de privacidad
+			$datos = array();
+			$datos['usuario'] = Login::getUsuario();
+			$this->load_view('view/politica.php', $datos);
+		}
+		
 		
 	}
 ?>

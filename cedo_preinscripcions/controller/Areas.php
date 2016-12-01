@@ -44,12 +44,12 @@
 				$area->nom = $_POST['nom'] ;
 				// guardar el area en BBDD con el modelo	
 				if(!$area->guardar())
-					throw new Exception('No se pudo guardar el area');
+					throw new Exception('No es va poder guardar l\'àrea');
 				else{
 					//mostrar la vista de la lista exito
 					$datos = array();
 					$datos['usuario'] = Login::getUsuario();
-					$datos['mensaje'] = '<h5>Area Creada:'.$area.'</h5>';
+					$datos['mensaje'] = '<h5>Àrea Creada:'.$area.'</h5>';
 					$this->load_view('view/exito.php', $datos);
 				}
 			} else {
@@ -68,7 +68,7 @@
 			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			//Recuperar el area indicado
 			$area = AreaModel::recuperar($id);
-			if(empty($area)) throw new Exception('No se encontró el Area indicado');
+			if(empty($area)) throw new Exception('No es va trobar l\'àrea indicada');
 
 			if(empty($_POST['borrar'])){ //si no nos están enviando la confirmación de baja
 				$datos = array();

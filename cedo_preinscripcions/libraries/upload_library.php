@@ -42,27 +42,27 @@
 			switch($this->file['error']){
 				case 0: break; //OK
 				case 1: 
-				case 2: throw new Exception('El fichero es demasiado grande');
-				case 3: throw new Exception('El fichero se subió de forma parcial');
-				case 4: throw new Exception('No se indicó ningún fichero');
-				default: throw new Exception('Error en la subida del fichero');
+				case 2: throw new Exception('El fitxer és massa gran ');
+				case 3: throw new Exception('El fitxer es va pujar de forma parcial');
+				case 4: throw new Exception('No es va indicar cap fitxer');
+				default: throw new Exception('Error a la pujada del fitxer');
 			}
 			
 			if($this->max_size && $this->file['size']>$this->max_size)
-				throw new Exception('El fichero supera el tamaño máximo'); 
+				throw new Exception('El fitxer supera el tamany màxim'); 
 			
 			$rutatemporal = $this->file['tmp_name']; //ruta en /tmp
 
 			if(!is_uploaded_file($rutatemporal))
-				throw new Exception('El fichero no fue subido por POST'); 
+				throw new Exception('El fitxer no va ser pujat per POST'); 
 				
 			if(!getimagesize($rutatemporal))
-				throw new Exception('El fichero no es de imagen'); 
+				throw new Exception('El fitxer no es d\'imatge'); 
 				
 			$rutafinal = $this->destino.''.$this->nombrefinal;	
 				
 			if(!move_uploaded_file($rutatemporal, $rutafinal))
-				throw new Exception('Error al mover el fichero de imagen');
+				throw new Exception('Error al moure el fitxer d\'imatge');
 			
 			return $rutafinal;
 		}

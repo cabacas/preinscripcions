@@ -87,7 +87,7 @@
 					<option value="1" <?php if($usuari->prestacio=="1") echo'selected="selected"';?>>Si</option>
 				</select><br/>		
 													
-				<label>Nueva imagen:</label>
+				<label>Nova imatge:</label>
 				<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_image_size;?>" />		
 				<input type="file" accept="image/*" name="imagen" />
 				<span class="mini">max <?php echo intval($max_image_size/1024);?>kb</span>

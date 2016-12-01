@@ -7,7 +7,7 @@
 		//PROCEDIMIENTO PARA LISTAR LAS SUBSCRIPCIONES
 		public function listar(){
 			$usuario=Login::getUsuario();
-			if(!$usuario)  throw new Exception('Operación válida solo usuarios registrados y Administradores');
+			if(!$usuario)  throw new Exception('Operació vàlida només usuaris enregistrats i Administradors');
 			if($usuario->admin){
 				if(!empty($_POST['filtrarea'])){
 					$filtro=$_POST['filtroarea'];

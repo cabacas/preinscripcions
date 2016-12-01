@@ -378,6 +378,16 @@ table img.boton{
 	display:none
 }
 
+/*POLITICA SEGURIDAD*/
+
+ .politica{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+ 
+
 /* FOOTER */
 footer{
 	padding: 20px;

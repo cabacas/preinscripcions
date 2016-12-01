@@ -120,7 +120,7 @@
 				//Recuperar la preinscripción indicada
 				$preinscripcion = PreinscripcionModel::recuperar2($u->id,$id_curso);
 
-			if(empty($preinscripcion)) throw new Exception('Usuari no te cap preinscripció a la BBDD');
+			if(empty($preinscripcion)) throw new Exception('L\'usuari no te cap preinscripció a la BBDD');
 
 			if(!$u->admin){		
 				//si no nos están enviando la conformación de baja

@@ -109,7 +109,8 @@
 			<footer>
 				<p>	Desarrollado por Rafa & Mike - practica para el CIFO Vallés</p>
 				<p> <a rel="author" href="http://www.rafamike.com">Rafael Cabacas y Miguel Moreno</a><br>
-					<a href="../images/logos/gencat_ensenyament.png">CEDO Vallès'16</a>. 
+					<a href="../images/logos/gencat_ensenyament.png">CEDO Vallès'16</a>.
+					<a href="index.php?controlador=Usuario&operacion=politica">Política de Privacitat</a> 
          		</p>
 			</footer>
 		<?php }

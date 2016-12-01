@@ -29,7 +29,7 @@
 		public function ver($id){
      		//Recuperar el curso indicado
 			$curso = CursoModel::recuperar($id); 
-			if(empty($curso)) throw new Exception('No se encontró el id indicado');
+			if(empty($curso)) throw new Exception('No es va trobar el id indicat');
 			//Recuperar las preinscripciones del curso en concreto
 			$preinscripcions = PreinscripcionModel::recuperar3($id);	
      		//mostrar la vista de detalle de curso
@@ -43,7 +43,7 @@
 		//PROCEDIMIENTO PARA CREAR UN CURSO NUEVO
 		public function crear(){
 			$usuario=Login::getUsuario();
-			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			if(!empty($_POST['nuevo'])){
 				$curso = new CursoModel();
 				$curso->codi = $_POST['codi'] ;
@@ -59,7 +59,7 @@
 				$curso->requisits = $_POST['requisits'] ;
 				// guardar el curso en BBDD con el modelo	
 				if(!$curso->guardar())
-					throw new Exception('No se pudo guardar el curso');
+					throw new Exception('No es va  poder guardar el curso');
 				else{
 					//mostrar la vista de la lista exito
 					$datos = array();
@@ -80,10 +80,10 @@
 		//PROCEDIMIENTO PARA MODIFICAR UN CURSO
 		public function modificar($id){
 			$usuario=Login::getUsuario();
-			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			//Recuperar el curso indicado
 			$curso = CursoModel::recuperar($id);
-			if(empty($curso)) throw new Exception('No se encontró el Curso indicado');
+			if(empty($curso)) throw new Exception('No es va trobar el Curs indicat');
 			//si no llegan los datos a modificar
 			if(empty($_POST['modificar'])){
 				//mostramos la vista del formulario de curso
@@ -105,7 +105,7 @@
 				$curso->tipus = $_POST['tipus'] ;
 				$curso->requisits = $_POST['requisits'];
 				//modificar el usuario en BDD
-				if(!$curso->modificar()) throw new Exception("Error al Actualizar la BBDD de Cursos");
+				if(!$curso->modificar()) throw new Exception("Error al fer l'actualització a la BBDD de Cursos");
 				else {
 				//mostrar la vista de éxito
 					$datos = array();
@@ -120,10 +120,10 @@
 		//solicita confirmación
 		public function baja($id){
 			$usuario=Login::getUsuario();
-			if(!$usuario->admin) throw new Exception('Operación válida solo para Administradores');
+			if(!$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			//Recuperar el curso indicado
 			$curso = CursoModel::recuperar($id);
-			if(empty($curso)) throw new Exception('No se encontró el Curso indicado');
+			if(empty($curso)) throw new Exception('No es va trobar el Curs indicat');
 
 			if(empty($_POST['borrar'])){ //si no nos están enviando la confirmación de baja
 				$datos = array();
