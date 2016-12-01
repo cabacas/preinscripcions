@@ -64,27 +64,27 @@
 				
 				<label>Estudis:</label>
 				<select  name='estudis' required="required"> 
-					<option value="0" <?php if ($usuario->estudis==0) echo"selected";?>>Sense Estudis</option>
-					<option value="1" <?php if ($usuario->estudis==1) echo"selected";?>>Estudis Primaris</option>
-					<option value="2" <?php if ($usuario->estudis==2) echo"selected";?>>Estudis Secundaris FP1</option>
-					<option value="3" <?php if ($usuario->estudis==3) echo"selected";?>>Estudis Secundaris FP2</option>
-					<option value="4" <?php if ($usuario->estudis==4) echo"selected";?>>Baxillerat</option>
-					<option value="5" <?php if ($usuario->estudis==5) echo"selected";?>>Diplomatura</option>
-					<option value="6" <?php if ($usuario->estudis==6) echo"selected";?>>Llicenciatura</option>
-					<option value="7" <?php if ($usuario->estudis==7) echo"selected";?>>Doctorat</option>
+					<option value="0" <?php if ($usuari->estudis=="0") echo'selected="selected"';?>>Sense Estudis</option>
+					<option value="1" <?php if ($usuari->estudis=="1") echo'selected="selected"';?>>Estudis Primaris</option>
+					<option value="2" <?php if ($usuari->estudis=="2") echo'selected="selected"';?>>Estudis Secundaris FP1</option>
+					<option value="3" <?php if ($usuari->estudis=="3") echo'selected="selected"';?>>Estudis Secundaris FP2</option>
+					<option value="4" <?php if ($usuari->estudis=="4") echo'selected="selected"';?>>Baxillerat</option>
+					<option value="5" <?php if ($usuari->estudis=="5") echo'selected="selected"';?>>Diplomatura</option>
+					<option value="6" <?php if ($usuari->estudis=="6") echo'selected="selected"';?>>Llicenciatura</option>
+					<option value="7" <?php if ($usuari->estudis=="7") echo'selected="selected"';?>>Doctorat</option>
 				</select>
 				
 				<label>Situació Laboral:</label>
 				<select  name='situacio_laboral' required="required"> 
-					<option value="0" <?php if ($usuario->situacio_laboral==0) echo"selected";?>>En Atur</option>
-					<option value="1" <?php if ($usuario->situacio_laboral==1) echo"selected";?>>En Actiu</option>
-					<option value="2" <?php if ($usuario->situacio_laboral==2) echo"selected";?>>En Suspensió</option>
+					<option value="0" <?php if ($usuari->situacio_laboral=="0") echo'selected="selected"';?>>En Atur</option>
+					<option value="1" <?php if ($usuari->situacio_laboral=="1") echo'selected="selected"';?>>En Actiu</option>
+					<option value="2" <?php if ($usuari->situacio_laboral=="2") echo'selected="selected"';?>>En Suspensió</option>
 				</select><br/>
 				
 				<label>Reb Prestació:</label>
 				<select  name='prestacio' required="required" placeholder="0(No) 1(Si)"> 
-					<option value="0" <?php if($usuario->prestacio==0) echo"selected";?>>No</option>
-					<option value="1" <?php if($usuario->prestacio==1) echo"selected";?>>Si</option>
+					<option value="0" <?php if($usuari->prestacio=="0") echo'selected="selected"';?>>No</option>
+					<option value="1" <?php if($usuari->prestacio=="1") echo'selected="selected"';?>>Si</option>
 				</select><br/>		
 													
 				<label>Nueva imagen:</label>
