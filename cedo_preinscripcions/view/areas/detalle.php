@@ -21,14 +21,18 @@
 			<h2>Detall Area</h2>
 		<?php
 				echo '';
-				echo "<p><b>ID_AREA:</b> $area->id <br>";
-				echo "<b>NOM AREA:</b> $area->nom <br>";
+				echo '<form method="post" id="formulario">';
+					echo "<label>Id del Area:</label>";
+					echo "<input type='text' name='id' readonly='readonly' value='$area->id' /><br>";
+ 					echo "<label>Nom Area:</label>";
+					echo "<input type='text' name='nom' readonly='readonly' value='$area->nom'/><br><br>";
+//				echo "</form><br>";
 				if($usuario){
 					if(!$usuario->admin)											
 						echo '<table border=0 id="list">';
 							echo '<tr>';
 							echo '<td><b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='
-									.$area->id.'">';
+									.$area->id.'" style="margin-left: 100px;">';
 									echo "<img class='boton' src='images/buttons/guardar.png' alt='guardar' title='alta subscripció'/>";
 									echo "</a></b></td>";
 							
@@ -50,9 +54,10 @@
 							echo '</tr>';
 						echo '</table>';
 				echo "</p>";
+				echo "</form>";
 						
 					if($usuario || $usuario->admin){
-						echo '<br><br><h2>Alumnes Subscrits al Area Formativa<h2>'; 
+						echo '<br><h2>Alumnes Subscrits al Area Formativa<h2>'; 
 						echo '<table border=0.2 id="list">';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
