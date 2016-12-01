@@ -16,20 +16,12 @@
 		<section id="content">
 			<h2>Presentació</h2>
 			<p>Aquesta Aplicació ha estat realitzada per facilitar la preinscripció als cursos del CEDO.</p><br>
-			<p>Els <b>Usuaris no registrats</b> podrán:</p> 
-			<p> - Veure el llistat de cursos.</p>
-			<p> - Veure els detalls de un curs seleccionat.</p>
-			<p> - Registrarse.</p>			
+			<p>Els <b>Usuaris no registrats</b> podrán: Veure el llistat de cursos, Veure els detalls de un curs seleccionat, i Registrarse.</p>			
 			<p>Els usuaris es podrán registrar amb el DNI com usuari i la data de naixement (AAA-MM-DD) com a password.</p>
-			<p>Un cop registrat al sistema els <b>usuaris registrats</b> a més podrán:</p>
-			<p> - Veure i modificar les dades del Alumne.</p>
-			<p> - Donar-se de baixa a la Aplicació.</p>
-			<p> - Preinscriure als cursos indicats.</p>
-			<p> - Veure les preinscripcions del Alumne.</p>			
-			<p> - Donar-se de baixa de les seves preinscripcions.</p>			
-			<p> - Suscriures per rebre informació sobre els cursos de les arees formatives indicades.</p>
-			<p> - Veure les subscripcions del Alumne.</p>			
-			<p> - Donar-se de baixa de les seves subscripcions.</p>			
+			<p>Un cop registrat al sistema els <b>usuaris registrats</b> a més podrán: Veure i modificar les dades del Alumne,</p>
+			<p>donar-se de baixa a la Aplicació, Preinscriure als cursos indicats, veure les preinscripcions del Alumne.</p>			
+			<p>donar-se de baixa de les seves preinscripcions, Suscriures per rebre informació sobre els cursos de les arees formatives indicades,</p>
+			<p>veure les subscripcions del Alumne, i donar-se de baixa de les seves subscripcions.</p>			
 			<p>Per últim existirá un <b>perfil administrador</b> que podrá:</p>
 			<p> - Conectar-se remotament.</p>
 			<p> - Fer el manteniment (alta, modificació i baixa) de usuaris, cursos, arees formatives, preinscripcions i suscripcions .</p>   
