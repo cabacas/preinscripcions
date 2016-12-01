@@ -27,8 +27,8 @@
 				echo'<form id="filtro" method="post">';
 					echo"<label><b>Nom Curs:</b></label>";
 					echo"<input type='text' name='filtrocurs'/>";				
-					echo"<input type='submit' class='botonbuscar' value='Filtrar' name='filtracurs'/>";					
-					echo"<input type='buttton' class='botonimprimir' 
+					echo"<input type='submit' class='botonbuscar' title='Buscar Curs' value='Filtrar' name='filtracurs'/>";					
+					echo"<input type='buttton' class='botonimprimir' title='Imprimir'
 						value='Imprimir' name='imprimir'onclick='window.print();'/>";
 					echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML" >';						
 					echo "<img class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";

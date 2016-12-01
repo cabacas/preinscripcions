@@ -23,8 +23,8 @@
 				echo'<form id="filtro" method="post">';
 				 echo"<label>Filtro por Area: </label>";
   				 echo"<input type='text' name='filtroarea'/>";	
-  				 echo"<input type='submit' value='Filtrar' class='botonbuscar' name='filtrarea'/>";
-  				 echo"<input type='buttton' class='botonimprimir'
+  				 echo"<input type='submit' value='Filtrar' class='botonbuscar' title='Buscar Subscripció' name='filtrarea'/>";
+  				 echo"<input type='buttton' class='botonimprimir' title='Imprimir'
 						value='Imprimir' name='imprimir'onclick='window.print();'/>";
   				 echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML" >';
   				 echo "<img class='botonexportxml' src='images/buttons/exportxml.png' alt='export XML' title='Exportació XML'/>";

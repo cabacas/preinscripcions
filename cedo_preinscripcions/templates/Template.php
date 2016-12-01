@@ -56,8 +56,7 @@
 		public static function menu($usuario){ ?>
 			<nav>
 				<ul class="menu">
-					<li><a href="index.php">Inici</a></li>
-					<li><a href="index.php?controlador=Curso&operacion=listar">Llistat Cursos</a></li>
+					<li><a href="index.php">Inici</a></li>					
 				</ul>
 				<?php
 				
@@ -66,6 +65,7 @@
 				<ul class="menu">
 					<li>Llistats		
 						<ul class="submenu">					
+							<li><a href="index.php?controlador=Curso&operacion=listar">Llistat Cursos</a></li>
 							<li><a href="index.php?controlador=Usuario&operacion=listar">Alumnes</a></li>
 							<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Preinscripcions</a></li>
 							<li><a href="index.php?controlador=Subscripcion&operacion=listar">Subscripcions</a></li>
@@ -83,18 +83,21 @@
 				</ul>								
 				<?php } elseif($usuario){	 ?>
 				<ul class="menu">														
-					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Dades Personals</a></li>
+					<li><a href="index.php?controlador=Usuario&operacion=modificacion">Dades Personals</a></li>										
 					<li><a href="index.php?controlador=Usuario&operacion=baja">Baixa</a></li>
-					<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Les meves Preinscripcions</a></li>
-					<ul class="submenu">
-						<li><a href="index.php?controlador=Subscripcion&operacion=listar">Llistat Subscripcions</a></li>					
-						<li><a href="index.php?controlador=Areas&operacion=listar">Llistat Àrees Formatives</a></li>
-					</ul>
-																				
+					<li>Llistats
+						<ul class="submenu">
+							<li><a href="index.php?controlador=Curso&operacion=listar">Llistat Cursos</a></li>
+							<li><a href="index.php?controlador=Preinscripcion&operacion=listar">Preinscripcions</a></li>
+							<li><a href="index.php?controlador=Subscripcion&operacion=listar">Subscripcions</a></li>					
+							<li><a href="index.php?controlador=Areas&operacion=listar">Àrees Formatives</a></li>
+						</ul>
+					</li>																			
 					
 				</ul>							
 				<?php }	elseif(!$usuario){   ?>
 				<ul class="menu">					
+					<li><a href="index.php?controlador=Curso&operacion=listar">Llistat Cursos</a></li>
 					<li><a href="index.php?controlador=Usuario&operacion=registro">Registre</a></li>										
 				</ul>				
 			<?php }?>

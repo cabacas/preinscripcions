@@ -95,7 +95,8 @@
 						echo '</a></b>';
 						
 						echo"<input type='buttton' class='botonimprimir'
-								style='margin-left: 145px;
+			 					title='Imprimir'
+			 					style='margin-left: 145px;
 			 					value='Imprimir'
 			 					name='imprimir'onclick='window.print();'/>";
 						
