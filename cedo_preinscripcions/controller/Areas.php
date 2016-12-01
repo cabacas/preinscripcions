@@ -5,10 +5,10 @@
 	// implementa las operaciones que se pueden realizar el area
 	class Areas extends Controller{
 
-			//PROCEDIMIENTO PARA VER UN AREA
+		//PROCEDIMIENTO PARA VER UN AREA
 		public function ver($id){
 			$usuario=Login::getUsuario();
-			if(!$usuario) throw new Exception('Operació vàlida només per Usuaris Registrats i Administradors');
+			if(!$usuario || !$usuario->admin) throw new Exception('Operació vàlida només per Administradors');
 			//recuperamos todos los areas
 			$area = AreaModel::recuperar($id);
 			if(!$area) throw new Exception('Area Formativa no trobada a la BBDD');
