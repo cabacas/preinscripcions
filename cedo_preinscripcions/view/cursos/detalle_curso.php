@@ -18,10 +18,10 @@
 		?>
 		<section id="content">
 			<h2>Detall Curs</h2>
-			<div style="margin-left: 150px; id="detall">			
+			<div style="margin-left: 80px; id="detall">			
 			<form method="post" id="formulario">
 				<label>Codi:</label>
-				<input type='text' name='codi' required="required" value="<?php echo $curso->codi;?>"/>
+				<input type='text' name='codi' readonly="readonly" required="required" value="<?php echo $curso->codi;?>"/>
 				<label>Nom Curs:</label>
 			 	<input type='text' name='nom' readonly="readonly" required="required"  value="<?php echo $curso->nom;?>"/><br>				
 				<label>Area Formativa:</label>
@@ -70,7 +70,7 @@
 					
 					echo '<b><a href="index.php?controlador=subscripcion&operacion=guardar&parametro='.$curso->id_area.'" >';
 						echo "<img class='boton' src='images/buttons/listado.png' alt='Subscripció àrea' title='Subscripció àrea'/>
-							  <span>Preinscriure's</span>";	
+							  <span>Subscriure's</span>";	
 						
 					echo "</a></b></p><br>";
 							
@@ -89,16 +89,21 @@
 						echo '<b><a href="index.php?controlador=Curso&operacion=baja&parametro='
 								.$curso->id.'">';
 						echo "<img class='boton' src='images/buttons/borrar.png' 
-								style='margin-left: 20px; alt='elimiar' title='eliminar curs'/>";
+								style='margin-left: 145px;
+			 					margin-left:145px;
+			 					alt='elimiar' title='eliminar curs'/>";
 						echo '</a></b>';
 						
 						echo"<input type='buttton' class='botonimprimir'
-						value='Imprimir' name='imprimir'onclick='window.print();'/>";
+								style='margin-left: 145px;
+			 					value='Imprimir'
+			 					name='imprimir'onclick='window.print();'/>";
 						
 						echo '<b><a href="index.php?controlador=Preinscripcion&operacion=exportXML&parametro='.$curso->id.'" >';
 						echo "<img style='margin-bottom: 0px;
 											  height: 50px;
 											  width: 50px;
+				  							  margin-left:145px;
 											  padding-left: 0px;
 							                  border-left-width: 20px;
 							                  border-left-style: solid;
@@ -112,7 +117,7 @@
 					}
 					if($usuario || $usuario->admin){
 						echo '<h2>Alumnes Preinscrits al Curs<h2>'; 
-						echo '<table border=0.2 id="list_detalle">';
+						echo '<table border=0.2 id="list_detalle"  style="margin-left: 45px" >';
 						echo '<tr>';
 						echo '<th>DNI</th><th>NOM</th><th>TELF. MOBIL</th><th>TELF. FIXE</th><th>EMAIL</th><th>DATA</th>
 						<th>NOM CURS</th>'; 
@@ -127,10 +132,14 @@
 							echo "<td> $preinscripcio->email</td>";
 							echo "<td> $preinscripcio->data</td>";
 							echo "<td> $preinscripcio->nom_curs</td>";
-							if($usuario->admin)
+							if($usuario->admin){
 							  echo '<td><b><a href="index.php?controlador=Preinscripcion&operacion=baja&parametro='
-								.$preinscripcio->id_curs.'&pu='.$preinscripcio->id_usuari.'" >Baixa</a></b></td>';
+								.$preinscripcio->id_curs.'&pu='.$preinscripcio->id_usuari.'" >';
+							  echo '<img class="boton" src="images/buttons/borrar.png" alt="baixa" title="baixa curs"/>';								
 							echo '</tr>';
+							}
+							
+							
 						}
 						echo '</table><br>';
 					}

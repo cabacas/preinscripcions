@@ -21,8 +21,8 @@
 			<h2>Detall Area</h2>
 		<?php
 				echo '';
-				echo "<p><b>ID_AREA:</b> $area->id </p>";
-				echo "<p><b>NOM AREA:</b> $area->nom </p>";
+				echo "<p><b>ID_AREA:</b> $area->id <br>";
+				echo "<b>NOM AREA:</b> $area->nom <br>";
 				if($usuario){
 					if(!$usuario->admin)											
 						echo '<table border=0 id="list">';
@@ -49,7 +49,7 @@
 							echo "</a></b></td>";
 							echo '</tr>';
 						echo '</table>';
-						
+				echo "</p>";
 						
 					if($usuario || $usuario->admin){
 						echo '<br><br><h2>Alumnes Subscrits al Area Formativa<h2>'; 
@@ -77,8 +77,7 @@
 						}
 						echo '</table><br>';
 					}
-					if($usuario->admin)
-						echo '<b><a href="index.php?controlador=Subscripcion&operacion=exportXML&parametro='.$area->id.'" >Exportar Subscripcions a XML</a></b>';
+					
 				}													
 		?>
 		</section>
