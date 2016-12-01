@@ -51,16 +51,29 @@
 					   readonly="readonly" value="<?php echo $usuario->data_naixement;?>" />
 					   				
 				<label>Estudis:</label>
-				<input type="text" name="estudis" required="required"
-						value="<?php echo $usuario->estudis;?>"/><br/>
+ 				<select  name='estudis' required="required"> 
+					<option value="0" <?php if ($usuario->estudis==0) echo"selected";?>>Sense Estudis</option>
+					<option value="1" <?php if ($usuario->estudis==1) echo"selected";?>>Estudis Primaris</option>
+					<option value="2" <?php if ($usuario->estudis==2) echo"selected";?>>Estudis Secundaris FP1</option>
+					<option value="3" <?php if ($usuario->estudis==3) echo"selected";?>>Estudis Secundaris FP2</option>
+					<option value="4" <?php if ($usuario->estudis==4) echo"selected";?>>Baxillerat</option>
+					<option value="5" <?php if ($usuario->estudis==5) echo"selected";?>>Diplomatura</option>
+					<option value="6" <?php if ($usuario->estudis==6) echo"selected";?>>Llicenciatura</option>
+					<option value="7" <?php if ($usuario->estudis==7) echo"selected";?>>Doctorat</option>
+				</select><br/>
 				
 				<label>Situació Laboral:</label>
-				<input type="text" name="situacio_laboral" required="required"
-						value="<?php echo $usuario->situacio_laboral;?>"/>
+				<select  name='situacio_laboral' required="required"> 
+					<option value="0" <?php if ($usuario->situacio_laboral==0) echo"selected";?>>En Atur</option>
+					<option value="1" <?php if ($usuario->situacio_laboral==1) echo"selected";?>>En Actiu</option>
+					<option value="2" <?php if ($usuario->situacio_laboral==2) echo"selected";?>>En Suspensió</option>
+				</select>						
 				
 				<label>Reb Prestació:</label>
-				<input type="text" name="prestacio" required="required"
-						value="<?php echo $usuario->prestacio;?>"/><br/>
+				<select  name='prestacio' required="required" placeholder="0(No) 1(Si)"> 
+					<option value="0" <?php if($usuario->prestacio==0) echo"selected";?>>No</option>
+					<option value="1" <?php if($usuario->prestacio==1) echo"selected";?>>Si</option>
+				</select><br/>
 				
 				<label>Telefon Mobil:</label>
 				<input type="tel" name="telefon_mobil" required="required"
